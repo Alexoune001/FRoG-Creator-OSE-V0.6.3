@@ -2,7 +2,7 @@ Attribute VB_Name = "modServerTCP"
 Option Explicit
 'Affichage de petits détails
 Sub UpdateCaption()
-    frmServer.Caption = GAME_NAME & " - FRoG Serveur 0.6.2"
+    frmServer.Caption = GAME_NAME & " - FRoG Serveur 0.6.3"
     frmServer.lblIP.Caption = "Adresse IP : " & SendAPIRequest("http://www.frogcreator.fr/update/getIP.php")
     frmServer.lblIP.Caption = frmServer.lblIP & " (Local : " & frmServer.Socket(0).LocalIP & " ) "
     frmServer.lblPort.Caption = "Port: " & STR$(frmServer.Socket(0).LocalPort)
@@ -224,7 +224,7 @@ Sub HackingAttempt(ByVal Index As Long, ByVal Reason As String)
         End If
     
         Call AlertMsg(Index, "Tu as perdu ta connexion avec " & GAME_NAME & "." & Reason)
-        If IBErr Then Call IBMsg("Détection d'une tentative de hack. (Raison : " & Reason & " Login : " & GetPlayerLogin(Index) & " perso : " & GetPlayerName(Index) & ").", BrightRed)
+        If IBErr Then Call IBMsg("Tentative de hack détecté, raison : " & Reason & " Login : " & GetPlayerLogin(Index) & " Personnage : " & GetPlayerName(Index) & ").", BrightRed)
     End If
     Exit Sub
 End Sub
@@ -249,13 +249,13 @@ Sub SocketConnected(ByVal Index As Long)
         ' Tentative de connexion multiple ?
         If Not IsMultiIPOnline(GetPlayerIP(Index)) Then
             If Not IsBanned(GetPlayerIP(Index)) Then
-                Call TextAdd(frmServer.txtText(0), "Connexion reçue depuis l'ip " & GetPlayerIP(Index) & ".", True)
+                Call TextAdd(frmServer.txtText(0), "Connexion reçue depuis l'IP " & GetPlayerIP(Index) & ".", True)
             Else
-                Call AlertMsg(Index, "Tu es bannis de " & GAME_NAME & ", donc tu ne peux plus y jouer.")
+                Call AlertMsg(Index, "Tu as été banni de " & GAME_NAME & ".")
             End If
         Else
            ' Tentative d'IP multiple
-            Call AlertMsg(Index, GAME_NAME & " n'autorise pas les IP's multiples.")
+            Call AlertMsg(Index, GAME_NAME & " n'autorise pas les IP multiples.")
         End If
     End If
 End Sub
@@ -342,14 +342,14 @@ Dim i As Integer, n As Integer, f As Integer
                 Password = Parse(2)
                 
                 If Len(Name) < 3 Then
-                Call PlainMsg(Index, "Votre pseudo est trop court", 3)
+                Call PlainMsg(Index, "Votre pseudo est trop court, il doit contenir au minimum 3 caractères.", 3)
                 Exit Sub
                 End If
                 
                 For i = 1 To Len(Name)
                     n = Asc(Mid$(Name, i, 1))
                     If (n <= 65 And n >= 90) Or (n <= 97 And n >= 122) Or (n = 95) Or (n = 32) Or (n <= 48 And n >= 57) Then
-                        Call PlainMsg(Index, "Nom invalide, il ne doit pas contenir des caractères spéciaux.", 3)
+                        Call PlainMsg(Index, "Le nom est invalide, il ne doit pas contenir des caractères spéciaux.", 3)
                         Exit Sub
                     End If
                 Next i
@@ -357,11 +357,11 @@ Dim i As Integer, n As Integer, f As Integer
                             
                 If Not AccountExist(Name) Then Call PlainMsg(Index, "Aucun compte ne possède ce nom.", 3): Exit Sub
             
-                If Not PasswordOK(Name, Password) Then Call PlainMsg(Index, "Mot de passe incorrect.", 3): Exit Sub
+                If Not PasswordOK(Name, Password) Then Call PlainMsg(Index, "Le mot de passe est incorrect.", 3): Exit Sub
             
                 If IsMultiAccounts(Name) Then Call PlainMsg(Index, "Le multi-compte est interdit.", 3): Exit Sub
                 
-                If frmServer.Closed.value = Checked Then Call PlainMsg(Index, "Le serveur va fermer dans un moment. Revenez plus tard merci.", 3): Exit Sub
+                If frmServer.Closed.value = Checked Then Call PlainMsg(Index, "Le serveur va fermer dans quelques minutes, merci de revenir plus tard.", 3): Exit Sub
                     
                 If Parse(6) <> "jwehiehfojcvnvnsdinaoiwheoewyriusdyrflsdjncjkxzncisdughfusyfuapsipiuahfpaijnflkjnvjnuahguiryasbdlfkjblsahgfauygewuifaunfauf" And Parse(7) = "ksisyshentwuegeguigdfjkldsnoksamdihuehfidsuhdushdsisjsyayejrioehdoisahdjlasndowijapdnaidhaioshnksfnifohaifhaoinfiwnfinsaihfas" And Parse(8) = "saiugdapuigoihwbdpiaugsdcapvhvinbudhbpidusbnvduisysayaspiufhpijsanfioasnpuvnupashuasohdaiofhaosifnvnuvnuahiosaodiubasdi" And Val(Parse(9)) = "88978465734619123425676749756722829121973794379467987945762347631462572792798792492416127957989742945642672" Then
                     Call AlertMsg(Index, "Clé de sécurité incorrecte.")
@@ -464,13 +464,13 @@ Dim i As Integer, n As Integer, f As Integer
                 
                 If CharNum < 1 Or CharNum > MAX_CHARS Then Call HackingAttempt(Index, "Numéros de personnage invalide."): Exit Sub
             
-                If (Sex < SEX_MALE) Or (Sex > SEX_FEMALE) Then Call HackingAttempt(Index, "Invalide Sexe"): Exit Sub
+                If (Sex < SEX_MALE) Or (Sex > SEX_FEMALE) Then Call HackingAttempt(Index, "Le sexe est invalide."): Exit Sub
                 
-                If Class < 0 Or Class > Max_Classes Then Call HackingAttempt(Index, "Invalide Classe"): Exit Sub
+                If Class < 0 Or Class > Max_Classes Then Call HackingAttempt(Index, "La classe est invalide."): Exit Sub
     
                 If CharExist(Index, CharNum) Then Call PlainMsg(Index, "Le personnage existe déjà.", 4): Exit Sub
     
-                If FindChar(Name) Then Call PlainMsg(Index, "Désolé mais ce nom est déjà utilisé.", 4): Exit Sub
+                If FindChar(Name) Then Call PlainMsg(Index, "Ce pseudo est déjà utilisé.", 4): Exit Sub
                 
                 Call AddChar(Index, Name, Sex, Class, CharNum)
                 Call SavePlayer(Index)
@@ -500,7 +500,7 @@ Dim i As Integer, n As Integer, f As Integer
                     n = Asc(Mid$(Name, i, 1))
                     
                     If (n <= 65 And n >= 90) Or (n <= 97 And n >= 122) Or (n = 95) Or (n = 32) Or (n <= 48 And n >= 57) Then
-                        Call PlainMsg(Index, "Nom invalide, il ne doit pas contenir des caractères spéciaux.", 1)
+                        Call PlainMsg(Index, "Le nom est invalide, il ne doit pas contenir des caractères spéciaux.", 1)
                         Exit Sub
                     End If
                 Next i
@@ -512,7 +512,7 @@ Dim i As Integer, n As Integer, f As Integer
                     Call PlainMsg(Index, "Votre compte a été crée.", 1)
                     If IBJoueur Then Call IBMsg("Un joueur a crée un compte nommé " & Name, IBCJoueur)
                 Else
-                    Call PlainMsg(Index, "Désolé mais le compte existe déjà.", 1)
+                    Call PlainMsg(Index, "Un compte du même nom existe déjà.", 1)
                 End If
             End If
             Exit Sub
@@ -524,7 +524,7 @@ Dim i As Integer, n As Integer, f As Integer
                             
                 If Not AccountExist(Name) Then Call PlainMsg(Index, "Ce compte n'existe pas.", 2): Exit Sub
                 
-                If Not PasswordOK(Name, Password) Then Call PlainMsg(Index, "Mot de passe incorrect.", 2): Exit Sub
+                If Not PasswordOK(Name, Password) Then Call PlainMsg(Index, "Le mot de passe est incorrect.", 2): Exit Sub
                             
                 Call LoadPlayer(Index, Name)
                 
@@ -548,10 +548,10 @@ Dim i As Integer, n As Integer, f As Integer
         Case "delimbocharu"
                 CharNum = Val(Parse(1))
     
-                If CharNum < 1 Or CharNum > MAX_CHARS Then Call HackingAttempt(Index, "Numéros de personnage invalide."): Exit Sub
+                If CharNum < 1 Or CharNum > MAX_CHARS Then Call HackingAttempt(Index, "Numéro de personnage invalide."): Exit Sub
                 
                 Call DelChar(Index, CharNum)
-                Call AddLog("Un personnage a été suprimer du compte " & GetPlayerLogin(Index) & ".", PLAYER_LOG)
+                Call AddLog("Un personnage a été suprimé du compte " & GetPlayerLogin(Index) & ".", PLAYER_LOG)
                 Call SendChars(Index)
                 Call PlainMsg(Index, "Le personnage a été effacé.", 5)
                 If IBJoueur Then Call IBMsg("Le personnage numéros " & CharNum & " a été suprimé du compte de " & GetPlayerLogin(Index) & ".", IBCJoueur)
@@ -566,10 +566,10 @@ Dim i As Integer, n As Integer, f As Integer
     Exit Sub
     
 er:
-Call AddLog("le : " & Date & "     à : " & time & "...Erreur dans la réception du serveur. Détails : Num :" & Err.Number & " Description : " & Err.Description & " Source : " & Err.Source & "...", "logs\Err.txt")
+Call AddLog("Le " & Date & " à " & time & " : Erreur dans la réception du serveur. Détails - Num :" & Err.Number & " Description : " & Err.Description & " Source : " & Err.Source & "...", "logs\Err.txt")
 On Error Resume Next
-If IBErr Then Call IBMsg("Un erreur c'est produite dans la réception du serveur", BrightRed)
-If Not IsPlaying(Index) Then Call PlainMsg(Index, "Erreur d'envoie, relancer s'il vous plait.", 3)
+If IBErr Then Call IBMsg("Un erreur s'est produite dans la réception du serveur.", BrightRed)
+If Not IsPlaying(Index) Then Call PlainMsg(Index, "Erreur d'envoi, merci de relancer le jeu.", 3)
 End Sub
 
 Sub HandleData(ByVal Index As Long, ByVal data As String)
@@ -637,7 +637,7 @@ Player(Index).sync = True
                 Case "coffreitem"
                     Dim cof As Long
                     
-                    If IsPlaying(Index) = False Then Call HackingAttempt(Index, "Le joueur n'est pas en train de jouer(coffre demander)"): Exit Sub
+                    If IsPlaying(Index) = False Then Call HackingAttempt(Index, "Vous n'êtes pas en train de jouer (packet coffreitem)."): Exit Sub
                             
                     Packet = "DATACOFR"
                     
@@ -652,7 +652,7 @@ Player(Index).sync = True
                     Call SendDataTo(Index, Packet)
                     Exit Sub
                 
-                                Case "checkcommands"
+                Case "checkcommands"
                     s = Parse(1)
                     If LCase$(Mid$(s, 1, 5)) = "/hdvs" Then HdvCmd Index, s: Exit Sub
                     If Scripting = 1 Then
@@ -688,10 +688,10 @@ Player(Index).sync = True
                     Movement = Val(Parse(2))
                     
                     ' Prevent hacking
-                    If Dir < DIR_DOWN Or Dir > DIR_UP Then Call HackingAttempt(Index, "Direction Invalide"): Exit Sub
+                    If Dir < DIR_DOWN Or Dir > DIR_UP Then Call HackingAttempt(Index, "Direction invalide."): Exit Sub
                             
                     ' Prevent hacking
-                    If Movement < 1 Or Movement > 2 Then Call HackingAttempt(Index, "Mouvement Invalide"): Exit Sub
+                    If Movement < 1 Or Movement > 2 Then Call HackingAttempt(Index, "Mouvement invalide."): Exit Sub
                     
                     ' Prevent player from moving if they have casted a spell
                     If Player(Index).CastedSpell = YES Then
@@ -717,7 +717,7 @@ Player(Index).sync = True
                         Player(Index).Char(Player(Index).CharNum).metier = 0
                         Player(Index).Char(Player(Index).CharNum).MetierLvl = 1
                         Player(Index).Char(Player(Index).CharNum).MetierExp = 0
-                        Call PlayerMsg(Index, "Métier Oublié", White)
+                        Call PlayerMsg(Index, "Le métier a été oublié.", White)
                         Call SendPlayerMetier(Index)
                     Else
                         Call PlayerMsg(Index, "Pas de métier", White)
@@ -739,11 +739,11 @@ Player(Index).sync = True
                     MsgTo = FindPlayer(Parse(1))
                     Msg = Parse(2)
                     ' Prevent hacking
-                    If MMsg(Msg) Then Call HackingAttempt(Index, "Caractère incorrect dans ses paroles(joueurs)"): Exit Sub
+                    If MMsg(Msg) Then Call HackingAttempt(Index, "Caractère incorrect dans ses paroles (joueurs)"): Exit Sub
             
-                    If frmServer.chkP.value = Unchecked Then If GetPlayerAccess(Index) <= 0 Then Call PlayerMsg(Index, "Les messages privés on été désactivés par l'admin du serveur.", BrightRed): Exit Sub
+                    If frmServer.chkP.value = Unchecked Then If GetPlayerAccess(Index) <= 0 Then Call PlayerMsg(Index, "Les messages privés ont été désactivés sur le serveur.", BrightRed): Exit Sub
             
-                    If FindPlayer(Parse(1)) = 0 Then Call PlayerMsg(Index, "Le joueur est hors-ligne", White): Exit Sub
+                    If FindPlayer(Parse(1)) = 0 Then Call PlayerMsg(Index, "Le joueur est hors-ligne.", White): Exit Sub
                             
                     ' Check if they are trying to talk to themselves
                     If MsgTo <> Index Then

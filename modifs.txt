@@ -1,10 +1,16 @@
 ﻿-----Modifications effectuées-----
 
-- Système de météo par map dans les propriétés de la carte [By Sacardent];
-- Système de level requis pour équiper une arme [By Sacaredent];
-- Correction d'un oubli concernant la couleur des maps "safe" et "unsafe" (signalé ici;
-- Correction d'un bug concernant les PNJs intouchables (signalé ici);
-- Correction d'un bug concernant un inversement des effets joueurs traversables sur l'éditeur;
-- Ajout d'un système d'alerte lors de l'échec d'un script;
-- Correction d'un bug concernant l'équipement d'un familier;
-- Correction du bug d'affichage au niveau du FrmMirage;
+- Système de météo par map dans les propriétés de la carte [Sacardent];
+- Système de level requis pour équiper une arme [Sacardent];
+- Correction d'un oubli concernant la couleur des maps "safe" et "unsafe" (signalé ici) [???];
+- Correction d'un bug concernant les PNJs intouchables (signalé ici) [Elios];
+- Correction d'un bug concernant un inversement des effets joueurs traversables sur l'éditeur [Elios];
+- Ajout d'un système d'alerte lors de l'échec d'un script [Elios];
+- Correction d'un bug concernant l'équipement d'un familier [Elios];
+- Correction du bug d'affichage au niveau du FrmMirage [Elios];
+- Modification du système de ratio d'expérience [Elios];
+
+-----Modifications en cours-----
+
+- Corrections d'orthographe [Elios];
+- Modification de l'interface serveur [Elios];

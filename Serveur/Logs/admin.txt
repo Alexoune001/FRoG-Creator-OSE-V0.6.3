@@ -159,3 +159,7 @@
 17:35:06: Admin sauvegarde l'objet #10.
 17:35:21: Admin a modifié(e) la carte #1
 17:35:40: Admin a modifié(e) la carte #1
+21:02:32: Admin edite le PNJ #2.
+21:07:18: Admin sauvegarde le PNJ #2.
+21:07:31: Admin a modifié(e) la carte #1
+21:07:49: Admin edite le PNJ #2.

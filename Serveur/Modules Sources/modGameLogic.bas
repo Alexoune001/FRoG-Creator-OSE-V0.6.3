@@ -747,7 +747,7 @@ If GetPlayerLevel(Index) = MAX_LEVEL Then
     End If
 Else
     If quete(QueteTindex).Recompence.Exp > 0 Then
-        Call SetPlayerExp(Index, Player(Index).Char(Player(Index).CharNum).Exp + quete(QueteTindex).Recompence.Exp)
+        Call SetPlayerExp(Index, Player(Index).Char(Player(Index).CharNum).Exp + quete(QueteTindex).Recompence.Exp * RATE_QUETE)
         Call BattleMsg(Index, "Tu as gagné " & quete(QueteTindex).Recompence.Exp & "pts d'expérience.", BrightBlue, 0)
     End If
 End If
@@ -1269,7 +1269,7 @@ If Map(GetPlayerMap(Attacker)).Tile(GetPlayerX(Attacker), GetPlayerY(Attacker)).
             End If
             
             ' Calculate exp to give attacker
-            Exp = (GetPlayerExp(Victim) \ 10) * Val(GetVar(App.Path & "/Data.ini", "RATIO", "Exp_pvp"))
+            Exp = (GetPlayerExp(Victim) \ 10) * RATE_EXP
             If Val(GetVar(App.Path & "/Data.ini", "CONFIG", "ExpDynamique")) = 1 Then
                 Exp = Int(100 * Rnd() + Exp - (100 * Rnd()))
             End If
@@ -1589,9 +1589,9 @@ Dim STR As Long, def As Long, MapNum As Long, npcnum As Long
                                 
         ' Calculate exp to give attacker
         If Val(add) > 0 Then
-            Exp = (Npc(npcnum).Exp + (Npc(npcnum).Exp * Val(add))) * Val(GetVar(App.Path & "/Data.ini", "RATIO", "Exp_pvm"))
+            Exp = (Npc(npcnum).Exp + (Npc(npcnum).Exp * Val(add))) * RATE_EXP
         Else
-            Exp = Npc(npcnum).Exp * Val(GetVar(App.Path & "/Data.ini", "RATIO", "Exp_pvm"))
+            Exp = Npc(npcnum).Exp * RATE_EXP
         End If
         If Val(GetVar(App.Path & "/Data.ini", "CONFIG", "ExpDynamique")) = 1 Then
             Exp = Int(100 * Rnd() + Exp - (100 * Rnd()))
