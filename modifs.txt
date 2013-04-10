@@ -1,0 +1,10 @@
+-----COMMIT 1-----
+
+Bugs corrigés :
+
+PNJs intouchables : http://www.frogcreator.fr/ose/showthread.php?tid=7867
+Inversement des effets joueurs traversables sur l'éditeur
+
+Fonctionnalités ajoutés :
+
+Alerte lors de l'échec d'un script
