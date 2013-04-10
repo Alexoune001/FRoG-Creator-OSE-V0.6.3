@@ -986,7 +986,7 @@ rest:
             ' Draw map name
             If Map(GetPlayerMap(MyIndex)).Moral = MAP_MORAL_NONE Then
                 ' Int((5) * PIC_X / 2) - (Len(Trim$(Map(GetPlayerMap(MyIndex)).name))) + sx
-                Call DrawText(TexthDC, (frmMirage.picScreen.Width / 2) - (Len(Trim$(Map(GetPlayerMap(MyIndex)).name)) / 2), 5 + sx, Trim$(Map(GetPlayerMap(MyIndex)).name), QBColor(White))
+                Call DrawText(TexthDC, (frmMirage.picScreen.Width / 2) - (Len(Trim$(Map(GetPlayerMap(MyIndex)).name)) / 2), 5 + sx, Trim$(Map(GetPlayerMap(MyIndex)).name), QBColor(Red))
             ElseIf Map(GetPlayerMap(MyIndex)).Moral = MAP_MORAL_SAFE Then
                 Call DrawText(TexthDC, (frmMirage.picScreen.Width / 2) - (Len(Trim$(Map(GetPlayerMap(MyIndex)).name)) / 2), 5 + sx, Trim$(Map(GetPlayerMap(MyIndex)).name), QBColor(White))
             ElseIf Map(GetPlayerMap(MyIndex)).Moral = MAP_MORAL_NO_PENALTY Then
