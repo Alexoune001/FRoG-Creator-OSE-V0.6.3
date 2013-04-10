@@ -1,10 +1,8 @@
------COMMIT 1-----
+-----Modifications effectuées-----
 
-Bugs corrigés :
-
-PNJs intouchables : http://www.frogcreator.fr/ose/showthread.php?tid=7867
-Inversement des effets joueurs traversables sur l'éditeur
-
-Fonctionnalités ajoutés :
-
-Alerte lors de l'échec d'un script
+- Système de météo par map dans les propriétés de la carte [By Sacardent];
+- Système de level requis pour équiper une arme [By Sacaredent];
+- Correction d'un oubli concernant la couleur des maps "safe" et "unsafe" (signalé ici;
+- Correction d'un bug concernant les PNJs intouchables (signalé ici);
+- Correction d'un bug concernant un inversement des effets joueurs traversables sur l'éditeur;
+- Ajout d'un système d'alerte lors de l'échec d'un script;
