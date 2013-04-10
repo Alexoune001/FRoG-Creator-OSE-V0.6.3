@@ -339,6 +339,7 @@ On Error GoTo er:
         .Picture11.BackColor = RGB(R1, G1, B1)
         .Picture13.BackColor = RGB(R1, G1, B1)
         .picInv3.BackColor = RGB(R1, G1, B1)
+        .pictHide.BackColor = RGB(R1, G1, B1)
         .itmDesc.BackColor = RGB(R1, G1, B1)
         .picWhosOnline.BackColor = RGB(R1, G1, B1)
         .picGuildAdmin.BackColor = RGB(R1, G1, B1)
@@ -4118,6 +4119,7 @@ Dim dRECT As RECT
 End Sub
 
 Public Sub netbook_change()
+'netbook = True
 Dim i As Byte
 Dim Ending As String
     For i = 1 To 4
@@ -4165,7 +4167,15 @@ Dim Ending As String
         frmMirage.menu_who.Top = 616 - 188
         frmMirage.menu_opt.Top = 616 - 188
         frmMirage.menu_quit.Top = 616 - 188
+        
+        'Elios - bug du frmMirage
+        frmMirage.pictHide.Top = 408
+        frmMirage.pictHide.Left = 0
+        frmMirage.pictHide.height = 8
+        frmMirage.pictHide.Width = 640
+        frmMirage.pictHide.Visible = True
     Else
+    'Mode Normal
         frmMirage.Interface.Width = 800
         frmMirage.picScreen.Width = 800
         frmMirage.picScreen.height = 608
@@ -4195,6 +4205,13 @@ Dim Ending As String
         frmMirage.menu_who.Top = 616
         frmMirage.menu_opt.Top = 616
         frmMirage.menu_quit.Top = 616
+        
+        'Elios - bug du frmMirage
+        frmMirage.pictHide.Top = 600
+        frmMirage.pictHide.Left = 0
+        frmMirage.pictHide.height = 8
+        frmMirage.pictHide.Width = 800
+        frmMirage.pictHide.Visible = True
     End If
     
     frmMirage.Interface.Top = frmMirage.picScreen.height

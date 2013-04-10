@@ -1,7 +1,7 @@
 VERSION 5.00
 Object = "{6BF52A50-394A-11D3-B153-00C04F79FAA6}#1.0#0"; "wmp.dll"
-Object = "{248DD890-BB45-11CF-9ABC-0080C7E7B78D}#1.0#0"; "Mswinsck.ocx"
-Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.0#0"; "Mscomctl.ocx"
+Object = "{248DD890-BB45-11CF-9ABC-0080C7E7B78D}#1.0#0"; "MSWINSCK.OCX"
+Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.0#0"; "MSCOMCTL32.OCX"
 Begin VB.Form frmMirage 
    BorderStyle     =   1  'Fixed Single
    Caption         =   " "
@@ -3579,20 +3579,20 @@ Private Sub artquete_Click()
     picquete.Visible = False
 End Sub
 
-Private Sub Attributs_MouseDown(Button As Integer, Shift As Integer, X As Single, Y As Single)
+Private Sub Attributs_MouseDown(Button As Integer, Shift As Integer, x As Single, y As Single)
     If Button = 2 Then Attributs.Top = 33: Attributs.Left = 0: Exit Sub
     dr = True
-    drx = X
-    dry = Y
+    drx = x
+    dry = y
 End Sub
 
-Private Sub Attributs_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
+Private Sub Attributs_MouseMove(Button As Integer, Shift As Integer, x As Single, y As Single)
 On Error Resume Next
-If dr Then Attributs.Refresh: DoEvents: If dr Then Call Attributs.Move(Attributs.Left + (X - drx), Attributs.Top + (Y - dry))
+If dr Then Attributs.Refresh: DoEvents: If dr Then Call Attributs.Move(Attributs.Left + (x - drx), Attributs.Top + (y - dry))
 If Attributs.Left > Me.Width Or Attributs.Top > Me.Height Then Attributs.Top = 33: Attributs.Left = 0: Exit Sub
 End Sub
 
-Private Sub Attributs_MouseUp(Button As Integer, Shift As Integer, X As Single, Y As Single)
+Private Sub Attributs_MouseUp(Button As Integer, Shift As Integer, x As Single, y As Single)
 dr = False
 drx = 0
 dry = 0
@@ -3690,7 +3690,7 @@ If Len(ReadINI("INFO", "Maxshops", App.Path & "\config.ini")) > 0 Then frmoption
 If Len(ReadINI("INFO", "Maxspells", App.Path & "\config.ini")) > 0 Then frmoptions.ms = ReadINI("INFO", "Maxspells", App.Path & "\config.ini")
 If Len(ReadINI("INFO", "Maxmaps", App.Path & "\config.ini")) > 0 Then frmoptions.mc = ReadINI("INFO", "Maxmaps", App.Path & "\config.ini")
 If Len(ReadINI("INFO", "Maxmapitems", App.Path & "\config.ini")) > 0 Then frmoptions.moc = ReadINI("INFO", "Maxmapitems", App.Path & "\config.ini")
-If Len(ReadINI("INFO", "Maxemots", App.Path & "\config.ini")) > 0 Then frmoptions.me = ReadINI("INFO", "Maxemots", App.Path & "\config.ini")
+If Len(ReadINI("INFO", "Maxemots", App.Path & "\config.ini")) > 0 Then frmoptions.Me = ReadINI("INFO", "Maxemots", App.Path & "\config.ini")
 If Len(ReadINI("INFO", "Maxlevel", App.Path & "\config.ini")) > 0 Then frmoptions.mn = ReadINI("INFO", "Maxlevel", App.Path & "\config.ini")
 If Len(ReadINI("INFO", "Maxquet", App.Path & "\config.ini")) > 0 Then frmoptions.mq = ReadINI("INFO", "Maxquet", App.Path & "\config.ini")
 If Len(ReadINI("INFO", "Maxguilds", App.Path & "\config.ini")) > 0 Then frmoptions.mg = ReadINI("INFO", "Maxguilds", App.Path & "\config.ini")
@@ -3881,9 +3881,9 @@ Call SaveMap(Player(MyIndex).Map)
 End Sub
 
 Private Sub envoicarte_Click()
-Dim X As Long
-    X = MsgBox("Êtes-vous sûr de vouloir enregistrer les changements de la carte ?", vbYesNo)
-    If X = vbNo Then Exit Sub
+Dim x As Long
+    x = MsgBox("Êtes-vous sûr de vouloir enregistrer les changements de la carte ?", vbYesNo)
+    If x = vbNo Then Exit Sub
     save = 0
     ScreenMode = False
     Map(Player(MyIndex).Map).Revision = Map(Player(MyIndex).Map).Revision + 1
@@ -3980,7 +3980,7 @@ Call NetPic
 Couche = "Sol"
 End Sub
 
-Private Sub Form_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
+Private Sub Form_MouseMove(Button As Integer, Shift As Integer, x As Single, y As Single)
 If Toolbar1.buttons(1).Image = 19 Then Exit Sub
     itmDesc.Visible = False
     InEditor = True
@@ -4154,7 +4154,7 @@ Else
 End If
 End Sub
 
-Private Sub lstIndex_MouseUp(Button As Integer, Shift As Integer, X As Single, Y As Single)
+Private Sub lstIndex_MouseUp(Button As Integer, Shift As Integer, x As Single, y As Single)
 If Button = 2 Then
     If DonID > 0 Then colle.Enabled = True Else colle.Enabled = False
     Call PopupMenu(edit)
@@ -4220,7 +4220,7 @@ If Len(ReadINI("INFO", "Maxshops", App.Path & "\config.ini")) > 0 Then frmoption
 If Len(ReadINI("INFO", "Maxspells", App.Path & "\config.ini")) > 0 Then frmoptions.ms = ReadINI("INFO", "Maxspells", App.Path & "\config.ini")
 If Len(ReadINI("INFO", "Maxmaps", App.Path & "\config.ini")) > 0 Then frmoptions.mc = ReadINI("INFO", "Maxmaps", App.Path & "\config.ini")
 If Len(ReadINI("INFO", "Maxmapitems", App.Path & "\config.ini")) > 0 Then frmoptions.moc = ReadINI("INFO", "Maxmapitems", App.Path & "\config.ini")
-If Len(ReadINI("INFO", "Maxemots", App.Path & "\config.ini")) > 0 Then frmoptions.me = ReadINI("INFO", "Maxemots", App.Path & "\config.ini")
+If Len(ReadINI("INFO", "Maxemots", App.Path & "\config.ini")) > 0 Then frmoptions.Me = ReadINI("INFO", "Maxemots", App.Path & "\config.ini")
 If Len(ReadINI("INFO", "Maxlevel", App.Path & "\config.ini")) > 0 Then frmoptions.mn = ReadINI("INFO", "Maxlevel", App.Path & "\config.ini")
 If Len(ReadINI("INFO", "Maxquet", App.Path & "\config.ini")) > 0 Then frmoptions.mq = ReadINI("INFO", "Maxquet", App.Path & "\config.ini")
 If Len(ReadINI("INFO", "Maxguilds", App.Path & "\config.ini")) > 0 Then frmoptions.mg = ReadINI("INFO", "Maxguilds", App.Path & "\config.ini")
@@ -4326,7 +4326,7 @@ If Len(ReadINI("INFO", "Maxshops", App.Path & "\config.ini")) > 0 Then frmoption
 If Len(ReadINI("INFO", "Maxspells", App.Path & "\config.ini")) > 0 Then frmoptions.ms = ReadINI("INFO", "Maxspells", App.Path & "\config.ini")
 If Len(ReadINI("INFO", "Maxmaps", App.Path & "\config.ini")) > 0 Then frmoptions.mc = ReadINI("INFO", "Maxmaps", App.Path & "\config.ini")
 If Len(ReadINI("INFO", "Maxmapitems", App.Path & "\config.ini")) > 0 Then frmoptions.moc = ReadINI("INFO", "Maxmapitems", App.Path & "\config.ini")
-If Len(ReadINI("INFO", "Maxemots", App.Path & "\config.ini")) > 0 Then frmoptions.me = ReadINI("INFO", "Maxemots", App.Path & "\config.ini")
+If Len(ReadINI("INFO", "Maxemots", App.Path & "\config.ini")) > 0 Then frmoptions.Me = ReadINI("INFO", "Maxemots", App.Path & "\config.ini")
 If Len(ReadINI("INFO", "Maxlevel", App.Path & "\config.ini")) > 0 Then frmoptions.mn = ReadINI("INFO", "Maxlevel", App.Path & "\config.ini")
 If Len(ReadINI("INFO", "Maxquet", App.Path & "\config.ini")) > 0 Then frmoptions.mq = ReadINI("INFO", "Maxquet", App.Path & "\config.ini")
 If Len(ReadINI("INFO", "Maxguilds", App.Path & "\config.ini")) > 0 Then frmoptions.mg = ReadINI("INFO", "Maxguilds", App.Path & "\config.ini")
@@ -4432,7 +4432,7 @@ Next d
 Call UpdateVisInv
 End Sub
 
-Private Sub picInv_MouseDown(Index As Integer, Button As Integer, Shift As Integer, X As Single, Y As Single)
+Private Sub picInv_MouseDown(Index As Integer, Button As Integer, Shift As Integer, x As Single, y As Single)
     Inventory = Index + 1
     frmMirage.SelectedItem.Top = frmMirage.picInv(Inventory - 1).Top - 1
     frmMirage.SelectedItem.Left = frmMirage.picInv(Inventory - 1).Left - 1
@@ -4444,7 +4444,7 @@ Private Sub picInv_MouseDown(Index As Integer, Button As Integer, Shift As Integ
     End If
 End Sub
 
-Private Sub picInv_MouseMove(Index As Integer, Button As Integer, Shift As Integer, X As Single, Y As Single)
+Private Sub picInv_MouseMove(Index As Integer, Button As Integer, Shift As Integer, x As Single, y As Single)
 Dim d As Long
 d = Index
 
@@ -4474,8 +4474,8 @@ d = Index
                 descName.Caption = Trim$(Item(GetPlayerInvItemNum(MyIndex, d + 1)).name) & " (worn)"
             ElseIf GetPlayerShieldSlot(MyIndex) = d + 1 Then
                 descName.Caption = Trim$(Item(GetPlayerInvItemNum(MyIndex, d + 1)).name) & " (worn)"
-            ElseIf GetPlayerPetSlot(MyIndex) = d + 1 Then
-                descName.Caption = Trim$(Pets(GetPlayerInvItemNum(MyIndex, d + 1)).nom) & " (worn)"
+            'ElseIf GetPlayerPetSlot(MyIndex) = d + 1 Then
+            '    descName.Caption = Trim$(Pets(GetPlayerInvItemNum(MyIndex, d + 1)).nom) & " (worn)"
             Else
                 If Item(GetPlayerInvItemNum(MyIndex, d + 1)).Empilable <> 0 Then
                     descName.Caption = Trim$(Item(GetPlayerInvItemNum(MyIndex, d + 1)).name) & " (" & GetPlayerInvItemValue(MyIndex, d + 1) & ")"
@@ -4572,21 +4572,21 @@ On Error Resume Next
     frmMirage.txtMyTextBox.SetFocus
 End Sub
 
-Private Sub picScreen_MouseDown(Button As Integer, Shift As Integer, X As Single, Y As Single)
+Private Sub picScreen_MouseDown(Button As Integer, Shift As Integer, x As Single, y As Single)
 Dim i As Long
-    If (Button = 1) And InEditor And Not InPM And Me.MousePointer <> 99 Then Call SauvTemp: Call EditorMouseDown(Button, Shift, (X + NewPlayerPicX), (Y + NewPlayerPicY))
-    If Button = 1 And Not InEditor And Not InPM Then Call PlayerSearch(Button, Shift, (X + NewPlayerPicX), (Y + NewPlayerPicY))
+    If (Button = 1) And InEditor And Not InPM And Me.MousePointer <> 99 Then Call SauvTemp: Call EditorMouseDown(Button, Shift, (x + NewPlayerPicX), (y + NewPlayerPicY))
+    If Button = 1 And Not InEditor And Not InPM Then Call PlayerSearch(Button, Shift, (x + NewPlayerPicX), (y + NewPlayerPicY))
     If Button = 1 And InEditor And Me.MousePointer = 99 Then Call SauvTemp: Call EditorMouseDown(2, 1, (PotX + NewPlayerPicX), (PotY + NewPlayerPicY))
     If Button = 2 And InEditor Then InPM = True: Call PopupMenu(mclik)
 End Sub
 
-Private Sub picScreen_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
-    If (Button = 1) And InEditor And Not InPM And Me.MousePointer <> 99 Then Call EditorMouseDown(Button, Shift, (X + NewPlayerPicX), (Y + NewPlayerPicY))
+Private Sub picScreen_MouseMove(Button As Integer, Shift As Integer, x As Single, y As Single)
+    If (Button = 1) And InEditor And Not InPM And Me.MousePointer <> 99 Then Call EditorMouseDown(Button, Shift, (x + NewPlayerPicX), (y + NewPlayerPicY))
     If Button = 1 And InEditor And Me.MousePointer = 99 Then Call EditorMouseDown(2, 1, (PotX + NewPlayerPicX), (PotY + NewPlayerPicY))
-        CurX = ((X + NewPlayerPicX) \ 32 / VZoom * 3)
-        CurY = ((Y + NewPlayerPicY) \ 32 / VZoom * 3)
-        PotX = X
-        PotY = Y
+        CurX = ((x + NewPlayerPicX) \ 32 / VZoom * 3)
+        CurY = ((y + NewPlayerPicY) \ 32 / VZoom * 3)
+        PotX = x
+        PotY = y
         frmMirage.Caption = "Editeur pour le jeu : " & Trim$(GAME_NAME) & " Mettez votre souris sur un élément pour plus de détails."
         frmMirage.Caption = frmMirage.Caption & "X: " & Int(CurX) & " Y: " & Int(CurY)
         frmMirage.picScreen.ToolTipText = "X: " & Int(CurX) & " Y: " & Int(CurY) & " " & Couche
@@ -4594,11 +4594,11 @@ Private Sub picScreen_MouseMove(Button As Integer, Shift As Integer, X As Single
     If CurX <> OldPCX Or CurY <> OldPCY Then Call CaseChange(CurX, CurY): OldPCX = CurX: OldPCY = CurY
 End Sub
 
-Private Sub picScreen_MouseUp(Button As Integer, Shift As Integer, X As Single, Y As Single)
+Private Sub picScreen_MouseUp(Button As Integer, Shift As Integer, x As Single, y As Single)
 InPM = False
 End Sub
 
-Private Sub Picture9_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
+Private Sub Picture9_MouseMove(Button As Integer, Shift As Integer, x As Single, y As Single)
     itmDesc.Visible = False
 End Sub
 
@@ -4709,18 +4709,18 @@ If Player(MyIndex).QueteEnCour > 0 Then Call NetPic: frmMirage.picquete.Visible 
 End Sub
 
 Private Sub rempli_Click()
-Dim Y As Integer
-Dim X As Integer
+Dim y As Integer
+Dim x As Integer
 
-X = MsgBox("Es-tu sur de vouloir remplir la carte?", vbYesNo)
-If X = vbNo Then Exit Sub
+x = MsgBox("Es-tu sur de vouloir remplir la carte?", vbYesNo)
+If x = vbNo Then Exit Sub
 
 Call SauvTemp
 If frmMirage.tp(1).Checked = True Then
-For Y = 0 To (MAX_MAPY / Int(frmMirage.shpSelected.Height / PIC_Y))
-For X = 0 To (MAX_MAPX / Int(frmMirage.shpSelected.Width / PIC_X))
+For y = 0 To (MAX_MAPY / Int(frmMirage.shpSelected.Height / PIC_Y))
+For x = 0 To (MAX_MAPX / Int(frmMirage.shpSelected.Width / PIC_X))
             
-            With Map(Player(MyIndex).Map).tile(X, Y)
+            With Map(Player(MyIndex).Map).tile(x, y)
                 If frmMirage.Toolbar1.buttons(5).value = tbrPressed Then
                     .Ground = (EditorTileY) * TilesInSheets + EditorTileX + frmMirage.HScroll1.value - 1
                     .GroundSet = EditorSet
@@ -4765,9 +4765,9 @@ For X = 0 To (MAX_MAPX / Int(frmMirage.shpSelected.Width / PIC_X))
 Next
 Next
 ElseIf frmMirage.tp(2).Checked = True Then
-    For Y = 0 To MAX_MAPY
-        For X = 0 To MAX_MAPX
-            With Map(Player(MyIndex).Map).tile(X, Y)
+    For y = 0 To MAX_MAPY
+        For x = 0 To MAX_MAPX
+            With Map(Player(MyIndex).Map).tile(x, y)
                 If frmMirage.optBlocked.value = True Then .Type = TILE_TYPE_BLOCKED
                 If frmMirage.optWarp.value = True Then
                     .Type = TILE_TYPE_WARP
@@ -5003,14 +5003,14 @@ ElseIf frmMirage.tp(2).Checked = True Then
                     .String3 = vbNullString
                 End If
             End With
-        Next X
-    Next Y
+        Next x
+    Next y
 ElseIf frmMirage.tp(3).Checked = True Then
-    For Y = 0 To MAX_MAPY
-        For X = 0 To MAX_MAPX
-            Map(Player(MyIndex).Map).tile(X, Y).Light = EditorTileY * TilesInSheets + EditorTileX
-        Next X
-    Next Y
+    For y = 0 To MAX_MAPY
+        For x = 0 To MAX_MAPX
+            Map(Player(MyIndex).Map).tile(x, y).Light = EditorTileY * TilesInSheets + EditorTileX
+        Next x
+    Next y
 End If
 End Sub
 
@@ -5138,16 +5138,16 @@ End Sub
 Private Sub timerbar_Timer()
 If frmMirage.Visible = True Then
     
-    If Player(MyIndex).Y < ((picScreen.Height / 32) \ 2) Then
+    If Player(MyIndex).y < ((picScreen.Height / 32) \ 2) Then
         hautbas.value = hautbas.Min
     Else
-        If ((picScreen.Height \ 32) \ 2) + (Player(MyIndex).Y - (picScreen.Height \ 32)) < hautbas.Max Then hautbas.value = ((picScreen.Height \ 32) \ 2) + (Player(MyIndex).Y - (picScreen.Height \ 32)) Else hautbas.value = hautbas.Max
+        If ((picScreen.Height \ 32) \ 2) + (Player(MyIndex).y - (picScreen.Height \ 32)) < hautbas.Max Then hautbas.value = ((picScreen.Height \ 32) \ 2) + (Player(MyIndex).y - (picScreen.Height \ 32)) Else hautbas.value = hautbas.Max
     End If
     
-    If Player(MyIndex).X < ((picScreen.Width \ 32) \ 2) Then
+    If Player(MyIndex).x < ((picScreen.Width \ 32) \ 2) Then
         gauchedroite.value = gauchedroite.Min
     Else
-        If ((picScreen.Width \ 32) \ 2) + 1 + (Player(MyIndex).X - (picScreen.Width \ 32)) < gauchedroite.Max Then gauchedroite.value = ((picScreen.Width \ 32) \ 2) + 1 + (Player(MyIndex).X - (picScreen.Width \ 32)) Else gauchedroite.value = gauchedroite.Max
+        If ((picScreen.Width \ 32) \ 2) + 1 + (Player(MyIndex).x - (picScreen.Width \ 32)) < gauchedroite.Max Then gauchedroite.value = ((picScreen.Width \ 32) \ 2) + 1 + (Player(MyIndex).x - (picScreen.Width \ 32)) Else gauchedroite.value = gauchedroite.Max
     End If
 End If
 End Sub
@@ -5445,11 +5445,11 @@ If VScroll1.value = 0 Then Exit Sub
 End Sub
 
 Private Sub Down_Click()
-Dim X As Byte
-X = Int(MAX_INV / 8)
-X = X + 1
-If (X * 8) < MAX_INV Then X = X + 1
-If VScroll1.value = X Then Exit Sub
+Dim x As Byte
+x = Int(MAX_INV / 8)
+x = x + 1
+If (x * 8) < MAX_INV Then x = x + 1
+If VScroll1.value = x Then Exit Sub
     VScroll1.value = VScroll1.value + 1
     Picture9.Top = VScroll1.value * -PIC_Y
 End Sub
@@ -5462,16 +5462,16 @@ Private Sub picBackSelect_KeyUp(KeyCode As Integer, Shift As Integer)
     KeyShift = False
 End Sub
 
-Private Sub picBackSelect_MouseDown(Button As Integer, Shift As Integer, X As Single, Y As Single)
+Private Sub picBackSelect_MouseDown(Button As Integer, Shift As Integer, x As Single, y As Single)
 On Error Resume Next
     If Button = 1 Then
         If KeyShift = False Then
-            Call EditorChooseTile(Button, Shift, X, Y)
+            Call EditorChooseTile(Button, Shift, x, y)
             shpSelected.Width = 32
             shpSelected.Height = 32
         Else
-            EditorTileX = (X \ PIC_X)
-            EditorTileY = (Y \ PIC_Y)
+            EditorTileX = (x \ PIC_X)
+            EditorTileY = (y \ PIC_Y)
             
             If Int(EditorTileX * PIC_X) >= shpSelected.Left + shpSelected.Width Then
                 EditorTileX = Int(EditorTileX * PIC_X + PIC_X) - (shpSelected.Left + shpSelected.Width)
@@ -5508,7 +5508,7 @@ On Error Resume Next
     'EditorTileY = ((shpSelected.Top + PIC_Y) \ PIC_Y)
 End Sub
 
-Private Sub picBackSelect_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
+Private Sub picBackSelect_MouseMove(Button As Integer, Shift As Integer, x As Single, y As Single)
     If Button = 1 Then
        ' If KeyShift = False Then
         '    Call EditorChooseTile(Button, Shift, x, y)
@@ -5516,8 +5516,8 @@ Private Sub picBackSelect_MouseMove(Button As Integer, Shift As Integer, X As Si
           '  shpSelected.Height = 32
            ' If frmMirage.previsu.Checked And InEditor And frmMirage.tp(1).Checked And frmMirage.MousePointer <> 99 And frmMirage.MousePointer <> 2 Then Call PreVisua
         'Else
-            EditorTileX = (X \ PIC_X)
-            EditorTileY = (Y \ PIC_Y)
+            EditorTileX = (x \ PIC_X)
+            EditorTileY = (y \ PIC_Y)
             
             If Int(EditorTileX * PIC_X) >= shpSelected.Left + shpSelected.Width Then
                 EditorTileX = Int(EditorTileX * PIC_X + PIC_X) - (shpSelected.Left + shpSelected.Width)

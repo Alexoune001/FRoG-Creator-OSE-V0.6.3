@@ -151,3 +151,11 @@
 17:54:34: Admin a modifié(e) l'accès de Elios.
 17:56:15: Admin a modifié(e) la carte #1
 17:56:31: Admin a modifié(e) la carte #2
+17:32:54: Admin a modifié(e) la carte #1
+17:33:55: Admin edite le famillier #2.
+17:33:58: Admin edite le famillier #1.
+17:34:06: Admin edite l'objet #1.
+17:34:09: Admin edite l'objet #10.
+17:35:06: Admin sauvegarde l'objet #10.
+17:35:21: Admin a modifié(e) la carte #1
+17:35:40: Admin a modifié(e) la carte #1

@@ -1,6 +1,6 @@
 VERSION 5.00
 Object = "{6BF52A50-394A-11D3-B153-00C04F79FAA6}#1.0#0"; "wmp.dll"
-Object = "{248DD890-BB45-11CF-9ABC-0080C7E7B78D}#1.0#0"; "mswinsck.ocx"
+Object = "{248DD890-BB45-11CF-9ABC-0080C7E7B78D}#1.0#0"; "MSWINSCK.OCX"
 Begin VB.Form frmMirage 
    BackColor       =   &H00FFFFFF&
    BorderStyle     =   1  'Fixed Single
@@ -28,6 +28,20 @@ Begin VB.Form frmMirage
    ScaleMode       =   0  'User
    ScaleWidth      =   800
    Visible         =   0   'False
+   Begin VB.PictureBox pictHide 
+      Appearance      =   0  'Flat
+      BackColor       =   &H0000C000&
+      BorderStyle     =   0  'None
+      ForeColor       =   &H80000008&
+      Height          =   255
+      Left            =   3480
+      ScaleHeight     =   255
+      ScaleWidth      =   375
+      TabIndex        =   253
+      Top             =   8160
+      Visible         =   0   'False
+      Width           =   375
+   End
    Begin VB.PictureBox picOptions 
       Appearance      =   0  'Flat
       BackColor       =   &H00FFFFFF&
@@ -295,13 +309,13 @@ Begin VB.Form frmMirage
       End
       Begin VB.HScrollBar scrlBltText 
          Height          =   255
-         Left            =   240
+         Left            =   120
          Max             =   20
          Min             =   4
          TabIndex        =   147
          Top             =   4125
          Value           =   6
-         Width           =   2055
+         Width           =   2295
       End
       Begin VB.CheckBox chkLowEffect 
          BackColor       =   &H00FFFFFF&
@@ -447,8 +461,9 @@ Begin VB.Form frmMirage
       Appearance      =   0  'Flat
       AutoSize        =   -1  'True
       BackColor       =   &H80000005&
+      BorderStyle     =   0  'None
       ForeColor       =   &H80000008&
-      Height          =   1995
+      Height          =   1965
       Left            =   3960
       Picture         =   "frmMirage.frx":74F2
       ScaleHeight     =   1965
@@ -456,7 +471,7 @@ Begin VB.Form frmMirage
       TabIndex        =   241
       Top             =   600
       Visible         =   0   'False
-      Width           =   3630
+      Width           =   3600
       Begin VB.Label lblmetier 
          BackStyle       =   0  'Transparent
          Caption         =   "Label41"
@@ -4950,7 +4965,7 @@ Dim Qq As Long
         If FileExiste(Rep_Theme & "\info" & Ending) Then frmMirage.Picture = LoadPNG(App.Path & Rep_Theme & "\info" & Ending)
         If FileExiste(Rep_Theme & "\Jeu\Info" & Ending) Then Image1.Picture = LoadPNG(App.Path & Rep_Theme & "\Jeu\Info" & Ending)
         If FileExiste(Rep_Theme & "\Jeu\inventaire" & Ending) Then Image3.Picture = LoadPNG(App.Path & Rep_Theme & "\Jeu\inventaire" & Ending)
-        If FileExiste(Rep_Theme & "\Jeu\Carte" & Ending) Then imgcarte.Picture = LoadPNG(App.Path & Rep_Theme & "\Jeu\Carte" & Ending)
+        If FileExiste(Rep_Theme & "\Jeu\Carte" & Ending) Then imgCarte.Picture = LoadPNG(App.Path & Rep_Theme & "\Jeu\Carte" & Ending)
         If FileExiste(Rep_Theme & "\Jeu\quitter" & Ending) Then PicMenuQuitter.Picture = LoadPNG(App.Path & Rep_Theme & "\Jeu\quitter" & Ending)
         If FileExiste(Rep_Theme & "\Jeu\quete" & Ending) Then picquete.Picture = LoadPNG(App.Path & Rep_Theme & "\Jeu\quete" & Ending)
         If FileExiste(Rep_Theme & "\Jeu\metier" & Ending) Then pictMetier.Picture = LoadPNG(App.Path & Rep_Theme & "\Jeu\metier" & Ending)
@@ -5425,8 +5440,8 @@ d = Index
                 descName.Caption = Trim$(Item(GetPlayerInvItemNum(MyIndex, d + 1)).name) & " (worn)"
             ElseIf GetPlayerShieldSlot(MyIndex) = d + 1 Then
                 descName.Caption = Trim$(Item(GetPlayerInvItemNum(MyIndex, d + 1)).name) & " (worn)"
-            ElseIf GetPlayerPetSlot(MyIndex) = d + 1 Then
-                descName.Caption = Trim$(Pets(GetPlayerInvItemNum(MyIndex, d + 1)).nom) & " (worn)"
+            'ElseIf GetPlayerPetSlot(MyIndex) = d + 1 Then
+            '    descName.Caption = Trim$(Pets(GetPlayerInvItemNum(MyIndex, d + 1)).nom) & " (worn)"
             ElseIf Item(GetPlayerInvItemNum(MyIndex, d + 1)).Empilable <> 0 Then
                 descName.Caption = Trim$(Item(GetPlayerInvItemNum(MyIndex, d + 1)).name) & " (" & GetPlayerInvItemValue(MyIndex, d + 1) & ")"
             Else
@@ -5812,7 +5827,7 @@ If Seco <= 0 And Minu > 0 Then
     Seco = 59
     seconde.Caption = Seco
     Minu = Minu - 1
-    If Len(STR$(Minu)) > 2 Then Minute.Caption = Minu & ":" Else Minute.Caption = "0" & Minu & ":"
+    If Len(STR$(Minu)) > 2 Then minute.Caption = Minu & ":" Else minute.Caption = "0" & Minu & ":"
 End If
 If Seco <= 0 And Minu <= 0 Then
     seconde.Caption = 0
