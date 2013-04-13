@@ -9,8 +9,12 @@
 - Correction d'un bug concernant l'équipement d'un familier [Elios];
 - Correction du bug d'affichage au niveau du FrmMirage [Elios];
 - Modification du système de ratio d'expérience [Elios];
+- Modification de l'interface serveur [Elios];
 
 -----Modifications en cours-----
 
-- Corrections d'orthographe [Elios];
-- Modification de l'interface serveur [Elios];
+- Corrections d'orthographe;
+
+-----Fonctions retirées du logiciel-----
+
+- Serveur : Editeur de texte [Elios];

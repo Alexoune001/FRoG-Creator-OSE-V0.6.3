@@ -2,11 +2,22 @@ Attribute VB_Name = "modServerTCP"
 Option Explicit
 'Affichage de petits détails
 Sub UpdateCaption()
-    frmServer.Caption = GAME_NAME & " - FRoG Serveur 0.6.3"
-    frmServer.lblIP.Caption = "Adresse IP : " & SendAPIRequest("http://www.frogcreator.fr/update/getIP.php")
-    frmServer.lblIP.Caption = frmServer.lblIP & " (Local : " & frmServer.Socket(0).LocalIP & " ) "
-    frmServer.lblPort.Caption = "Port: " & STR$(frmServer.Socket(0).LocalPort)
-    frmServer.TPO.Caption = "Nombre de joueurs en ligne : " & TotalOnlinePlayers
+With frmServer
+    .Caption = GAME_NAME & " - FRoG Serveur 0.6.3"
+    .lblIP.Caption = "Adresse IP : " & SendAPIRequest("http://www.frogcreator.fr/update/getIP.php")
+    '.lblIP.Caption = frmServer.lblIP & " (Local : " & frmServer.Socket(0).LocalIP & ")"
+    .lblPort.Caption = "Port : " & STR$(frmServer.Socket(0).LocalPort)
+    .TPO.Caption = "Nombre de joueurs en ligne : " & TotalOnlinePlayers
+    .lblgamename.Caption = "Jeu : " & GAME_NAME
+    .lbliplocal.Caption = "Local : " & frmServer.Socket(0).LocalIP
+    If Scripting = 1 Then
+        .lblscript.Caption = "Etat : activé"
+        .lblscript.ForeColor = RGB(51, 204, 0)
+    Else
+        .lblscript.Caption = "Etat : désactivé"
+        .lblscript.ForeColor = RGB(255, 102, 102)
+    End If
+End With
 End Sub
 
 Function IsConnected(ByVal Index As Long) As Boolean
@@ -588,7 +599,7 @@ Dim Damage As Long
 Dim PointType As Long
 Dim BanPlayer As Long
 Dim Movement As Long
-Dim i As Long, n As Long, x As Long, y As Long, f As Long
+Dim i As Long, n As Long, X As Long, Y As Long, f As Long
 Dim MapNum As Long
 Dim s As String
 Dim tMapStart As Long, tMapEnd As Long
@@ -958,8 +969,8 @@ Player(Index).sync = True
                     ' The player was able, from a 3rd party program, to send a packet arrowhit and kill peaple without a bow
                     n = Val(Parse(1))
                     z = Val(Parse(2))
-                    x = Val(Parse(3))
-                    y = Val(Parse(4))
+                    X = Val(Parse(3))
+                    Y = Val(Parse(4))
                     
                     If GetPlayerWeaponSlot(Index) <= 0 Then Call PlayerMsg(Index, "Vous devez avoir un arc d'équipé", BrightRed): Exit Sub
                     If item(GetPlayerInvItemNum(Index, GetPlayerWeaponSlot(Index))).data3 <= 0 Then Call PlayerMsg(Index, "Vous devez avoir un arc d'équipé", BrightRed): Exit Sub
@@ -1155,7 +1166,7 @@ Player(Index).sync = True
                     If GetPlayerAccess(Index) < ADMIN_MAPPER Then Call HackingAttempt(Index, "Clonage d'Admin"): Exit Sub
                     ' Clear out it all
                     For i = 1 To MAX_MAP_ITEMS
-                        Call SpawnItemSlot(i, 0, 0, 0, GetPlayerMap(Index), MapItem(GetPlayerMap(Index), i).x, MapItem(GetPlayerMap(Index), i).y)
+                        Call SpawnItemSlot(i, 0, 0, 0, GetPlayerMap(Index), MapItem(GetPlayerMap(Index), i).X, MapItem(GetPlayerMap(Index), i).Y)
                         Call ClearMapItem(i, GetPlayerMap(Index))
                     Next i
                     ' Respawn
@@ -1214,71 +1225,71 @@ Player(Index).sync = True
                      Map(MapNum).Indoors = Val(Parse(n + 12))
                      n = n + 13
                      
-                     For y = 0 To MAX_MAPY
-                         For x = 0 To MAX_MAPX
-                             Map(MapNum).Tile(x, y).Ground = Val(Parse(n))
-                             Map(MapNum).Tile(x, y).Mask = Val(Parse(n + 1))
-                             Map(MapNum).Tile(x, y).Anim = Val(Parse(n + 2))
-                             Map(MapNum).Tile(x, y).Mask2 = Val(Parse(n + 3))
-                             Map(MapNum).Tile(x, y).M2Anim = Val(Parse(n + 4))
-                             Map(MapNum).Tile(x, y).Mask3 = Val(Parse(n + 32)) '<--
-                             Map(MapNum).Tile(x, y).M3Anim = Val(Parse(n + 30)) '<--
-                             Map(MapNum).Tile(x, y).Fringe = Val(Parse(n + 5))
-                             Map(MapNum).Tile(x, y).FAnim = Val(Parse(n + 6))
-                             Map(MapNum).Tile(x, y).Fringe2 = Val(Parse(n + 7))
-                             Map(MapNum).Tile(x, y).F2Anim = Val(Parse(n + 8))
-                             Map(MapNum).Tile(x, y).Fringe3 = Val(Parse(n + 26)) '<--
-                             Map(MapNum).Tile(x, y).F3Anim = Val(Parse(n + 27)) '<--
-                             Map(MapNum).Tile(x, y).type = Val(Parse(n + 9))
-                             Map(MapNum).Tile(x, y).data1 = Val(Parse(n + 10))
-                             Map(MapNum).Tile(x, y).data2 = Val(Parse(n + 11))
-                             Map(MapNum).Tile(x, y).data3 = Val(Parse(n + 12))
-                             Map(MapNum).Tile(x, y).String1 = Parse(n + 13)
-                             Map(MapNum).Tile(x, y).String2 = Parse(n + 14)
-                             Map(MapNum).Tile(x, y).String3 = Parse(n + 15)
-                             Map(MapNum).Tile(x, y).Light = Val(Parse(n + 16))
-                             Map(MapNum).Tile(x, y).GroundSet = Val(Parse(n + 17))
-                             Map(MapNum).Tile(x, y).MaskSet = Val(Parse(n + 18))
-                             Map(MapNum).Tile(x, y).AnimSet = Val(Parse(n + 19))
-                             Map(MapNum).Tile(x, y).Mask2Set = Val(Parse(n + 20))
-                             Map(MapNum).Tile(x, y).M2AnimSet = Val(Parse(n + 21))
-                             Map(MapNum).Tile(x, y).Mask3Set = Val(Parse(n + 33)) '<--
-                             Map(MapNum).Tile(x, y).M3AnimSet = Val(Parse(n + 31)) '<--
-                             Map(MapNum).Tile(x, y).FringeSet = Val(Parse(n + 22))
-                             Map(MapNum).Tile(x, y).FAnimSet = Val(Parse(n + 23))
-                             Map(MapNum).Tile(x, y).Fringe2Set = Val(Parse(n + 24))
-                             Map(MapNum).Tile(x, y).F2AnimSet = Val(Parse(n + 25))
-                             Map(MapNum).Tile(x, y).Fringe3Set = Val(Parse(n + 28)) '<--
-                             Map(MapNum).Tile(x, y).F3AnimSet = Val(Parse(n + 29)) '<--
+                     For Y = 0 To MAX_MAPY
+                         For X = 0 To MAX_MAPX
+                             Map(MapNum).Tile(X, Y).Ground = Val(Parse(n))
+                             Map(MapNum).Tile(X, Y).Mask = Val(Parse(n + 1))
+                             Map(MapNum).Tile(X, Y).Anim = Val(Parse(n + 2))
+                             Map(MapNum).Tile(X, Y).Mask2 = Val(Parse(n + 3))
+                             Map(MapNum).Tile(X, Y).M2Anim = Val(Parse(n + 4))
+                             Map(MapNum).Tile(X, Y).Mask3 = Val(Parse(n + 32)) '<--
+                             Map(MapNum).Tile(X, Y).M3Anim = Val(Parse(n + 30)) '<--
+                             Map(MapNum).Tile(X, Y).Fringe = Val(Parse(n + 5))
+                             Map(MapNum).Tile(X, Y).FAnim = Val(Parse(n + 6))
+                             Map(MapNum).Tile(X, Y).Fringe2 = Val(Parse(n + 7))
+                             Map(MapNum).Tile(X, Y).F2Anim = Val(Parse(n + 8))
+                             Map(MapNum).Tile(X, Y).Fringe3 = Val(Parse(n + 26)) '<--
+                             Map(MapNum).Tile(X, Y).F3Anim = Val(Parse(n + 27)) '<--
+                             Map(MapNum).Tile(X, Y).type = Val(Parse(n + 9))
+                             Map(MapNum).Tile(X, Y).data1 = Val(Parse(n + 10))
+                             Map(MapNum).Tile(X, Y).data2 = Val(Parse(n + 11))
+                             Map(MapNum).Tile(X, Y).data3 = Val(Parse(n + 12))
+                             Map(MapNum).Tile(X, Y).String1 = Parse(n + 13)
+                             Map(MapNum).Tile(X, Y).String2 = Parse(n + 14)
+                             Map(MapNum).Tile(X, Y).String3 = Parse(n + 15)
+                             Map(MapNum).Tile(X, Y).Light = Val(Parse(n + 16))
+                             Map(MapNum).Tile(X, Y).GroundSet = Val(Parse(n + 17))
+                             Map(MapNum).Tile(X, Y).MaskSet = Val(Parse(n + 18))
+                             Map(MapNum).Tile(X, Y).AnimSet = Val(Parse(n + 19))
+                             Map(MapNum).Tile(X, Y).Mask2Set = Val(Parse(n + 20))
+                             Map(MapNum).Tile(X, Y).M2AnimSet = Val(Parse(n + 21))
+                             Map(MapNum).Tile(X, Y).Mask3Set = Val(Parse(n + 33)) '<--
+                             Map(MapNum).Tile(X, Y).M3AnimSet = Val(Parse(n + 31)) '<--
+                             Map(MapNum).Tile(X, Y).FringeSet = Val(Parse(n + 22))
+                             Map(MapNum).Tile(X, Y).FAnimSet = Val(Parse(n + 23))
+                             Map(MapNum).Tile(X, Y).Fringe2Set = Val(Parse(n + 24))
+                             Map(MapNum).Tile(X, Y).F2AnimSet = Val(Parse(n + 25))
+                             Map(MapNum).Tile(X, Y).Fringe3Set = Val(Parse(n + 28)) '<--
+                             Map(MapNum).Tile(X, Y).F3AnimSet = Val(Parse(n + 29)) '<--
                              n = n + 34
-                         Next x
-                     Next y
+                         Next X
+                     Next Y
                     
-                     For x = 1 To MAX_MAP_NPCS
-                         Map(MapNum).Npc(x) = Val(Parse(n))
+                     For X = 1 To MAX_MAP_NPCS
+                         Map(MapNum).Npc(X) = Val(Parse(n))
                          n = n + 1
-                         Map(MapNum).Npcs(x).x = Val(Parse(n))
+                         Map(MapNum).Npcs(X).X = Val(Parse(n))
                          n = n + 1
-                         Map(MapNum).Npcs(x).y = Val(Parse(n))
+                         Map(MapNum).Npcs(X).Y = Val(Parse(n))
                          n = n + 1
-                         Map(MapNum).Npcs(x).x1 = Val(Parse(n))
+                         Map(MapNum).Npcs(X).x1 = Val(Parse(n))
                          n = n + 1
-                         Map(MapNum).Npcs(x).y1 = Val(Parse(n))
+                         Map(MapNum).Npcs(X).y1 = Val(Parse(n))
                          n = n + 1
-                         Map(MapNum).Npcs(x).x2 = Val(Parse(n))
+                         Map(MapNum).Npcs(X).x2 = Val(Parse(n))
                          n = n + 1
-                         Map(MapNum).Npcs(x).y2 = Val(Parse(n))
+                         Map(MapNum).Npcs(X).y2 = Val(Parse(n))
                          n = n + 1
-                         Map(MapNum).Npcs(x).Hasardm = Val(Parse(n))
+                         Map(MapNum).Npcs(X).Hasardm = Val(Parse(n))
                          n = n + 1
-                         Map(MapNum).Npcs(x).Hasardp = Val(Parse(n))
+                         Map(MapNum).Npcs(X).Hasardp = Val(Parse(n))
                          n = n + 1
-                         Map(MapNum).Npcs(x).boucle = Val(Parse(n))
+                         Map(MapNum).Npcs(X).boucle = Val(Parse(n))
                          n = n + 1
-                         Map(MapNum).Npcs(x).Imobile = Val(Parse(n))
+                         Map(MapNum).Npcs(X).Imobile = Val(Parse(n))
                          n = n + 1
-                         Call ClearMapNpc(x, MapNum)
-                     Next x
+                         Call ClearMapNpc(X, MapNum)
+                     Next X
                      Map(MapNum).PanoInf = Parse(n)
                      Map(MapNum).TranInf = Val(Parse(n + 1))
                      Map(MapNum).PanoSup = Parse(n + 2)
@@ -1292,7 +1303,7 @@ Player(Index).sync = True
                      
                      ' Clear out it all
                      For i = 1 To MAX_MAP_ITEMS
-                         Call SpawnItemSlot(i, 0, 0, 0, GetPlayerMap(Index), MapItem(GetPlayerMap(Index), i).x, MapItem(GetPlayerMap(Index), i).y)
+                         Call SpawnItemSlot(i, 0, 0, 0, GetPlayerMap(Index), MapItem(GetPlayerMap(Index), i).X, MapItem(GetPlayerMap(Index), i).Y)
                          Call ClearMapItem(i, GetPlayerMap(Index))
                      Next i
                      
@@ -1342,7 +1353,7 @@ Player(Index).sync = True
                     
                     ' Clear out it all
                     For i = 1 To MAX_MAP_ITEMS
-                        Call SpawnItemSlot(i, 0, 0, 0, GetPlayerMap(Index), MapItem(GetPlayerMap(Index), i).x, MapItem(GetPlayerMap(Index), i).y)
+                        Call SpawnItemSlot(i, 0, 0, 0, GetPlayerMap(Index), MapItem(GetPlayerMap(Index), i).X, MapItem(GetPlayerMap(Index), i).Y)
                         Call ClearMapItem(i, GetPlayerMap(Index))
                     Next i
                     
@@ -1746,23 +1757,23 @@ Player(Index).sync = True
                                 End If
                                 Select Case GetPlayerDir(Index)
                                     Case DIR_UP
-                                        If GetPlayerY(Index) > 0 Then x = GetPlayerX(Index): y = GetPlayerY(Index) - 1 Else Exit Sub
+                                        If GetPlayerY(Index) > 0 Then X = GetPlayerX(Index): Y = GetPlayerY(Index) - 1 Else Exit Sub
                                     Case DIR_DOWN
-                                        If GetPlayerY(Index) < MAX_MAPY Then x = GetPlayerX(Index): y = GetPlayerY(Index) + 1 Else Exit Sub
+                                        If GetPlayerY(Index) < MAX_MAPY Then X = GetPlayerX(Index): Y = GetPlayerY(Index) + 1 Else Exit Sub
                                     Case DIR_LEFT
-                                        If GetPlayerX(Index) > 0 Then x = GetPlayerX(Index) - 1: y = GetPlayerY(Index) Else Exit Sub
+                                        If GetPlayerX(Index) > 0 Then X = GetPlayerX(Index) - 1: Y = GetPlayerY(Index) Else Exit Sub
                                     Case DIR_RIGHT
-                                        If GetPlayerX(Index) < MAX_MAPY Then x = GetPlayerX(Index) + 1: y = GetPlayerY(Index) Else Exit Sub
+                                        If GetPlayerX(Index) < MAX_MAPY Then X = GetPlayerX(Index) + 1: Y = GetPlayerY(Index) Else Exit Sub
                                 End Select
                                 
                                 ' Check if a key exists
-                                If Map(GetPlayerMap(Index)).Tile(x, y).type = TILE_TYPE_KEY Then
+                                If Map(GetPlayerMap(Index)).Tile(X, Y).type = TILE_TYPE_KEY Then
                                     ' Check if the key they are using matches the map key
-                                    If GetPlayerInvItemNum(Index, InvNum) = Map(GetPlayerMap(Index)).Tile(x, y).data1 Then
-                                        TempTile(GetPlayerMap(Index)).DoorOpen(x, y) = YES
+                                    If GetPlayerInvItemNum(Index, InvNum) = Map(GetPlayerMap(Index)).Tile(X, Y).data1 Then
+                                        TempTile(GetPlayerMap(Index)).DoorOpen(X, Y) = YES
                                         TempTile(GetPlayerMap(Index)).DoorTimer = GetTickCount
                                         
-                                        Call SendDataToMap(GetPlayerMap(Index), "MAPKEY" & SEP_CHAR & x & SEP_CHAR & y & SEP_CHAR & 1 & END_CHAR)
+                                        Call SendDataToMap(GetPlayerMap(Index), "MAPKEY" & SEP_CHAR & X & SEP_CHAR & Y & SEP_CHAR & 1 & END_CHAR)
                                         If Trim$(Map(GetPlayerMap(Index)).Tile(GetPlayerX(Index), GetPlayerY(Index)).String1) = vbNullString Then
                                             Call MapMsg(GetPlayerMap(Index), "La porte a été ouverte.", White)
                                         Else
@@ -1771,7 +1782,7 @@ Player(Index).sync = True
                                         Call SendDataToMap(GetPlayerMap(Index), "sound" & SEP_CHAR & "key" & END_CHAR)
                                         
                                         ' Check if we are supposed to take away the item
-                                        If Map(GetPlayerMap(Index)).Tile(x, y).data2 = 1 Then
+                                        If Map(GetPlayerMap(Index)).Tile(X, Y).data2 = 1 Then
                                             Call TakeItem(Index, GetPlayerInvItemNum(Index, InvNum), mi)
                                             Call PlayerMsg(Index, "La clé se dissous.", Yellow)
                                         End If
@@ -1779,13 +1790,13 @@ Player(Index).sync = True
                                 End If
                                 
                                 ' Check if a key exists
-                                If Map(GetPlayerMap(Index)).Tile(x, y).type = TILE_TYPE_COFFRE Then
+                                If Map(GetPlayerMap(Index)).Tile(X, Y).type = TILE_TYPE_COFFRE Then
                                     ' Check if the key they are using matches the map key
-                                    If GetPlayerInvItemNum(Index, InvNum) = Map(GetPlayerMap(Index)).Tile(x, y).data1 Then
-                                        TempTile(GetPlayerMap(Index)).DoorOpen(x, y) = YES
+                                    If GetPlayerInvItemNum(Index, InvNum) = Map(GetPlayerMap(Index)).Tile(X, Y).data1 Then
+                                        TempTile(GetPlayerMap(Index)).DoorOpen(X, Y) = YES
                                         TempTile(GetPlayerMap(Index)).DoorTimer = GetTickCount
                                         
-                                        Call SendDataToMap(GetPlayerMap(Index), "MAPKEY" & SEP_CHAR & x & SEP_CHAR & y & SEP_CHAR & 1 & END_CHAR)
+                                        Call SendDataToMap(GetPlayerMap(Index), "MAPKEY" & SEP_CHAR & X & SEP_CHAR & Y & SEP_CHAR & 1 & END_CHAR)
                                         If Trim$(Map(GetPlayerMap(Index)).Tile(GetPlayerX(Index), GetPlayerY(Index)).String1) = vbNullString Then
                                             Call MapMsg(GetPlayerMap(Index), "Le coffre a été ouvert.", White)
                                         Else
@@ -1794,20 +1805,20 @@ Player(Index).sync = True
                                         Call SendDataToMap(GetPlayerMap(Index), "sound" & SEP_CHAR & "key" & END_CHAR)
                                         
                                         ' Check if we are supposed to take away the item
-                                        If Map(GetPlayerMap(Index)).Tile(x, y).data2 = 1 Or Map(GetPlayerMap(Index)).Tile(x, y).data2 = "1" Then
+                                        If Map(GetPlayerMap(Index)).Tile(X, Y).data2 = 1 Or Map(GetPlayerMap(Index)).Tile(X, Y).data2 = "1" Then
                                             Call TakeItem(Index, GetPlayerInvItemNum(Index, InvNum), mi)
                                             Call PlayerMsg(Index, "La clé se dissous.", Yellow)
                                         End If
                                         
-                                        Call GiveItem(Index, Val(Map(GetPlayerMap(Index)).Tile(x, y).data3), 1)
+                                        Call GiveItem(Index, Val(Map(GetPlayerMap(Index)).Tile(X, Y).data3), 1)
                                     End If
                                 End If
                                 
-                                If Map(GetPlayerMap(Index)).Tile(x, y).type = TILE_TYPE_DOOR Then
-                                    TempTile(GetPlayerMap(Index)).DoorOpen(x, y) = YES
+                                If Map(GetPlayerMap(Index)).Tile(X, Y).type = TILE_TYPE_DOOR Then
+                                    TempTile(GetPlayerMap(Index)).DoorOpen(X, Y) = YES
                                     TempTile(GetPlayerMap(Index)).DoorTimer = GetTickCount
                                     
-                                    Call SendDataToMap(GetPlayerMap(Index), "MAPKEY" & SEP_CHAR & x & SEP_CHAR & y & SEP_CHAR & 1 & END_CHAR)
+                                    Call SendDataToMap(GetPlayerMap(Index), "MAPKEY" & SEP_CHAR & X & SEP_CHAR & Y & SEP_CHAR & 1 & END_CHAR)
                                     Call SendDataToMap(GetPlayerMap(Index), "sound" & SEP_CHAR & "key" & END_CHAR)
                                 End If
                                 
@@ -2573,11 +2584,11 @@ Player(Index).sync = True
                     metier(n).nom = Parse(2)
                     metier(n).type = Val(Parse(3))
                     metier(n).desc = Parse(4)
-                    x = 5
+                    X = 5
                     For i = 0 To MAX_DATA_METIER
                         For z = 0 To 1
-                            metier(n).data(i, z) = Val(Parse(x))
-                            x = x + 1
+                            metier(n).data(i, z) = Val(Parse(X))
+                            X = X + 1
                         Next z
                     Next i
                     
@@ -2607,16 +2618,16 @@ Player(Index).sync = True
                     n = Val(Parse(1))
                     If n < 0 Or n > MAX_RECETTE Then Call HackingAttempt(Index, "Index du recette Invalide"): Exit Sub
                     recette(n).nom = Parse(2)
-                    x = 3
+                    X = 3
                     For i = 0 To 9
                         For z = 0 To 1
-                            recette(n).InCraft(i, z) = Val(Parse(x))
-                            x = x + 1
+                            recette(n).InCraft(i, z) = Val(Parse(X))
+                            X = X + 1
                         Next z
                     Next i
                     For z = 0 To 1
-                        recette(n).craft(z) = Val(Parse(x))
-                        x = x + 1
+                        recette(n).craft(z) = Val(Parse(X))
+                        X = X + 1
                     Next z
                     
                     Call SendUpdaterecetteToAll(n)
@@ -2923,8 +2934,8 @@ Player(Index).sync = True
                     i = Player(Index).Char(Player(Index).CharNum).vendeur
                     ' Check if inv full
                     If i <= 0 Then Exit Sub
-                    x = FindOpenInvSlot(Index, Shop(i).TradeItem(n).value(z).GetItem)
-                    If x = 0 Then Call PlayerMsg(Index, "L'échange a échoué, Inventaire pleins.", BrightRed): Exit Sub
+                    X = FindOpenInvSlot(Index, Shop(i).TradeItem(n).value(z).GetItem)
+                    If X = 0 Then Call PlayerMsg(Index, "L'échange a échoué, Inventaire pleins.", BrightRed): Exit Sub
                     ' Check if they have the item
                     If HasItem(Index, Shop(i).TradeItem(n).value(z).GiveItem) >= Shop(i).TradeItem(n).value(z).GiveValue Then
                         Call TakeItem(Index, Shop(i).TradeItem(n).value(z).GiveItem, Shop(i).TradeItem(n).value(z).GiveValue)
@@ -2950,8 +2961,8 @@ Player(Index).sync = True
                     i = Player(Index).Char(Player(Index).CharNum).vendeur
                     ' Check if inv full
                     If i <= 0 Then Exit Sub
-                    x = FindOpenInvSlot(Index, Shop(i).TradeItem(n).value(z).GiveItem) 'Shop(i).TradeItem(N).value(z).GetItem)
-                    If x = 0 Then Call PlayerMsg(Index, "L'échange a échoué, Inventaire pleins.", BrightRed): Exit Sub
+                    X = FindOpenInvSlot(Index, Shop(i).TradeItem(n).value(z).GiveItem) 'Shop(i).TradeItem(N).value(z).GetItem)
+                    If X = 0 Then Call PlayerMsg(Index, "L'échange a échoué, Inventaire pleins.", BrightRed): Exit Sub
                     ' Check if they have the item
                     If HasItem(Index, Shop(i).TradeItem(n).value(z).GetItem) >= Shop(i).TradeItem(n).value(z).GetValue Then
                         Call GiveItem(Index, Shop(i).TradeItem(n).value(z).GiveItem, Math.Round(Shop(i).TradeItem(n).value(z).GiveValue / 2))
@@ -3008,13 +3019,13 @@ Player(Index).sync = True
                     Exit Sub
             
                 Case "search"
-                    x = Val(Parse(1))
-                    y = Val(Parse(2))
+                    X = Val(Parse(1))
+                    Y = Val(Parse(2))
                     ' Prevent subscript out of range
-                    If x < 0 Or x > MAX_MAPX Or y < 0 Or y > MAX_MAPY Then Exit Sub
+                    If X < 0 Or X > MAX_MAPX Or Y < 0 Or Y > MAX_MAPY Then Exit Sub
                     ' Check for a player
                     For i = 1 To MAX_PLAYERS
-                        If IsPlaying(i) And GetPlayerMap(Index) = GetPlayerMap(i) And GetPlayerX(i) = x And GetPlayerY(i) = y Then
+                        If IsPlaying(i) And GetPlayerMap(Index) = GetPlayerMap(i) And GetPlayerX(i) = X And GetPlayerY(i) = Y Then
                             ' Consider the player
                             If GetPlayerLevel(i) >= GetPlayerLevel(Index) + 5 Then
                                 Call PlayerMsg(Index, "Vos chance semble minime...", BrightRed)
@@ -3044,7 +3055,7 @@ Player(Index).sync = True
                     ' Check for an npc
                     For i = 1 To MAX_MAP_NPCS
                         If MapNpc(GetPlayerMap(Index), i).Num > 0 Then
-                            If MapNpc(GetPlayerMap(Index), i).x = x And MapNpc(GetPlayerMap(Index), i).y = y Then
+                            If MapNpc(GetPlayerMap(Index), i).X = X And MapNpc(GetPlayerMap(Index), i).Y = Y Then
                                 ' Change target
                                 Player(Index).Target = i
                                 Player(Index).TargetType = TARGET_TYPE_NPC
@@ -3057,7 +3068,7 @@ Player(Index).sync = True
                     ' Check for an item
                     For i = 1 To MAX_MAP_ITEMS
                         If MapItem(GetPlayerMap(Index), i).Num > 0 Then
-                            If MapItem(GetPlayerMap(Index), i).x = x And MapItem(GetPlayerMap(Index), i).y = y Then
+                            If MapItem(GetPlayerMap(Index), i).X = X And MapItem(GetPlayerMap(Index), i).Y = Y Then
                                 Call PlayerMsg(Index, "Vous voyez un " & Trim$(item(MapItem(GetPlayerMap(Index), i).Num).Name) & ".", Yellow)
                                 Exit Sub
                             End If
@@ -3167,27 +3178,27 @@ Player(Index).sync = True
                         
                         If Player(Index).TradeItemMax2 = Player(Index).TradeItemMax And Player(n).TradeItemMax2 = Player(n).TradeItemMax Then
                             For i = 1 To MAX_PLAYER_TRADES
-                                For x = 1 To MAX_INV
-                                    If GetPlayerInvItemNum(n, x) < 1 Then
+                                For X = 1 To MAX_INV
+                                    If GetPlayerInvItemNum(n, X) < 1 Then
                                         If Player(Index).Trading(i).InvNum > 0 Then
                                             Call GiveItem(n, GetPlayerInvItemNum(Index, Player(Index).Trading(i).InvNum), Player(Index).Trading(i).InvVal)
                                             Call TakeItem(Index, GetPlayerInvItemNum(Index, Player(Index).Trading(i).InvNum), Player(Index).Trading(i).InvVal)
                                             Exit For
                                         End If
                                     End If
-                                Next x
+                                Next X
                             Next i
             
                             For i = 1 To MAX_PLAYER_TRADES
-                                For x = 1 To MAX_INV
-                                    If GetPlayerInvItemNum(Index, x) < 1 Then
+                                For X = 1 To MAX_INV
+                                    If GetPlayerInvItemNum(Index, X) < 1 Then
                                         If Player(n).Trading(i).InvNum > 0 Then
                                             Call GiveItem(Index, GetPlayerInvItemNum(n, Player(n).Trading(i).InvNum), Player(n).Trading(i).InvVal)
                                             Call TakeItem(n, GetPlayerInvItemNum(n, Player(n).Trading(i).InvNum), Player(n).Trading(i).InvVal)
                                             Exit For
                                         End If
                                     End If
-                                Next x
+                                Next X
                             Next i
                             Call PlayerMsg(n, "Echange réussit.", BrightGreen)
                             Call PlayerMsg(Index, "Echange réussit.", BrightGreen)
@@ -3652,8 +3663,8 @@ End Sub
 
 Sub SendMap(ByVal Index As Long, ByVal MapNum As Long)
 Dim Packet As String
-Dim x As Long
-Dim y As Long
+Dim X As Long
+Dim Y As Long
 Dim i As Long
 Dim s As String
 On Error GoTo er:
@@ -3668,32 +3679,32 @@ Else
     
     Packet = "MAPTILES" & SEP_CHAR
     
-    For y = 0 To MAX_MAPY
-        For x = 0 To MAX_MAPX
-        With Map(MapNum).Tile(x, y)
+    For Y = 0 To MAX_MAPY
+        For X = 0 To MAX_MAPX
+        With Map(MapNum).Tile(X, Y)
             Packet = Packet & .Ground & SEP_CHAR & .Mask & SEP_CHAR & .Anim & SEP_CHAR & .Mask2 & SEP_CHAR & .M2Anim & SEP_CHAR & .Fringe & SEP_CHAR & .FAnim & SEP_CHAR & .Fringe2 & SEP_CHAR & .F2Anim & SEP_CHAR & .type & SEP_CHAR & .data1 & SEP_CHAR & .data2 & SEP_CHAR & .data3 & SEP_CHAR & .String1 & SEP_CHAR & .String2 & SEP_CHAR & .String3 & SEP_CHAR & .Light & SEP_CHAR
             Packet = Packet & .GroundSet & SEP_CHAR & .MaskSet & SEP_CHAR & .AnimSet & SEP_CHAR & .Mask2Set & SEP_CHAR & .M2AnimSet & SEP_CHAR & .FringeSet & SEP_CHAR & .FAnimSet & SEP_CHAR & .Fringe2Set & SEP_CHAR & .F2AnimSet & SEP_CHAR & .Fringe3 & SEP_CHAR & .F3Anim & SEP_CHAR & .Fringe3Set & SEP_CHAR & .F3AnimSet & SEP_CHAR & .M3Anim & SEP_CHAR & .M3AnimSet & SEP_CHAR & .Mask3 & SEP_CHAR & .Mask3Set & SEP_CHAR  '<--
         End With
-        Next x
-    Next y
+        Next X
+    Next Y
     
     Packet = Packet & END_CHAR
     Call SendDataTo(Index, Packet)
     
     Packet = "MAPNPCS" & SEP_CHAR
-    For x = 1 To MAX_MAP_NPCS
-        Packet = Packet & Map(GetPlayerMap(Index)).Npc(x) & SEP_CHAR
-        Packet = Packet & Map(GetPlayerMap(Index)).Npcs(x).x & SEP_CHAR
-        Packet = Packet & Map(GetPlayerMap(Index)).Npcs(x).y & SEP_CHAR
-        Packet = Packet & Map(GetPlayerMap(Index)).Npcs(x).x1 & SEP_CHAR
-        Packet = Packet & Map(GetPlayerMap(Index)).Npcs(x).y1 & SEP_CHAR
-        Packet = Packet & Map(GetPlayerMap(Index)).Npcs(x).x2 & SEP_CHAR
-        Packet = Packet & Map(GetPlayerMap(Index)).Npcs(x).y2 & SEP_CHAR
-        Packet = Packet & Map(GetPlayerMap(Index)).Npcs(x).Hasardm & SEP_CHAR
-        Packet = Packet & Map(GetPlayerMap(Index)).Npcs(x).Hasardp & SEP_CHAR
-        Packet = Packet & Map(GetPlayerMap(Index)).Npcs(x).boucle & SEP_CHAR
-        Packet = Packet & Map(GetPlayerMap(Index)).Npcs(x).Imobile & SEP_CHAR
-    Next x
+    For X = 1 To MAX_MAP_NPCS
+        Packet = Packet & Map(GetPlayerMap(Index)).Npc(X) & SEP_CHAR
+        Packet = Packet & Map(GetPlayerMap(Index)).Npcs(X).X & SEP_CHAR
+        Packet = Packet & Map(GetPlayerMap(Index)).Npcs(X).Y & SEP_CHAR
+        Packet = Packet & Map(GetPlayerMap(Index)).Npcs(X).x1 & SEP_CHAR
+        Packet = Packet & Map(GetPlayerMap(Index)).Npcs(X).y1 & SEP_CHAR
+        Packet = Packet & Map(GetPlayerMap(Index)).Npcs(X).x2 & SEP_CHAR
+        Packet = Packet & Map(GetPlayerMap(Index)).Npcs(X).y2 & SEP_CHAR
+        Packet = Packet & Map(GetPlayerMap(Index)).Npcs(X).Hasardm & SEP_CHAR
+        Packet = Packet & Map(GetPlayerMap(Index)).Npcs(X).Hasardp & SEP_CHAR
+        Packet = Packet & Map(GetPlayerMap(Index)).Npcs(X).boucle & SEP_CHAR
+        Packet = Packet & Map(GetPlayerMap(Index)).Npcs(X).Imobile & SEP_CHAR
+    Next X
         
     Packet = Packet & END_CHAR
         
@@ -3715,7 +3726,7 @@ Dim i As Long
 
     Packet = "MAPITEMDATA" & SEP_CHAR
     For i = 1 To MAX_MAP_ITEMS
-        If MapNum > 0 Then Packet = Packet & MapItem(MapNum, i).Num & SEP_CHAR & MapItem(MapNum, i).value & SEP_CHAR & MapItem(MapNum, i).Dur & SEP_CHAR & MapItem(MapNum, i).x & SEP_CHAR & MapItem(MapNum, i).y & SEP_CHAR
+        If MapNum > 0 Then Packet = Packet & MapItem(MapNum, i).Num & SEP_CHAR & MapItem(MapNum, i).value & SEP_CHAR & MapItem(MapNum, i).Dur & SEP_CHAR & MapItem(MapNum, i).X & SEP_CHAR & MapItem(MapNum, i).Y & SEP_CHAR
     Next i
     Packet = Packet & END_CHAR
     
@@ -3728,7 +3739,7 @@ Dim i As Long
 
     Packet = "MAPITEMDATA" & SEP_CHAR
     For i = 1 To MAX_MAP_ITEMS
-        Packet = Packet & MapItem(MapNum, i).Num & SEP_CHAR & MapItem(MapNum, i).value & SEP_CHAR & MapItem(MapNum, i).Dur & SEP_CHAR & MapItem(MapNum, i).x & SEP_CHAR & MapItem(MapNum, i).y & SEP_CHAR
+        Packet = Packet & MapItem(MapNum, i).Num & SEP_CHAR & MapItem(MapNum, i).value & SEP_CHAR & MapItem(MapNum, i).Dur & SEP_CHAR & MapItem(MapNum, i).X & SEP_CHAR & MapItem(MapNum, i).Y & SEP_CHAR
     Next i
     Packet = Packet & END_CHAR
     
@@ -3741,7 +3752,7 @@ Dim i As Long
 
     Packet = "MAPNPCDATA" & SEP_CHAR
     For i = 1 To MAX_MAP_NPCS
-        If MapNum > 0 Then Packet = Packet & MapNpc(MapNum, i).Num & SEP_CHAR & MapNpc(MapNum, i).x & SEP_CHAR & MapNpc(MapNum, i).y & SEP_CHAR & MapNpc(MapNum, i).Dir & SEP_CHAR
+        If MapNum > 0 Then Packet = Packet & MapNpc(MapNum, i).Num & SEP_CHAR & MapNpc(MapNum, i).X & SEP_CHAR & MapNpc(MapNum, i).Y & SEP_CHAR & MapNpc(MapNum, i).Dir & SEP_CHAR
     Next i
     Packet = Packet & END_CHAR
     
@@ -3754,7 +3765,7 @@ Dim i As Long
 
     Packet = "MAPNPCDATA" & SEP_CHAR
     For i = 1 To MAX_MAP_NPCS
-        Packet = Packet & MapNpc(MapNum, i).Num & SEP_CHAR & MapNpc(MapNum, i).x & SEP_CHAR & MapNpc(MapNum, i).y & SEP_CHAR & MapNpc(MapNum, i).Dir & SEP_CHAR
+        Packet = Packet & MapNpc(MapNum, i).Num & SEP_CHAR & MapNpc(MapNum, i).X & SEP_CHAR & MapNpc(MapNum, i).Y & SEP_CHAR & MapNpc(MapNum, i).Dir & SEP_CHAR
     Next i
     Packet = Packet & END_CHAR
     
@@ -3856,15 +3867,15 @@ Dim Packet As String
 End Sub
 
 Sub SendHP(ByVal Index As Long)
-Dim Packet As String, x As Byte
+Dim Packet As String, X As Byte
 
     Packet = "PLAYERHP" & SEP_CHAR & GetPlayerMaxHP(Index) & SEP_CHAR & GetPlayerHP(Index) & END_CHAR
     Call SendDataTo(Index, Packet)
     
     If Player(Index).InParty > 0 Then
-        For x = 1 To Party.MemberCount(Player(Index).InParty)
-            If Player(Index).PartyPlayer <> x Then Call SendDataTo(Party.PlayerIndex(Player(Index).InParty, x), "partyhp" & SEP_CHAR & Index & SEP_CHAR & Player(Index).InParty & SEP_CHAR & GetPlayerMaxHP(Index) & SEP_CHAR & Player(Index).Char(Player(Index).CharNum).HP & SEP_CHAR & GetPlayerMaxMP(Index) & SEP_CHAR & Player(Index).Char(Player(Index).CharNum).MP & END_CHAR)
-        Next x
+        For X = 1 To Party.MemberCount(Player(Index).InParty)
+            If Player(Index).PartyPlayer <> X Then Call SendDataTo(Party.PlayerIndex(Player(Index).InParty, X), "partyhp" & SEP_CHAR & Index & SEP_CHAR & Player(Index).InParty & SEP_CHAR & GetPlayerMaxHP(Index) & SEP_CHAR & Player(Index).Char(Player(Index).CharNum).HP & SEP_CHAR & GetPlayerMaxMP(Index) & SEP_CHAR & Player(Index).Char(Player(Index).CharNum).MP & END_CHAR)
+        Next X
     End If
     
     Packet = "PLAYERPOINTS" & SEP_CHAR & GetPlayerPOINTS(Index) & END_CHAR
@@ -4278,7 +4289,7 @@ End Sub
 
 Sub SendTrade(ByVal Index As Long, ByVal ShopNum As Long)
 Dim Packet As String
-Dim i As Long, x As Long, y As Long, z As Long, XX As Long
+Dim i As Long, X As Long, Y As Long, z As Long, XX As Long
     
     Player(Index).Char(Player(Index).CharNum).vendeur = ShopNum
     
@@ -4336,7 +4347,7 @@ Dim Weather As String
         Case 3
             Weather = "Orage"
     End Select
-    frmServer.Label5.Caption = "Météorologie présentement : " & Weather
+    frmServer.Label5.Caption = "Temps actuel : " & Weather
     
     For i = 1 To MAX_PLAYERS
         If IsPlaying(i) Then Call SendWeatherTo(i)

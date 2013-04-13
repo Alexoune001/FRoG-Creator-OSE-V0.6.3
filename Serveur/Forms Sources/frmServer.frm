@@ -51,26 +51,26 @@ Begin VB.Form frmServer
       TabCaption(0)   =   "Discussions"
       TabPicture(0)   =   "frmServer.frx":17D2A
       Tab(0).ControlEnabled=   0   'False
-      Tab(0).Control(0)=   "Label6"
-      Tab(0).Control(1)=   "Image1"
-      Tab(0).Control(2)=   "mesgSave"
-      Tab(0).Control(3)=   "CustomMsg(0)"
-      Tab(0).Control(4)=   "Say(0)"
-      Tab(0).Control(5)=   "Frame5"
-      Tab(0).Control(6)=   "CustomMsg(1)"
-      Tab(0).Control(7)=   "CustomMsg(2)"
-      Tab(0).Control(8)=   "CustomMsg(3)"
-      Tab(0).Control(9)=   "CustomMsg(4)"
-      Tab(0).Control(10)=   "CustomMsg(5)"
-      Tab(0).Control(11)=   "Say(1)"
-      Tab(0).Control(12)=   "Say(2)"
-      Tab(0).Control(13)=   "Say(3)"
-      Tab(0).Control(14)=   "Say(4)"
-      Tab(0).Control(15)=   "Say(5)"
-      Tab(0).Control(16)=   "SSTab2"
-      Tab(0).Control(17)=   "picCMsg"
-      Tab(0).Control(18)=   "tmrChatLogs"
-      Tab(0).Control(19)=   "mesgSaveTimer"
+      Tab(0).Control(0)=   "mesgSaveTimer"
+      Tab(0).Control(1)=   "tmrChatLogs"
+      Tab(0).Control(2)=   "picCMsg"
+      Tab(0).Control(3)=   "SSTab2"
+      Tab(0).Control(4)=   "Say(5)"
+      Tab(0).Control(5)=   "Say(4)"
+      Tab(0).Control(6)=   "Say(3)"
+      Tab(0).Control(7)=   "Say(2)"
+      Tab(0).Control(8)=   "Say(1)"
+      Tab(0).Control(9)=   "CustomMsg(5)"
+      Tab(0).Control(10)=   "CustomMsg(4)"
+      Tab(0).Control(11)=   "CustomMsg(3)"
+      Tab(0).Control(12)=   "CustomMsg(2)"
+      Tab(0).Control(13)=   "CustomMsg(1)"
+      Tab(0).Control(14)=   "Frame5"
+      Tab(0).Control(15)=   "Say(0)"
+      Tab(0).Control(16)=   "CustomMsg(0)"
+      Tab(0).Control(17)=   "mesgSave"
+      Tab(0).Control(18)=   "Image1"
+      Tab(0).Control(19)=   "Label6"
       Tab(0).ControlCount=   20
       TabCaption(1)   =   "Joueur"
       TabPicture(1)   =   "frmServer.frx":17D46
@@ -111,36 +111,36 @@ Begin VB.Form frmServer
       Tab(2).Control(0).Enabled=   0   'False
       Tab(2).Control(1)=   "lblIP"
       Tab(2).Control(1).Enabled=   0   'False
-      Tab(2).Control(2)=   "Frame2"
+      Tab(2).Control(2)=   "lblgamename"
       Tab(2).Control(2).Enabled=   0   'False
-      Tab(2).Control(3)=   "Frame3"
+      Tab(2).Control(3)=   "lbliplocal"
       Tab(2).Control(3).Enabled=   0   'False
-      Tab(2).Control(4)=   "Frame8"
+      Tab(2).Control(4)=   "Frame2"
       Tab(2).Control(4).Enabled=   0   'False
-      Tab(2).Control(5)=   "picWeather"
+      Tab(2).Control(5)=   "Frame3"
       Tab(2).Control(5).Enabled=   0   'False
-      Tab(2).Control(6)=   "Frame1"
+      Tab(2).Control(6)=   "Frame8"
       Tab(2).Control(6).Enabled=   0   'False
-      Tab(2).Control(7)=   "Frame7"
+      Tab(2).Control(7)=   "Frame1"
       Tab(2).Control(7).Enabled=   0   'False
       Tab(2).Control(8)=   "Frame9"
       Tab(2).Control(8).Enabled=   0   'False
       Tab(2).Control(9)=   "Frame4"
       Tab(2).Control(9).Enabled=   0   'False
-      Tab(2).Control(10)=   "picMap"
+      Tab(2).Control(10)=   "picWeather"
       Tab(2).Control(10).Enabled=   0   'False
       Tab(2).ControlCount=   11
       TabCaption(3)   =   "Aide"
       TabPicture(3)   =   "frmServer.frx":17D7E
       Tab(3).ControlEnabled=   0   'False
-      Tab(3).Control(0)=   "CharInfo(21)"
-      Tab(3).Control(1)=   "CharInfo(22)"
-      Tab(3).Control(2)=   "CharInfo(23)"
-      Tab(3).Control(3)=   "lstTopics"
-      Tab(3).Control(4)=   "TopicTitle"
-      Tab(3).Control(5)=   "sync"
+      Tab(3).Control(0)=   "sync"
+      Tab(3).Control(1)=   "TopicTitle"
+      Tab(3).Control(2)=   "lstTopics"
+      Tab(3).Control(3)=   "CharInfo(23)"
+      Tab(3).Control(4)=   "CharInfo(22)"
+      Tab(3).Control(5)=   "CharInfo(21)"
       Tab(3).ControlCount=   6
-      Begin VB.PictureBox picMap 
+      Begin VB.PictureBox picWeather 
          Appearance      =   0  'Flat
          BeginProperty Font 
             Name            =   "Segoe UI"
@@ -152,199 +152,107 @@ Begin VB.Form frmServer
             Strikethrough   =   0   'False
          EndProperty
          ForeColor       =   &H80000008&
-         Height          =   3375
-         Left            =   6000
-         ScaleHeight     =   223
+         Height          =   2055
+         Left            =   4920
+         ScaleHeight     =   135
          ScaleMode       =   3  'Pixel
-         ScaleWidth      =   223
-         TabIndex        =   102
-         Top             =   600
+         ScaleWidth      =   247
+         TabIndex        =   111
+         Top             =   2160
          Visible         =   0   'False
-         Width           =   3375
-         Begin VB.ListBox lstNPC 
-            Height          =   2310
-            Left            =   1680
-            TabIndex        =   117
-            Top             =   480
-            Width           =   1575
-         End
-         Begin VB.CommandButton Command41 
-            Caption         =   "Annuler"
+         Width           =   3735
+         Begin VB.CommandButton CommandMeteoMap 
+            Caption         =   "Désactiver la météo par map"
             Height          =   255
-            Left            =   1680
-            TabIndex        =   103
-            Top             =   3000
-            Width           =   1575
+            Left            =   240
+            TabIndex        =   164
+            Top             =   1080
+            Width           =   3255
          End
-         Begin VB.Label MapInfo 
-            AutoSize        =   -1  'True
-            BackStyle       =   0  'Transparent
-            Caption         =   "PNJ :"
-            Height          =   195
-            Index           =   13
-            Left            =   1680
-            TabIndex        =   118
-            Top             =   285
-            Width           =   375
+         Begin VB.CommandButton Command65 
+            Caption         =   "Neige"
+            Height          =   255
+            Left            =   2160
+            TabIndex        =   117
+            Top             =   720
+            Width           =   1335
          End
-         Begin VB.Label MapInfo 
-            AutoSize        =   -1  'True
-            BackStyle       =   0  'Transparent
-            Caption         =   "Intérieur:"
-            Height          =   195
-            Index           =   12
-            Left            =   120
+         Begin VB.CommandButton Command64 
+            Caption         =   "Pluie"
+            Height          =   255
+            Left            =   240
             TabIndex        =   116
-            Top             =   3000
-            Width           =   690
+            Top             =   720
+            Width           =   1335
          End
-         Begin VB.Label MapInfo 
-            AutoSize        =   -1  'True
-            BackStyle       =   0  'Transparent
-            Caption         =   "Magasin:"
-            Height          =   195
-            Index           =   11
-            Left            =   120
+         Begin VB.CommandButton Command63 
+            Caption         =   "Orage"
+            Height          =   255
+            Left            =   2160
             TabIndex        =   115
-            Top             =   2760
-            Width           =   645
+            Top             =   480
+            Width           =   1335
          End
-         Begin VB.Label MapInfo 
-            AutoSize        =   -1  'True
-            BackStyle       =   0  'Transparent
-            Caption         =   "Départ des Y:"
-            Height          =   195
-            Index           =   10
-            Left            =   120
+         Begin VB.CommandButton Command62 
+            Caption         =   "Soleil"
+            Height          =   255
+            Left            =   240
             TabIndex        =   114
-            Top             =   2520
-            Width           =   990
+            Top             =   480
+            Width           =   1335
          End
-         Begin VB.Label MapInfo 
+         Begin VB.CommandButton Command61 
+            Caption         =   "Fermer"
+            Height          =   255
+            Left            =   2160
+            TabIndex        =   112
+            Top             =   1680
+            Width           =   1335
+         End
+         Begin VB.Label Label12 
             AutoSize        =   -1  'True
             BackStyle       =   0  'Transparent
-            Caption         =   "Départ des X:"
+            Caption         =   "La météo par map est activée actuellement"
+            BeginProperty Font 
+               Name            =   "Segoe UI"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
             Height          =   195
-            Index           =   9
+            Left            =   120
+            TabIndex        =   165
+            Top             =   1440
+            Width           =   3240
+         End
+         Begin VB.Label Label5 
+            AutoSize        =   -1  'True
+            BackStyle       =   0  'Transparent
+            Caption         =   "Temps actuel : Soleil"
+            Height          =   225
             Left            =   120
             TabIndex        =   113
-            Top             =   2280
-            Width           =   990
-         End
-         Begin VB.Label MapInfo 
-            AutoSize        =   -1  'True
-            BackStyle       =   0  'Transparent
-            Caption         =   "Map de départ:"
-            Height          =   195
-            Index           =   8
-            Left            =   120
-            TabIndex        =   112
-            Top             =   2040
-            Width           =   1110
-         End
-         Begin VB.Label MapInfo 
-            AutoSize        =   -1  'True
-            BackStyle       =   0  'Transparent
-            Caption         =   "Musique:"
-            Height          =   195
-            Index           =   7
-            Left            =   120
-            TabIndex        =   111
-            Top             =   1800
-            Width           =   645
-         End
-         Begin VB.Label MapInfo 
-            AutoSize        =   -1  'True
-            BackStyle       =   0  'Transparent
-            Caption         =   "Droite:"
-            Height          =   195
-            Index           =   6
-            Left            =   120
-            TabIndex        =   110
-            Top             =   1560
-            Width           =   495
-         End
-         Begin VB.Label MapInfo 
-            AutoSize        =   -1  'True
-            BackStyle       =   0  'Transparent
-            Caption         =   "Gauche:"
-            Height          =   195
-            Index           =   5
-            Left            =   120
-            TabIndex        =   109
-            Top             =   1320
-            Width           =   600
-         End
-         Begin VB.Label MapInfo 
-            AutoSize        =   -1  'True
-            BackStyle       =   0  'Transparent
-            Caption         =   "Bas:"
-            Height          =   195
-            Index           =   4
-            Left            =   120
-            TabIndex        =   108
-            Top             =   1080
-            Width           =   315
-         End
-         Begin VB.Label MapInfo 
-            AutoSize        =   -1  'True
-            BackStyle       =   0  'Transparent
-            Caption         =   "Haut:"
-            Height          =   195
-            Index           =   3
-            Left            =   120
-            TabIndex        =   107
-            Top             =   840
-            Width           =   405
-         End
-         Begin VB.Label MapInfo 
-            AutoSize        =   -1  'True
-            BackStyle       =   0  'Transparent
-            Caption         =   "Morale:"
-            Height          =   195
-            Index           =   2
-            Left            =   120
-            TabIndex        =   106
-            Top             =   600
-            Width           =   540
-         End
-         Begin VB.Label MapInfo 
-            AutoSize        =   -1  'True
-            BackStyle       =   0  'Transparent
-            Caption         =   "Révision:"
-            Height          =   195
-            Index           =   1
-            Left            =   120
-            TabIndex        =   105
-            Top             =   360
-            Width           =   660
-         End
-         Begin VB.Label MapInfo 
-            AutoSize        =   -1  'True
-            BackStyle       =   0  'Transparent
-            Caption         =   "Map"
-            Height          =   195
-            Index           =   0
-            Left            =   120
-            TabIndex        =   104
             Top             =   120
-            Width           =   300
+            Width           =   3420
          End
       End
       Begin VB.Frame Frame4 
          Caption         =   "Ratio d'expérience"
-         Height          =   1815
+         Height          =   1695
          Left            =   2040
-         TabIndex        =   188
-         Top             =   480
+         TabIndex        =   167
+         Top             =   600
          Width           =   3015
          Begin VB.CommandButton Command13 
             Caption         =   "Valider"
             Enabled         =   0   'False
-            Height          =   255
+            Height          =   225
             Left            =   1080
-            TabIndex        =   193
-            Top             =   1440
+            TabIndex        =   172
+            Top             =   1400
             Width           =   975
          End
          Begin VB.HScrollBar HScroll2 
@@ -352,7 +260,7 @@ Begin VB.Form frmServer
             Left            =   120
             Max             =   100
             Min             =   1
-            TabIndex        =   192
+            TabIndex        =   171
             Top             =   1080
             Value           =   1
             Width           =   2775
@@ -362,7 +270,7 @@ Begin VB.Form frmServer
             Left            =   120
             Max             =   100
             Min             =   1
-            TabIndex        =   190
+            TabIndex        =   169
             Top             =   480
             Value           =   1
             Width           =   2775
@@ -371,7 +279,7 @@ Begin VB.Form frmServer
             Caption         =   "Ratio d'expérience quête : 1"
             Height          =   255
             Left            =   240
-            TabIndex        =   191
+            TabIndex        =   170
             Top             =   840
             Width           =   2775
          End
@@ -379,7 +287,7 @@ Begin VB.Form frmServer
             Caption         =   "Ratio d'expérience normal : 1"
             Height          =   255
             Left            =   240
-            TabIndex        =   189
+            TabIndex        =   168
             Top             =   240
             Width           =   2775
          End
@@ -388,14 +296,14 @@ Begin VB.Form frmServer
          Caption         =   "Liste des Cartes"
          Height          =   1815
          Left            =   5160
-         TabIndex        =   100
+         TabIndex        =   96
          Top             =   480
          Width           =   4935
          Begin VB.CommandButton Command36 
             Caption         =   "Informations sur la carte"
             Height          =   255
             Left            =   2640
-            TabIndex        =   184
+            TabIndex        =   163
             Top             =   1320
             Width           =   2055
          End
@@ -403,56 +311,24 @@ Begin VB.Form frmServer
             Caption         =   "Rafraîchir"
             Height          =   255
             Left            =   120
-            TabIndex        =   183
+            TabIndex        =   162
             Top             =   1320
             Width           =   2055
          End
          Begin VB.ListBox MapList 
             Height          =   960
             Left            =   120
-            TabIndex        =   101
+            TabIndex        =   97
             Top             =   240
             Width           =   4575
          End
       End
-      Begin VB.Frame Frame7 
-         Caption         =   "Fichier Texte"
-         Height          =   1215
-         Left            =   120
-         TabIndex        =   96
-         Top             =   960
-         Width           =   1815
-         Begin VB.CommandButton Command44 
-            Caption         =   "Player.txt"
-            Height          =   255
-            Left            =   120
-            TabIndex        =   99
-            Top             =   840
-            Width           =   1575
-         End
-         Begin VB.CommandButton Command43 
-            Caption         =   "BanList.txt"
-            Height          =   255
-            Left            =   120
-            TabIndex        =   98
-            Top             =   600
-            Width           =   1575
-         End
-         Begin VB.CommandButton Command42 
-            Caption         =   "Admin.txt"
-            Height          =   255
-            Left            =   120
-            TabIndex        =   97
-            Top             =   360
-            Width           =   1575
-         End
-      End
       Begin VB.Frame Frame1 
          Caption         =   "Scripts"
-         Height          =   1455
+         Height          =   1575
          Left            =   120
          TabIndex        =   16
-         Top             =   2160
+         Top             =   1920
          Width           =   1815
          Begin VB.CommandButton Command27 
             Caption         =   "Activer"
@@ -478,6 +354,15 @@ Begin VB.Form frmServer
             Top             =   360
             Width           =   1575
          End
+         Begin VB.Label lblscript 
+            Caption         =   "Etat : désactivé"
+            ForeColor       =   &H00C0C000&
+            Height          =   255
+            Left            =   240
+            TabIndex        =   174
+            Top             =   1200
+            Width           =   1335
+         End
       End
       Begin VB.PictureBox picExp 
          Appearance      =   0  'Flat
@@ -496,7 +381,7 @@ Begin VB.Form frmServer
          ScaleHeight     =   87
          ScaleMode       =   3  'Pixel
          ScaleWidth      =   215
-         TabIndex        =   169
+         TabIndex        =   148
          Top             =   2880
          Visible         =   0   'False
          Width           =   3255
@@ -504,7 +389,7 @@ Begin VB.Form frmServer
             Caption         =   "OK"
             Height          =   255
             Left            =   1560
-            TabIndex        =   172
+            TabIndex        =   151
             Top             =   720
             Width           =   1575
          End
@@ -520,7 +405,7 @@ Begin VB.Form frmServer
             EndProperty
             Height          =   255
             Left            =   120
-            TabIndex        =   171
+            TabIndex        =   150
             Top             =   360
             Width           =   2955
          End
@@ -528,7 +413,7 @@ Begin VB.Form frmServer
             Caption         =   "Annuler"
             Height          =   255
             Left            =   1560
-            TabIndex        =   170
+            TabIndex        =   149
             Top             =   960
             Width           =   1575
          End
@@ -538,7 +423,7 @@ Begin VB.Form frmServer
             Caption         =   "Expérience:"
             Height          =   195
             Left            =   120
-            TabIndex        =   173
+            TabIndex        =   152
             Top             =   120
             Width           =   855
          End
@@ -634,105 +519,6 @@ Begin VB.Form frmServer
             Width           =   645
          End
       End
-      Begin VB.PictureBox picWeather 
-         Appearance      =   0  'Flat
-         BeginProperty Font 
-            Name            =   "Segoe UI"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         ForeColor       =   &H80000008&
-         Height          =   2055
-         Left            =   6240
-         ScaleHeight     =   135
-         ScaleMode       =   3  'Pixel
-         ScaleWidth      =   247
-         TabIndex        =   132
-         Top             =   2520
-         Visible         =   0   'False
-         Width           =   3735
-         Begin VB.CommandButton CommandMeteoMap 
-            Caption         =   "Désactiver la météo par map"
-            Height          =   255
-            Left            =   240
-            TabIndex        =   185
-            Top             =   1080
-            Width           =   3255
-         End
-         Begin VB.CommandButton Command65 
-            Caption         =   "Neige"
-            Height          =   255
-            Left            =   2160
-            TabIndex        =   138
-            Top             =   720
-            Width           =   1335
-         End
-         Begin VB.CommandButton Command64 
-            Caption         =   "Pluie"
-            Height          =   255
-            Left            =   240
-            TabIndex        =   137
-            Top             =   720
-            Width           =   1335
-         End
-         Begin VB.CommandButton Command63 
-            Caption         =   "Orage"
-            Height          =   255
-            Left            =   2160
-            TabIndex        =   136
-            Top             =   480
-            Width           =   1335
-         End
-         Begin VB.CommandButton Command62 
-            Caption         =   "Soleil"
-            Height          =   255
-            Left            =   240
-            TabIndex        =   135
-            Top             =   480
-            Width           =   1335
-         End
-         Begin VB.CommandButton Command61 
-            Caption         =   "Annuler"
-            Height          =   255
-            Left            =   2160
-            TabIndex        =   133
-            Top             =   1680
-            Width           =   1335
-         End
-         Begin VB.Label Label12 
-            AutoSize        =   -1  'True
-            BackStyle       =   0  'Transparent
-            Caption         =   "La météo par map est activée actuellement"
-            BeginProperty Font 
-               Name            =   "Segoe UI"
-               Size            =   8.25
-               Charset         =   0
-               Weight          =   400
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            Height          =   195
-            Left            =   120
-            TabIndex        =   186
-            Top             =   1440
-            Width           =   3240
-         End
-         Begin VB.Label Label5 
-            AutoSize        =   -1  'True
-            BackStyle       =   0  'Transparent
-            Caption         =   "Météologie présentement: Aucune"
-            Height          =   195
-            Left            =   45
-            TabIndex        =   134
-            Top             =   120
-            Width           =   3435
-         End
-      End
       Begin VB.PictureBox picWarp 
          Appearance      =   0  'Flat
          BeginProperty Font 
@@ -750,7 +536,7 @@ Begin VB.Form frmServer
          ScaleHeight     =   167
          ScaleMode       =   3  'Pixel
          ScaleWidth      =   215
-         TabIndex        =   174
+         TabIndex        =   153
          Top             =   1200
          Visible         =   0   'False
          Width           =   3255
@@ -758,7 +544,7 @@ Begin VB.Form frmServer
             Caption         =   "Téléporter"
             Height          =   255
             Left            =   1560
-            TabIndex        =   179
+            TabIndex        =   158
             Top             =   1920
             Width           =   1575
          End
@@ -766,7 +552,7 @@ Begin VB.Form frmServer
             Height          =   255
             Left            =   120
             Min             =   1
-            TabIndex        =   178
+            TabIndex        =   157
             Top             =   360
             Value           =   1
             Width           =   3015
@@ -774,14 +560,14 @@ Begin VB.Form frmServer
          Begin VB.HScrollBar scrlMX 
             Height          =   255
             Left            =   120
-            TabIndex        =   177
+            TabIndex        =   156
             Top             =   960
             Width           =   3015
          End
          Begin VB.HScrollBar scrlMY 
             Height          =   255
             Left            =   120
-            TabIndex        =   176
+            TabIndex        =   155
             Top             =   1560
             Width           =   3015
          End
@@ -789,7 +575,7 @@ Begin VB.Form frmServer
             Caption         =   "Annuler"
             Height          =   255
             Left            =   1560
-            TabIndex        =   175
+            TabIndex        =   154
             Top             =   2160
             Width           =   1575
          End
@@ -799,7 +585,7 @@ Begin VB.Form frmServer
             Caption         =   "Map: 1"
             Height          =   195
             Left            =   120
-            TabIndex        =   182
+            TabIndex        =   161
             Top             =   120
             Width           =   495
          End
@@ -809,7 +595,7 @@ Begin VB.Form frmServer
             Caption         =   "X: 0"
             Height          =   195
             Left            =   120
-            TabIndex        =   181
+            TabIndex        =   160
             Top             =   720
             Width           =   285
          End
@@ -819,7 +605,7 @@ Begin VB.Form frmServer
             Caption         =   "Y: 0"
             Height          =   195
             Left            =   120
-            TabIndex        =   180
+            TabIndex        =   159
             Top             =   1320
             Width           =   285
          End
@@ -828,7 +614,7 @@ Begin VB.Form frmServer
          Caption         =   "Sauvegarder(Tous)"
          Height          =   255
          Left            =   -66840
-         TabIndex        =   166
+         TabIndex        =   145
          Top             =   3840
          Width           =   1935
       End
@@ -836,7 +622,7 @@ Begin VB.Form frmServer
          Caption         =   "+1 Niveau (Tous)"
          Height          =   255
          Left            =   -66840
-         TabIndex        =   165
+         TabIndex        =   144
          Top             =   4320
          Width           =   1935
       End
@@ -844,7 +630,7 @@ Begin VB.Form frmServer
          Caption         =   "Expérience (Tous)"
          Height          =   255
          Left            =   -66840
-         TabIndex        =   164
+         TabIndex        =   143
          Top             =   4080
          Width           =   1935
       End
@@ -852,7 +638,7 @@ Begin VB.Form frmServer
          Caption         =   "Téléporter (Tous)"
          Height          =   255
          Left            =   -66840
-         TabIndex        =   163
+         TabIndex        =   142
          Top             =   3600
          Width           =   1935
       End
@@ -860,7 +646,7 @@ Begin VB.Form frmServer
          Caption         =   "Guérir (Tous)"
          Height          =   255
          Left            =   -66840
-         TabIndex        =   162
+         TabIndex        =   141
          Top             =   3120
          Width           =   1935
       End
@@ -868,7 +654,7 @@ Begin VB.Form frmServer
          Caption         =   "Tuer (Tous)"
          Height          =   255
          Left            =   -66840
-         TabIndex        =   161
+         TabIndex        =   140
          Top             =   2640
          Width           =   1935
       End
@@ -876,7 +662,7 @@ Begin VB.Form frmServer
          Caption         =   "Déconnecter (Tous)"
          Height          =   255
          Left            =   -66840
-         TabIndex        =   160
+         TabIndex        =   139
          Top             =   720
          Width           =   1935
       End
@@ -890,14 +676,14 @@ Begin VB.Form frmServer
          Caption         =   "Gestion du temps :"
          Height          =   2415
          Left            =   5160
-         TabIndex        =   150
+         TabIndex        =   129
          Top             =   2280
          Width           =   4935
          Begin VB.CommandButton Command58 
             Caption         =   "Basculer Jour/Nuit"
             Height          =   255
             Left            =   2640
-            TabIndex        =   168
+            TabIndex        =   147
             Top             =   1680
             Width           =   1935
          End
@@ -905,7 +691,7 @@ Begin VB.Form frmServer
             Caption         =   "Changer la Météo"
             Height          =   255
             Left            =   360
-            TabIndex        =   167
+            TabIndex        =   146
             Top             =   1680
             Width           =   2055
          End
@@ -913,7 +699,7 @@ Begin VB.Form frmServer
             Caption         =   "Désactiver"
             Height          =   255
             Left            =   3240
-            TabIndex        =   156
+            TabIndex        =   135
             Top             =   480
             Width           =   1335
          End
@@ -921,14 +707,14 @@ Begin VB.Form frmServer
             Caption         =   "Désactiver"
             Height          =   255
             Left            =   3360
-            TabIndex        =   155
+            TabIndex        =   134
             Top             =   1200
             Width           =   1215
          End
          Begin VB.TextBox txtRandom 
             Height          =   285
             Left            =   240
-            TabIndex        =   154
+            TabIndex        =   133
             Top             =   1200
             Width           =   1695
          End
@@ -942,7 +728,7 @@ Begin VB.Form frmServer
             Caption         =   "Activer"
             Height          =   255
             Left            =   2040
-            TabIndex        =   153
+            TabIndex        =   132
             Top             =   1200
             Width           =   1215
          End
@@ -956,7 +742,7 @@ Begin VB.Form frmServer
             Caption         =   "Définir"
             Height          =   255
             Left            =   2040
-            TabIndex        =   152
+            TabIndex        =   131
             Top             =   480
             Width           =   1095
          End
@@ -969,7 +755,7 @@ Begin VB.Form frmServer
          Begin VB.TextBox txtJournuit 
             Height          =   285
             Left            =   240
-            TabIndex        =   151
+            TabIndex        =   130
             Top             =   480
             Width           =   1695
          End
@@ -983,15 +769,15 @@ Begin VB.Form frmServer
             Caption         =   "Temps aléatoire ( minutes ) :"
             Height          =   255
             Left            =   120
-            TabIndex        =   158
-            Top             =   960
+            TabIndex        =   137
+            Top             =   840
             Width           =   2415
          End
          Begin VB.Label Label8 
             Caption         =   "Cycle jour / nuit ( minutes ) :"
             Height          =   255
             Left            =   240
-            TabIndex        =   157
+            TabIndex        =   136
             Top             =   240
             Width           =   2175
          End
@@ -1090,7 +876,7 @@ Begin VB.Form frmServer
          ScaleHeight     =   167
          ScaleMode       =   3  'Pixel
          ScaleWidth      =   127
-         TabIndex        =   143
+         TabIndex        =   122
          Top             =   1080
          Visible         =   0   'False
          Width           =   1935
@@ -1098,7 +884,7 @@ Begin VB.Form frmServer
             Caption         =   "Annuler"
             Height          =   255
             Left            =   240
-            TabIndex        =   144
+            TabIndex        =   123
             Top             =   2160
             Width           =   1575
          End
@@ -1106,7 +892,7 @@ Begin VB.Form frmServer
             Caption         =   "32/48 pixels"
             Height          =   255
             Left            =   120
-            TabIndex        =   147
+            TabIndex        =   126
             Top             =   960
             Value           =   -1  'True
             Width           =   1455
@@ -1115,7 +901,7 @@ Begin VB.Form frmServer
             Caption         =   "32/32 pixels"
             Height          =   255
             Left            =   120
-            TabIndex        =   146
+            TabIndex        =   125
             Top             =   600
             Width           =   1455
          End
@@ -1123,7 +909,7 @@ Begin VB.Form frmServer
             Caption         =   "Enregistrer"
             Height          =   255
             Left            =   240
-            TabIndex        =   145
+            TabIndex        =   124
             Top             =   1920
             Width           =   1575
          End
@@ -1131,7 +917,7 @@ Begin VB.Form frmServer
             Caption         =   "Séléctioner une taille (Largeur/Hauteur) :"
             Height          =   435
             Left            =   120
-            TabIndex        =   148
+            TabIndex        =   127
             Top             =   120
             Width           =   1755
          End
@@ -1417,7 +1203,7 @@ Begin VB.Form frmServer
          Caption         =   "Régler taille des Skins"
          Height          =   255
          Left            =   -69000
-         TabIndex        =   142
+         TabIndex        =   121
          Top             =   4440
          Visible         =   0   'False
          Width           =   1935
@@ -1520,7 +1306,7 @@ Begin VB.Form frmServer
       Begin TabDlg.SSTab SSTab2 
          Height          =   3015
          Left            =   -74880
-         TabIndex        =   122
+         TabIndex        =   101
          Top             =   360
          Width           =   8415
          _ExtentX        =   14843
@@ -1592,7 +1378,7 @@ Begin VB.Form frmServer
             Left            =   120
             MultiLine       =   -1  'True
             ScrollBars      =   2  'Vertical
-            TabIndex        =   149
+            TabIndex        =   128
             Top             =   360
             Width           =   8115
          End
@@ -1611,7 +1397,7 @@ Begin VB.Form frmServer
             Left            =   -74880
             MultiLine       =   -1  'True
             ScrollBars      =   2  'Vertical
-            TabIndex        =   129
+            TabIndex        =   108
             Top             =   360
             Width           =   8115
          End
@@ -1630,7 +1416,7 @@ Begin VB.Form frmServer
             Left            =   -74880
             MultiLine       =   -1  'True
             ScrollBars      =   2  'Vertical
-            TabIndex        =   128
+            TabIndex        =   107
             Top             =   360
             Width           =   8115
          End
@@ -1649,7 +1435,7 @@ Begin VB.Form frmServer
             Left            =   -74880
             MultiLine       =   -1  'True
             ScrollBars      =   2  'Vertical
-            TabIndex        =   127
+            TabIndex        =   106
             Top             =   360
             Width           =   8115
          End
@@ -1668,7 +1454,7 @@ Begin VB.Form frmServer
             Left            =   -74880
             MultiLine       =   -1  'True
             ScrollBars      =   2  'Vertical
-            TabIndex        =   126
+            TabIndex        =   105
             Top             =   360
             Width           =   8115
          End
@@ -1687,7 +1473,7 @@ Begin VB.Form frmServer
             Left            =   -74880
             MultiLine       =   -1  'True
             ScrollBars      =   2  'Vertical
-            TabIndex        =   125
+            TabIndex        =   104
             Top             =   360
             Width           =   8115
          End
@@ -1706,7 +1492,7 @@ Begin VB.Form frmServer
             Left            =   -74880
             MultiLine       =   -1  'True
             ScrollBars      =   2  'Vertical
-            TabIndex        =   124
+            TabIndex        =   103
             Top             =   360
             Width           =   8115
          End
@@ -1722,7 +1508,7 @@ Begin VB.Form frmServer
             EndProperty
             Height          =   270
             Left            =   120
-            TabIndex        =   123
+            TabIndex        =   102
             Top             =   2640
             Width           =   8115
          End
@@ -1731,7 +1517,7 @@ Begin VB.Form frmServer
          Caption         =   "Téléporter"
          Height          =   255
          Left            =   -66840
-         TabIndex        =   119
+         TabIndex        =   98
          Top             =   3360
          Width           =   1935
       End
@@ -1863,7 +1649,7 @@ Begin VB.Form frmServer
             Caption         =   "Enregistrer"
             Height          =   255
             Left            =   5280
-            TabIndex        =   130
+            TabIndex        =   109
             Top             =   240
             Width           =   1455
          End
@@ -1976,16 +1762,16 @@ Begin VB.Form frmServer
             Caption         =   "Sauvegarder les logs"
             Height          =   255
             Left            =   240
-            TabIndex        =   131
+            TabIndex        =   110
             Top             =   960
             Value           =   1  'Checked
             Width           =   2175
          End
          Begin VB.CheckBox mnuServerLog 
-            Caption         =   "Logs du Serveur"
+            Caption         =   "Logs du serveur"
             Height          =   255
             Left            =   240
-            TabIndex        =   121
+            TabIndex        =   100
             Top             =   720
             Value           =   1  'Checked
             Width           =   1935
@@ -1994,7 +1780,7 @@ Begin VB.Form frmServer
             Caption         =   "Fermer"
             Height          =   255
             Left            =   240
-            TabIndex        =   120
+            TabIndex        =   99
             Top             =   480
             Width           =   2295
          End
@@ -2036,7 +1822,7 @@ Begin VB.Form frmServer
             ForeColor       =   &H000000FF&
             Height          =   470
             Left            =   120
-            TabIndex        =   187
+            TabIndex        =   166
             Top             =   1920
             Visible         =   0   'False
             Width           =   2775
@@ -2148,7 +1934,7 @@ Begin VB.Form frmServer
          Caption         =   "Rafraîchir"
          Height          =   255
          Left            =   -71520
-         TabIndex        =   140
+         TabIndex        =   119
          Top             =   4440
          Width           =   1575
       End
@@ -2212,11 +1998,29 @@ Begin VB.Form frmServer
             Object.Width           =   1235
          EndProperty
       End
+      Begin VB.Label lbliplocal 
+         AutoSize        =   -1  'True
+         BackStyle       =   0  'Transparent
+         Caption         =   "Local :"
+         Height          =   225
+         Left            =   120
+         TabIndex        =   175
+         Top             =   600
+         Width           =   510
+      End
+      Begin VB.Label lblgamename 
+         Caption         =   "Nom du jeu : "
+         Height          =   255
+         Left            =   120
+         TabIndex        =   173
+         Top             =   1080
+         Width           =   1815
+      End
       Begin VB.Label mesgSave 
          ForeColor       =   &H0000FF00&
          Height          =   255
          Left            =   -67800
-         TabIndex        =   159
+         TabIndex        =   138
          Top             =   3840
          Width           =   1095
       End
@@ -2243,7 +2047,7 @@ Begin VB.Form frmServer
          EndProperty
          Height          =   165
          Left            =   -74760
-         TabIndex        =   139
+         TabIndex        =   118
          Top             =   4320
          Width           =   1170
       End
@@ -2299,7 +2103,7 @@ Begin VB.Form frmServer
          Left            =   120
          TabIndex        =   7
          Top             =   360
-         Width           =   840
+         Width           =   4920
       End
       Begin VB.Label lblPort 
          AutoSize        =   -1  'True
@@ -2308,7 +2112,7 @@ Begin VB.Form frmServer
          Height          =   195
          Left            =   120
          TabIndex        =   6
-         Top             =   600
+         Top             =   840
          Width           =   360
       End
       Begin VB.Label TPO 
@@ -2332,7 +2136,7 @@ Begin VB.Form frmServer
       Caption         =   "Label9"
       Height          =   495
       Left            =   4800
-      TabIndex        =   141
+      TabIndex        =   120
       Top             =   3120
       Width           =   1215
    End
@@ -2625,9 +2429,37 @@ If Scripting = 1 Then
     Call IBMsg("Scripts rechargés.")
 End If
     frmServer.lblScriptAlert.Visible = False
+    If Scripting = 1 Then
+        frmServer.lblscript.Caption = "Etat : activé"
+        frmServer.lblscript.ForeColor = RGB(51, 204, 0)
+    Else
+        frmServer.lblscript.Caption = "Etat : désactivé"
+        frmServer.lblscript.ForeColor = RGB(255, 102, 102)
+    End If
 End Sub
 
 Private Sub Command26_Click()
+
+If Scripting = 1 Then
+    Scripting = 0
+    PutVar App.Path & "\Data.ini", "CONFIG", "Scripting", 0
+    
+    If Scripting = 0 Then
+        Set MyScript = Nothing
+        Set clsScriptCommands = Nothing
+    End If
+End If
+Call IBMsg("Les scripts sont désactivés.")
+If Scripting = 1 Then
+        frmServer.lblscript.Caption = "Etat : activé"
+        frmServer.lblscript.ForeColor = RGB(51, 204, 0)
+    Else
+        frmServer.lblscript.Caption = "Etat : désactivé"
+        frmServer.lblscript.ForeColor = RGB(255, 102, 102)
+    End If
+End Sub
+
+Private Sub Command27_Click()
 If Scripting = 0 Then
     Scripting = 1
     PutVar App.Path & "\Data.ini", "CONFIG", "Scripting", 1
@@ -2639,18 +2471,14 @@ If Scripting = 0 Then
         MyScript.SControl.AddObject "ScriptHardCode", clsScriptCommands, True
     End If
 End If
-End Sub
-
-Private Sub Command27_Click()
+Call IBMsg("Les scripts sont activés.")
 If Scripting = 1 Then
-    Scripting = 0
-    PutVar App.Path & "\Data.ini", "CONFIG", "Scripting", 0
-    
-    If Scripting = 0 Then
-        Set MyScript = Nothing
-        Set clsScriptCommands = Nothing
+        frmServer.lblscript.Caption = "Etat : activé"
+        frmServer.lblscript.ForeColor = RGB(51, 204, 0)
+    Else
+        frmServer.lblscript.Caption = "Etat : désactivé"
+        frmServer.lblscript.ForeColor = RGB(255, 102, 102)
     End If
-End If
 End Sub
 
 Private Sub Command29_Click()
@@ -2795,25 +2623,25 @@ Dim i As Long
 
 Index = MapList.ListIndex + 1
 
-    MapInfo(0).Caption = "Carte " & Index & " - " & Map(Index).Name
-    MapInfo(1).Caption = "Révision: " & Map(Index).Revision
-    MapInfo(2).Caption = "Morale: " & Map(Index).Moral
-    MapInfo(3).Caption = "Haut: " & Map(Index).Up
-    MapInfo(4).Caption = "Bas: " & Map(Index).Down
-    MapInfo(5).Caption = "Gauche: " & Map(Index).Left
-    MapInfo(6).Caption = "Droite: " & Map(Index).Right
-    MapInfo(7).Caption = "Musique: " & Map(Index).Music
-    MapInfo(8).Caption = "Carte de départ: " & Map(Index).BootMap
-    MapInfo(9).Caption = "Départ des X: " & Map(Index).BootX
-    MapInfo(10).Caption = "Départ des Y: " & Map(Index).BootY
-    MapInfo(11).Caption = "Magasin: " & Map(Index).Shop
-    MapInfo(12).Caption = "Intérieur: " & Map(Index).Indoors
-    lstNPC.Clear
+    frmInfosMap.MapInfo(0).Caption = "Carte " & Index & " - " & Map(Index).Name
+    frmInfosMap.MapInfo(1).Caption = "Révision: " & Map(Index).Revision
+    frmInfosMap.MapInfo(2).Caption = "Morale: " & Map(Index).Moral
+    frmInfosMap.MapInfo(3).Caption = "Haut: " & Map(Index).Up
+    frmInfosMap.MapInfo(4).Caption = "Bas: " & Map(Index).Down
+    frmInfosMap.MapInfo(5).Caption = "Gauche: " & Map(Index).Left
+    frmInfosMap.MapInfo(6).Caption = "Droite: " & Map(Index).Right
+    frmInfosMap.MapInfo(7).Caption = "Musique: " & Map(Index).Music
+    frmInfosMap.MapInfo(8).Caption = "Carte de départ: " & Map(Index).BootMap
+    frmInfosMap.MapInfo(9).Caption = "Départ des X: " & Map(Index).BootX
+    frmInfosMap.MapInfo(10).Caption = "Départ des Y: " & Map(Index).BootY
+    frmInfosMap.MapInfo(11).Caption = "Magasin: " & Map(Index).Shop
+    frmInfosMap.MapInfo(12).Caption = "Intérieur: " & Map(Index).Indoors
+    frmInfosMap.lstNPC.Clear
     For i = 1 To MAX_MAP_NPCS
-        lstNPC.AddItem i & ": " & Npc(Map(Index).Npc(i)).Name
+        frmInfosMap.lstNPC.AddItem i & ": " & Npc(Map(Index).Npc(i)).Name
     Next i
     
-    picMap.Visible = True
+    frmInfosMap.Show
 End Sub
 
 Private Sub Command37_Click()
@@ -2879,27 +2707,7 @@ End If
     
 End Sub
 
-Private Sub Command41_Click()
-    picMap.Visible = False
-End Sub
 
-Private Sub Command42_Click()
-    AFileName = "admin.txt"
-    Unload frmEditor
-    frmEditor.Show
-End Sub
-
-Private Sub Command43_Click()
-    AFileName = "banlist.txt"
-    Unload frmEditor
-    frmEditor.Show
-End Sub
-
-Private Sub Command44_Click()
-    AFileName = "player.txt"
-    Unload frmEditor
-    frmEditor.Show
-End Sub
 
 Private Sub Command45_Click()
 Command10.Caption = "Téléporter"
@@ -3017,18 +2825,18 @@ Private Sub Command59_Click()
         frmServer.CommandMeteoMap.Caption = "activer la météo par map"
         Select Case GameWeather
             Case 0 'Soleil
-                frmServer.Label5.Caption = "Météologie présentement: Aucune"
+                frmServer.Label5.Caption = "Temps actuel : Soleil"
             Case 1 'Pluie
-                frmServer.Label5.Caption = "Météologie présentement: Pluie"
+                frmServer.Label5.Caption = "Temps actuel : Pluie"
             Case 2 'Neige
-                frmServer.Label5.Caption = "Météologie présentement: Neige"
+                frmServer.Label5.Caption = "Temps actuel : Neige"
             Case 3 'Orage
-                frmServer.Label5.Caption = "Météologie présentement: Orage"
+                frmServer.Label5.Caption = "Temps actuel : Orage"
         End Select
     Else
         frmServer.Label12.Caption = "La météo par map est actuellement activée"
         frmServer.CommandMeteoMap.Caption = "désactiver la météo par map"
-        frmServer.Label5.Caption = "Météologie présentement: Météo par map"
+        frmServer.Label5.Caption = "Temps actuel : Météo par map"
     End If
     
 End Sub
@@ -3158,13 +2966,13 @@ Private Sub CommandMeteoMap_Click()
     If MeteoParMap = 0 Then
         PutVar App.Path & "\Data.ini", "CONFIG", "MeteoParMap", 1
         frmServer.Label12.Caption = "La météo par map est actuellement activée"
-        frmServer.Label5.Caption = "Météorologie présentement : Météo par map"
+        frmServer.Label5.Caption = "Temps actuel : Météo par map"
         frmServer.CommandMeteoMap.Caption = "Désactiver la météo par map"
     Else
         PutVar App.Path & "\Data.ini", "CONFIG", "MeteoParMap", 0
         frmServer.Label12.Caption = "La météo par map est actuellement désactivée"
         frmServer.CommandMeteoMap.Caption = "Activer la météo par map"
-        frmServer.Label5.Caption = "Météorologie présentement: Aucune"
+        frmServer.Label5.Caption = "Temps actuel : Soleil"
     End If
 End Sub
 
@@ -3207,6 +3015,8 @@ If Not InDestroy Then
     End If
 End If
 End Sub
+
+
 
 Private Sub ftpmaps_opt_Click()
 frmOptFTP.Show vbModeless, frmServer

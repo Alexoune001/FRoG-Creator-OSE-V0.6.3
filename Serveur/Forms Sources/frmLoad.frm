@@ -1,7 +1,7 @@
 VERSION 5.00
 Begin VB.Form frmLoad 
    BorderStyle     =   1  'Fixed Single
-   Caption         =   "FRoG Server 0.6.2"
+   Caption         =   "FRoG Server 0.6.3"
    ClientHeight    =   780
    ClientLeft      =   45
    ClientTop       =   330

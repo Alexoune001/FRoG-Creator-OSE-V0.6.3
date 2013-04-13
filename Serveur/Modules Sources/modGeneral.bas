@@ -217,7 +217,9 @@ Dim f As Long
     If Val(GetVar(App.Path & "\Data.ini", "RATIO", "RATE_MAX")) = 0 Then
         PutVar App.Path & "\Data.ini", "RATIO", "RATE_MAX", "100"
     End If
-
+    
+    loading (10)
+    
     Call SetStatus("Chargement des paramètres...")
     
     AddHP.Level = Val(GetVar(App.Path & "\Stats.ini", "HP", "AddPerLevel"))
@@ -486,6 +488,7 @@ Dim f As Long
     Call SpawnAllMapsItems
     Call SetStatus("Placement des PNJ sur les cartes...")
     Call SpawnAllMapNpcs
+    loading (10)
     
     Call SetStatus("Chargement de l'interface...")
     
@@ -524,6 +527,8 @@ Dim f As Long
     
     SpawnSeconds = 0
     frmServer.tmrGameAI.Enabled = True
+    
+    loading (10)
     
     Dim Repon As String
     If FileExist("\logs\admin.txt") Then
@@ -611,7 +616,7 @@ sock:
     Set HotelDeVente = Nothing
     Set Party = Nothing
 
-    Call Unload(frmEditor)
+    Call Unload(frmInfosMap)
     Call Unload(frmLoad)
     Call Unload(frmServer)
     Call Unload(frmOptCoul)
