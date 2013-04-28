@@ -2,32 +2,32 @@ VERSION 5.00
 Begin VB.Form frmaMOTD 
    BorderStyle     =   1  'Fixed Single
    Caption         =   "Editer le MOTD"
-   ClientHeight    =   1950
+   ClientHeight    =   4335
    ClientLeft      =   -15
    ClientTop       =   375
-   ClientWidth     =   8115
+   ClientWidth     =   3885
    LinkTopic       =   "Form1"
    MaxButton       =   0   'False
    MinButton       =   0   'False
-   ScaleHeight     =   1950
-   ScaleWidth      =   8115
+   ScaleHeight     =   4335
+   ScaleWidth      =   3885
    StartUpPosition =   2  'CenterScreen
    Begin VB.CommandButton enreg 
       Caption         =   "Enregistrer"
       Height          =   255
-      Left            =   2880
+      Left            =   120
       TabIndex        =   1
-      Top             =   1560
-      Width           =   2535
+      Top             =   3960
+      Width           =   3615
    End
    Begin VB.TextBox motd 
-      Height          =   1335
+      Height          =   3735
       Left            =   120
       MultiLine       =   -1  'True
       ScrollBars      =   2  'Vertical
       TabIndex        =   0
       Top             =   120
-      Width           =   7815
+      Width           =   3615
    End
 End
 Attribute VB_Name = "frmaMOTD"

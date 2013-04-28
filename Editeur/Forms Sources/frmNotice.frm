@@ -2,7 +2,7 @@ VERSION 5.00
 Object = "{BDC217C8-ED16-11CD-956C-0000C04E4C0A}#1.1#0"; "TABCTL32.OCX"
 Begin VB.Form frmNotice 
    BorderStyle     =   1  'Fixed Single
-   Caption         =   "Attribut d'Avertissement"
+   Caption         =   "Attribut d'avertissement"
    ClientHeight    =   5415
    ClientLeft      =   45
    ClientTop       =   435
@@ -45,17 +45,19 @@ Begin VB.Form frmNotice
       Tab(0).Control(1).Enabled=   0   'False
       Tab(0).Control(2)=   "Label3"
       Tab(0).Control(2).Enabled=   0   'False
-      Tab(0).Control(3)=   "Text"
+      Tab(0).Control(3)=   "Label4"
       Tab(0).Control(3).Enabled=   0   'False
-      Tab(0).Control(4)=   "Title"
+      Tab(0).Control(4)=   "Text"
       Tab(0).Control(4).Enabled=   0   'False
-      Tab(0).Control(5)=   "cmdCancel"
+      Tab(0).Control(5)=   "Title"
       Tab(0).Control(5).Enabled=   0   'False
-      Tab(0).Control(6)=   "cmdOk"
+      Tab(0).Control(6)=   "cmdCancel"
       Tab(0).Control(6).Enabled=   0   'False
-      Tab(0).Control(7)=   "lstSound"
+      Tab(0).Control(7)=   "cmdOk"
       Tab(0).Control(7).Enabled=   0   'False
-      Tab(0).ControlCount=   8
+      Tab(0).Control(8)=   "lstSound"
+      Tab(0).Control(8).Enabled=   0   'False
+      Tab(0).ControlCount=   9
       Begin VB.ListBox lstSound 
          BeginProperty Font 
             Name            =   "Segoe UI"
@@ -66,11 +68,11 @@ Begin VB.Form frmNotice
             Italic          =   0   'False
             Strikethrough   =   0   'False
          EndProperty
-         Height          =   2595
+         Height          =   1620
          Left            =   240
          TabIndex        =   8
-         Top             =   2280
-         Width           =   2415
+         Top             =   2640
+         Width           =   4335
       End
       Begin VB.CommandButton cmdOk 
          Caption         =   "Ok"
@@ -84,9 +86,9 @@ Begin VB.Form frmNotice
             Strikethrough   =   0   'False
          EndProperty
          Height          =   255
-         Left            =   2760
+         Left            =   240
          TabIndex        =   4
-         Top             =   4200
+         Top             =   4560
          Width           =   1935
       End
       Begin VB.CommandButton cmdCancel 
@@ -101,7 +103,7 @@ Begin VB.Form frmNotice
             Strikethrough   =   0   'False
          EndProperty
          Height          =   255
-         Left            =   2760
+         Left            =   2640
          TabIndex        =   3
          Top             =   4560
          Width           =   1935
@@ -123,10 +125,10 @@ Begin VB.Form frmNotice
          Top             =   1200
          Width           =   4335
       End
-      Begin VB.Label Label3 
+      Begin VB.Label Label4 
          Alignment       =   1  'Right Justify
          AutoSize        =   -1  'True
-         Caption         =   "Titre:"
+         Caption         =   "Son :"
          BeginProperty Font 
             Name            =   "Segoe UI"
             Size            =   6.75
@@ -136,7 +138,26 @@ Begin VB.Form frmNotice
             Italic          =   0   'False
             Strikethrough   =   0   'False
          EndProperty
-         Height          =   165
+         Height          =   180
+         Left            =   240
+         TabIndex        =   9
+         Top             =   2280
+         Width           =   285
+      End
+      Begin VB.Label Label3 
+         Alignment       =   1  'Right Justify
+         AutoSize        =   -1  'True
+         Caption         =   "Titre :"
+         BeginProperty Font 
+            Name            =   "Segoe UI"
+            Size            =   6.75
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   180
          Left            =   225
          TabIndex        =   7
          Top             =   360
@@ -145,7 +166,7 @@ Begin VB.Form frmNotice
       Begin VB.Label Label1 
          Alignment       =   1  'Right Justify
          AutoSize        =   -1  'True
-         Caption         =   "Texte:"
+         Caption         =   "Texte :"
          BeginProperty Font 
             Name            =   "Segoe UI"
             Size            =   6.75
@@ -155,7 +176,7 @@ Begin VB.Form frmNotice
             Italic          =   0   'False
             Strikethrough   =   0   'False
          EndProperty
-         Height          =   165
+         Height          =   180
          Left            =   165
          TabIndex        =   6
          Top             =   960
@@ -204,7 +225,7 @@ Private Sub cmdOk_Click()
 frmMirage.txtMyTextBox.SetFocus
 End Sub
 
-Private Sub form_Load()
+Private Sub Form_Load()
     Call ListSounds(App.Path & "\SFX\", 2)
     
     Title.Text = NoticeTitle

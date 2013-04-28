@@ -3264,52 +3264,52 @@ Begin VB.Form frmMirage
    Begin VB.Menu Editeurs 
       Caption         =   "Editeurs"
       Begin VB.Menu Editeurclas 
-         Caption         =   "Editeur de Classes"
+         Caption         =   "Editeur de classes"
          Shortcut        =   ^C
       End
       Begin VB.Menu Editeursort 
-         Caption         =   "Editeur de Sorts"
+         Caption         =   "Editeur de sorts"
          Shortcut        =   ^S
       End
       Begin VB.Menu Editeurobj 
-         Caption         =   "Editeur d'Objets"
+         Caption         =   "Editeur d'objets"
          Shortcut        =   ^O
       End
       Begin VB.Menu Editeurmags 
-         Caption         =   "Editeur de Magasins"
+         Caption         =   "Editeur de magasins"
          Shortcut        =   ^M
       End
       Begin VB.Menu Editeurpng 
-         Caption         =   "Editeur de Pnj"
+         Caption         =   "Editeur de PNJ"
          Shortcut        =   ^P
       End
       Begin VB.Menu Editeurflech 
-         Caption         =   "Editeur de Flèches"
+         Caption         =   "Editeur de flèches"
          Shortcut        =   ^F
       End
       Begin VB.Menu Editeuremot 
-         Caption         =   "Editeur d'Emoticons"
+         Caption         =   "Editeur d'émoticônes"
          Shortcut        =   ^E
       End
       Begin VB.Menu Editeurqut 
-         Caption         =   "Editeur de Quêtes"
+         Caption         =   "Editeur de quêtes"
          Shortcut        =   ^Q
       End
       Begin VB.Menu editeurpet 
-         Caption         =   "Editeurs de Familier"
+         Caption         =   "Editeur de familier"
          Shortcut        =   +{F1}
       End
       Begin VB.Menu editeurmetier 
-         Caption         =   "Editeurs de Métier"
+         Caption         =   "Editeur de métier"
          Shortcut        =   +{F2}
       End
       Begin VB.Menu editeurrecette 
-         Caption         =   "Editeurs de Recettes"
+         Caption         =   "Editeur de recettes"
          Shortcut        =   +{F3}
       End
    End
    Begin VB.Menu comtest 
-      Caption         =   "Commandes de Test"
+      Caption         =   "Commandes de jeu"
       Enabled         =   0   'False
       Begin VB.Menu inv 
          Caption         =   "Inventaire"
@@ -3340,7 +3340,7 @@ Begin VB.Form frmMirage
          Shortcut        =   {F7}
       End
       Begin VB.Menu vies 
-         Caption         =   "Vie,Magie,..."
+         Caption         =   "Informations joueur"
          Shortcut        =   {F11}
       End
       Begin VB.Menu nj 
@@ -3355,7 +3355,7 @@ Begin VB.Form frmMirage
    Begin VB.Menu carte 
       Caption         =   "Carte"
       Begin VB.Menu propricarte 
-         Caption         =   "Propriétés de la Carte"
+         Caption         =   "Propriétés de la carte"
       End
       Begin VB.Menu stopmusic 
          Caption         =   "Arrêter la musique"
@@ -3455,6 +3455,7 @@ Begin VB.Form frmMirage
    Begin VB.Menu tuto 
       Caption         =   "Tutoriaux"
       Enabled         =   0   'False
+      Visible         =   0   'False
       Begin VB.Menu intro 
          Caption         =   "Introduction à la création"
       End
@@ -3569,9 +3570,6 @@ V = Not picGuildAdmin.Visible
     If Player(MyIndex).Guildaccess > 1 Then Call NetPic: frmMirage.picGuildAdmin.Visible = V
 End Sub
 
-Private Sub adminserv_Click()
-frmadmin.Show
-End Sub
 
 Private Sub artquete_Click()
     Player(MyIndex).QueteEnCour = 0
@@ -4665,16 +4663,6 @@ End If
 
 End Sub
 
-Private Sub qui_Click()
-If picWhosOnline.Visible Then
-    Call NetPic
-Else
-    Call NetPic
-    Call SendOnlineList
-    picWhosOnline.Visible = True
-    Picpics.Visible = True
-End If
-End Sub
 
 Private Sub quilgn_Click()
 If picWhosOnline.Visible Then

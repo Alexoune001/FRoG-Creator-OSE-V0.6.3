@@ -1,7 +1,7 @@
 VERSION 5.00
 Begin VB.Form frmMetier 
    BorderStyle     =   1  'Fixed Single
-   Caption         =   "Editeur de Metier"
+   Caption         =   "Editeur de métier"
    ClientHeight    =   4455
    ClientLeft      =   45
    ClientTop       =   435

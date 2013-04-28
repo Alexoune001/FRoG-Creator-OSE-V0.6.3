@@ -1552,46 +1552,46 @@ Begin VB.Form frmServer
          Caption         =   "Dire"
          Height          =   255
          Index           =   5
-         Left            =   -65880
+         Left            =   -66360
          TabIndex        =   43
          Top             =   3840
-         Width           =   495
+         Width           =   1455
       End
       Begin VB.CommandButton Say 
          Caption         =   "Dire"
          Height          =   255
          Index           =   4
-         Left            =   -65880
+         Left            =   -66360
          TabIndex        =   42
          Top             =   3240
-         Width           =   495
+         Width           =   1455
       End
       Begin VB.CommandButton Say 
          Caption         =   "Dire"
          Height          =   255
          Index           =   3
-         Left            =   -65880
+         Left            =   -66360
          TabIndex        =   41
          Top             =   2640
-         Width           =   495
+         Width           =   1455
       End
       Begin VB.CommandButton Say 
          Caption         =   "Dire"
          Height          =   255
          Index           =   2
-         Left            =   -65880
+         Left            =   -66360
          TabIndex        =   40
          Top             =   2040
-         Width           =   495
+         Width           =   1455
       End
       Begin VB.CommandButton Say 
          Caption         =   "Dire"
          Height          =   255
          Index           =   1
-         Left            =   -65880
+         Left            =   -66360
          TabIndex        =   39
          Top             =   1440
-         Width           =   495
+         Width           =   1455
       End
       Begin VB.CommandButton CustomMsg 
          Caption         =   "Editer msg"
@@ -1916,10 +1916,10 @@ Begin VB.Form frmServer
          Caption         =   "Dire"
          Height          =   255
          Index           =   0
-         Left            =   -65880
+         Left            =   -66360
          TabIndex        =   2
          Top             =   840
-         Width           =   495
+         Width           =   1455
       End
       Begin VB.CommandButton CustomMsg 
          Caption         =   "Editer msg"
@@ -2987,9 +2987,9 @@ Private Sub Form_Load()
 Random = 1
 End Sub
 
-Private Sub Form_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
+Private Sub Form_MouseMove(Button As Integer, Shift As Integer, x As Single, y As Single)
 Dim lmsg As Long
-    lmsg = X
+    lmsg = x
     Select Case lmsg
         Case &H203
             frmServer.WindowState = vbNormal

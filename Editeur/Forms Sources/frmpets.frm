@@ -1,4 +1,5 @@
 VERSION 5.00
+Object = "{3B7C8863-D78F-101B-B9B5-04021C009402}#1.2#0"; "RICHTX32.OCX"
 Begin VB.Form frmpet 
    BorderStyle     =   1  'Fixed Single
    Caption         =   "Crédits"
@@ -22,40 +23,28 @@ Begin VB.Form frmpet
    ScaleHeight     =   3960
    ScaleWidth      =   4905
    StartUpPosition =   2  'CenterScreen
+   Begin RichTextLib.RichTextBox rtpet 
+      Height          =   3135
+      Left            =   120
+      TabIndex        =   1
+      Top             =   120
+      Width           =   4575
+      _ExtentX        =   8070
+      _ExtentY        =   5530
+      _Version        =   393217
+      BackColor       =   -2147483633
+      BorderStyle     =   0
+      Enabled         =   0   'False
+      Appearance      =   0
+      TextRTF         =   $"frmpets.frx":0000
+   End
    Begin VB.CommandButton Cancel 
       Caption         =   "Revenir au menu"
       Height          =   375
       Left            =   1440
-      TabIndex        =   3
+      TabIndex        =   0
       Top             =   3360
       Width           =   1695
-   End
-   Begin VB.Label creditline1 
-      BackStyle       =   0  'Transparent
-      Caption         =   "Merci à Hinomi pour sa belle bannière et à Rose pour la partie graphique de FRoG Creator"
-      Height          =   495
-      Left            =   240
-      TabIndex        =   2
-      Top             =   840
-      Width           =   4680
-   End
-   Begin VB.Label Label1 
-      BackStyle       =   0  'Transparent
-      Caption         =   $"frmpets.frx":0000
-      Height          =   1395
-      Left            =   240
-      TabIndex        =   1
-      Top             =   1440
-      Width           =   4455
-   End
-   Begin VB.Label Label3 
-      BackStyle       =   0  'Transparent
-      Caption         =   "Remerciements : Coke, GodSentdeath, Katsuo, Edouard, Dahevos et à toute la communauté de FRoG Creator."
-      Height          =   795
-      Left            =   240
-      TabIndex        =   0
-      Top             =   120
-      Width           =   4455
    End
 End
 Attribute VB_Name = "frmpet"
@@ -73,5 +62,13 @@ Else
     frmMainMenu.Visible = True
     frmpet.Visible = False
 End If
+End Sub
+
+Private Sub creditline1_Click()
+
+End Sub
+
+Private Sub Form_Load()
+rtpet.Text = "Remerciements : Coke, GodSentdeath, Katsuo, Edouard, Dahevos et à toute la communauté de FRoG Creator." & vbCrLf & vbCrLf & "Merci à Hinomi pour sa belle bannière et à Rose pour la partie graphique de FRoG Creator" & vbCrLf & vbCrLf & "Programmation : Matsura, Rydan, GAK, Koolgraph, hugo-57, Alexoune001, Mimus, Alves57600, Mywaystar, Sarcadent, Lepetitdébutantn°2, Elios." & vbCrLf & "Petite et grande aide à la programmation : Eusebe et lbalpha." & vbCrLf & "Merci à tous les autres si on en oublie."
 End Sub
 

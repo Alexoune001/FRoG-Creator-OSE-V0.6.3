@@ -112,7 +112,7 @@ Begin VB.Form frmcoffre
          Width           =   3255
       End
       Begin VB.CheckBox Check2 
-         Caption         =   "Coffre à clée"
+         Caption         =   "Coffre à clé"
          Height          =   255
          Left            =   240
          TabIndex        =   6
@@ -283,7 +283,7 @@ Begin VB.Form frmcoffre
          Width           =   3495
       End
       Begin VB.Label Label1 
-         Caption         =   "Entrez le code désiré SVP :"
+         Caption         =   "Entrez le code désiré :"
          Enabled         =   0   'False
          Height          =   255
          Left            =   960
@@ -373,10 +373,10 @@ Private Sub Form_Load()
     scrlItem.Max = MAX_ITEMS
     HScroll1.Max = MAX_ITEMS
     code.Text = CodeCoffre
-    If CleCoffreNum < scrlItem.min Then CleCoffreNum = scrlItem.min
+    If CleCoffreNum < scrlItem.Min Then CleCoffreNum = scrlItem.Min
     scrlItem.value = CleCoffreNum
     chkTake.value = CleCoffreSupr
-    If ObjCoffreNum < HScroll1.min Then HScroll1.value = HScroll1.min Else HScroll1.value = ObjCoffreNum
+    If ObjCoffreNum < HScroll1.Min Then HScroll1.value = HScroll1.Min Else HScroll1.value = ObjCoffreNum
     lblName.Caption = Trim$(Item(scrlItem.value).name)
     Label6.Caption = CStr(HScroll1.value)
     Label4.Caption = "Objet donner : " & Trim$(Item(HScroll1.value).name)

@@ -11,7 +11,7 @@ Vous êtes libre de :
 	- ajouter des fonctionnalités
 	
 Nous vous encourageons à proposer vos améliorations sur le forum de FRoG Creator.
-http://www.frogcreator.fr/ose/showthread.php?tid=4017
+http://www.frogcreator.fr/ose/forumdisplay.php?fid=56
 
 Ensemble, construisons un meilleur logiciel !
 

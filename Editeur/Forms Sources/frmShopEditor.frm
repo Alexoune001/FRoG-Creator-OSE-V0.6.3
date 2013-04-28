@@ -22,16 +22,17 @@ Begin VB.Form frmShopEditor
    ScaleWidth      =   11790
    StartUpPosition =   2  'CenterScreen
    Begin TabDlg.SSTab SSTab1 
-      Height          =   3015
+      Height          =   3255
       Left            =   360
       TabIndex        =   19
       ToolTipText     =   "Représentation schématique du magasin et de ses différentes parties"
-      Top             =   4920
+      Top             =   4680
       Width           =   11055
       _ExtentX        =   19500
-      _ExtentY        =   5318
+      _ExtentY        =   5741
       _Version        =   393216
       Tabs            =   6
+      Tab             =   2
       TabsPerRow      =   6
       TabHeight       =   353
       BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
@@ -45,9 +46,8 @@ Begin VB.Form frmShopEditor
       EndProperty
       TabCaption(0)   =   "Arme"
       TabPicture(0)   =   "frmShopEditor.frx":0000
-      Tab(0).ControlEnabled=   -1  'True
+      Tab(0).ControlEnabled=   0   'False
       Tab(0).Control(0)=   "lstTradeItem(0)"
-      Tab(0).Control(0).Enabled=   0   'False
       Tab(0).ControlCount=   1
       TabCaption(1)   =   "Bouclier"
       TabPicture(1)   =   "frmShopEditor.frx":001C
@@ -56,8 +56,9 @@ Begin VB.Form frmShopEditor
       Tab(1).ControlCount=   1
       TabCaption(2)   =   "Armure"
       TabPicture(2)   =   "frmShopEditor.frx":0038
-      Tab(2).ControlEnabled=   0   'False
+      Tab(2).ControlEnabled=   -1  'True
       Tab(2).Control(0)=   "lstTradeItem(2)"
+      Tab(2).Control(0).Enabled=   0   'False
       Tab(2).ControlCount=   1
       TabCaption(3)   =   "Casque"
       TabPicture(3)   =   "frmShopEditor.frx":0054
@@ -144,7 +145,7 @@ Begin VB.Form frmShopEditor
          Height          =   2400
          Index           =   2
          ItemData        =   "frmShopEditor.frx":00B4
-         Left            =   -74880
+         Left            =   120
          List            =   "frmShopEditor.frx":00B6
          TabIndex        =   22
          Top             =   360
@@ -182,7 +183,7 @@ Begin VB.Form frmShopEditor
          Height          =   2400
          Index           =   0
          ItemData        =   "frmShopEditor.frx":00BC
-         Left            =   120
+         Left            =   -74880
          List            =   "frmShopEditor.frx":00BE
          TabIndex        =   20
          Top             =   360
@@ -215,15 +216,15 @@ Begin VB.Form frmShopEditor
             Italic          =   0   'False
             Strikethrough   =   0   'False
          EndProperty
-         Height          =   285
+         Height          =   300
          ItemData        =   "frmShopEditor.frx":00C0
-         Left            =   1200
+         Left            =   1800
          List            =   "frmShopEditor.frx":00C2
          Style           =   2  'Dropdown List
          TabIndex        =   14
          ToolTipText     =   "Objet donné aux joueurs en échange de l'objet reçu"
          Top             =   360
-         Width           =   3975
+         Width           =   3375
       End
       Begin VB.TextBox txtItemGiveValue 
          Alignment       =   1  'Right Justify
@@ -237,7 +238,7 @@ Begin VB.Form frmShopEditor
             Strikethrough   =   0   'False
          EndProperty
          Height          =   255
-         Left            =   1200
+         Left            =   1800
          TabIndex        =   13
          Text            =   "1"
          ToolTipText     =   "Nombre d'objet(s) donné"
@@ -254,13 +255,13 @@ Begin VB.Form frmShopEditor
             Italic          =   0   'False
             Strikethrough   =   0   'False
          EndProperty
-         Height          =   285
-         Left            =   6480
+         Height          =   300
+         Left            =   7080
          Style           =   2  'Dropdown List
          TabIndex        =   12
          ToolTipText     =   "Objet prit aux joueurs en échange de l'objet donné"
          Top             =   360
-         Width           =   3975
+         Width           =   3375
       End
       Begin VB.TextBox txtItemGetValue 
          Alignment       =   1  'Right Justify
@@ -274,7 +275,7 @@ Begin VB.Form frmShopEditor
             Strikethrough   =   0   'False
          EndProperty
          Height          =   255
-         Left            =   6480
+         Left            =   7080
          TabIndex        =   11
          Text            =   "1"
          ToolTipText     =   "Nombre d'objet(s) reçu"
@@ -293,15 +294,15 @@ Begin VB.Form frmShopEditor
             Strikethrough   =   0   'False
          EndProperty
          Height          =   375
-         Left            =   4320
+         Left            =   4200
          TabIndex        =   10
          ToolTipText     =   "Mettre les objets dans le magasin dans le slot sélectionner"
-         Top             =   1320
-         Width           =   2415
+         Top             =   1200
+         Width           =   2775
       End
       Begin VB.Label Label3 
          Alignment       =   1  'Right Justify
-         Caption         =   "Objet donné :"
+         Caption         =   "Objet donné par le joueur :"
          BeginProperty Font 
             Name            =   "Segoe UI"
             Size            =   6.75
@@ -314,8 +315,8 @@ Begin VB.Form frmShopEditor
          Height          =   255
          Left            =   120
          TabIndex        =   18
-         Top             =   360
-         Width           =   975
+         Top             =   390
+         Width           =   1575
       End
       Begin VB.Label Label4 
          Alignment       =   1  'Right Justify
@@ -330,14 +331,14 @@ Begin VB.Form frmShopEditor
             Strikethrough   =   0   'False
          EndProperty
          Height          =   255
-         Left            =   120
+         Left            =   720
          TabIndex        =   17
          Top             =   720
          Width           =   975
       End
       Begin VB.Label Label5 
          Alignment       =   1  'Right Justify
-         Caption         =   "Objet reçu :"
+         Caption         =   "Objet reçu par le joueur :"
          BeginProperty Font 
             Name            =   "Segoe UI"
             Size            =   6.75
@@ -348,10 +349,10 @@ Begin VB.Form frmShopEditor
             Strikethrough   =   0   'False
          EndProperty
          Height          =   255
-         Left            =   5400
+         Left            =   5280
          TabIndex        =   16
-         Top             =   360
-         Width           =   975
+         Top             =   390
+         Width           =   1695
       End
       Begin VB.Label Label6 
          Alignment       =   1  'Right Justify
@@ -366,7 +367,7 @@ Begin VB.Form frmShopEditor
             Strikethrough   =   0   'False
          EndProperty
          Height          =   255
-         Left            =   5640
+         Left            =   6240
          TabIndex        =   15
          Top             =   720
          Width           =   735
@@ -533,7 +534,7 @@ Begin VB.Form frmShopEditor
          Height          =   255
          Left            =   2760
          TabIndex        =   28
-         Top             =   840
+         Top             =   880
          Visible         =   0   'False
          Width           =   2175
       End
@@ -745,3 +746,4 @@ Private Sub Form_Unload(Cancel As Integer)
 
     Call ShopEditorCancel
 End Sub
+

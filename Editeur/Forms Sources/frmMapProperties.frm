@@ -1,8 +1,8 @@
 VERSION 5.00
-Object = "{BDC217C8-ED16-11CD-956C-0000C04E4C0A}#1.1#0"; "Tabctl32.ocx"
+Object = "{BDC217C8-ED16-11CD-956C-0000C04E4C0A}#1.1#0"; "TABCTL32.OCX"
 Begin VB.Form frmMapProperties 
    BorderStyle     =   1  'Fixed Single
-   Caption         =   "Propriétés de la Carte"
+   Caption         =   "Propriétés de la carte"
    ClientHeight    =   8430
    ClientLeft      =   165
    ClientTop       =   90
@@ -1007,7 +1007,7 @@ Begin VB.Form frmMapProperties
          Left            =   360
          TabIndex        =   69
          ToolTipText     =   "Vous pouvez l'utiliser pour faire vos donjons par exemple"
-         Top             =   3000
+         Top             =   3120
          Width           =   3615
          Begin VB.CommandButton collco 
             Caption         =   "Coller les coordonées"
@@ -1310,7 +1310,7 @@ Begin VB.Form frmMapProperties
          End
       End
       Begin VB.Frame Frame1 
-         Caption         =   "Téléportation sur les bords de la Carte"
+         Caption         =   "Téléportation sur les bords de la carte"
          BeginProperty Font 
             Name            =   "Segoe UI"
             Size            =   8.25
@@ -1320,13 +1320,13 @@ Begin VB.Form frmMapProperties
             Italic          =   0   'False
             Strikethrough   =   0   'False
          EndProperty
-         Height          =   2115
+         Height          =   2235
          Left            =   360
          TabIndex        =   62
          Top             =   840
          Width           =   3615
          Begin VB.CheckBox Ctraversable 
-            Caption         =   "Joueur Traversable"
+            Caption         =   "Joueurs traversables"
             BeginProperty Font 
                Name            =   "Segoe UI"
                Size            =   8.25
@@ -1337,14 +1337,14 @@ Begin VB.Form frmMapProperties
                Strikethrough   =   0   'False
             EndProperty
             Height          =   255
-            Left            =   1440
+            Left            =   1560
             TabIndex        =   93
-            ToolTipText     =   "La nuit ne tombera pas sur cette carte si la case est cochée"
+            ToolTipText     =   "Les joueurs pourront se traverser"
             Top             =   1800
-            Width           =   2055
+            Width           =   1935
          End
          Begin VB.CheckBox cPetView 
-            Caption         =   "Cacher Famillier sur la map"
+            Caption         =   "Cacher les familiers"
             BeginProperty Font 
                Name            =   "Segoe UI"
                Size            =   8.25
@@ -1354,15 +1354,15 @@ Begin VB.Form frmMapProperties
                Italic          =   0   'False
                Strikethrough   =   0   'False
             EndProperty
-            Height          =   375
-            Left            =   1440
+            Height          =   255
+            Left            =   1560
             TabIndex        =   92
-            ToolTipText     =   "La nuit ne tombera pas sur cette carte si la case est cochée"
-            Top             =   1440
-            Width           =   2200
+            ToolTipText     =   "Les familiers seront invisibles"
+            Top             =   1560
+            Width           =   1965
          End
          Begin VB.CheckBox CGuild 
-            Caption         =   "Guilde Seule"
+            Caption         =   "Map de guilde"
             BeginProperty Font 
                Name            =   "Segoe UI"
                Size            =   8.25
@@ -1375,7 +1375,7 @@ Begin VB.Form frmMapProperties
             Height          =   255
             Left            =   120
             TabIndex        =   91
-            ToolTipText     =   "La nuit ne tombera pas sur cette carte si la case est cochée"
+            ToolTipText     =   "Seuls les membres de guilde pourront se voir"
             Top             =   1800
             Width           =   1455
          End
@@ -1393,8 +1393,8 @@ Begin VB.Form frmMapProperties
             Height          =   255
             Left            =   120
             TabIndex        =   6
-            ToolTipText     =   "La nuit ne tombera pas sur cette carte si la case est cochée"
-            Top             =   1520
+            ToolTipText     =   "La météo n'est pas affichée si la case est cochée"
+            Top             =   1560
             Width           =   1095
          End
          Begin VB.TextBox txtLeft 

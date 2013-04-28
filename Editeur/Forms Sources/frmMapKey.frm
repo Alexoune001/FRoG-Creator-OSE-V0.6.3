@@ -1,8 +1,8 @@
 VERSION 5.00
-Object = "{BDC217C8-ED16-11CD-956C-0000C04E4C0A}#1.1#0"; "TABCTL3N.OCX"
+Object = "{BDC217C8-ED16-11CD-956C-0000C04E4C0A}#1.1#0"; "TABCTL32.OCX"
 Begin VB.Form frmMapKey 
    BorderStyle     =   1  'Fixed Single
-   Caption         =   "Clé de la Maps"
+   Caption         =   "Clé de la carte"
    ClientHeight    =   2640
    ClientLeft      =   120
    ClientTop       =   285

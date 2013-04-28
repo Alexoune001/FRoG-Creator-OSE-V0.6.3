@@ -2198,6 +2198,7 @@ Dim Moved As Byte
             If (GetPlayerX(Index) = Player(Index).Char(Player(Index).CharNum).LastX) And (GetPlayerY(Index) <> Player(Index).Char(Player(Index).CharNum).y) Then
                 Call QueteMsg(Index, Shop(Map(GetPlayerMap(Index)).Tile(GetPlayerX(Index), GetPlayerY(Index)).data1).JoinSay)
                 Call SendTrade(Index, Map(GetPlayerMap(Index)).Tile(GetPlayerX(Index), GetPlayerY(Index)).data1)
+                MsgBox ("OK")
             End If
         Else
             Call PlayerMsg(Index, "Il n'y a pas de magasin ici.", BrightRed)
