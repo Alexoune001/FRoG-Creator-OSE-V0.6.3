@@ -1466,11 +1466,16 @@ mont:
     End If
     
     If (LCase$(Parse(0)) = "finquete") Then
-        Call MsgBox("Bravo. vous venez de finir la quete : " & Trim$(quete(Player(MyIndex).QueteEnCour).nom) & " retourner voir celui qui vous la donnez pour avoir vos récompenses")
+        Call MsgBox("Bravo, vous venez de finir la quête " & Trim$(quete(Player(MyIndex).QueteEnCour).nom) & ". Retournez voir celui qui vous l'a donné pour recevoir votre récompense.")
         frmMirage.quetetimersec.Enabled = False
+        Call WriteINI("TCAC", "racp", 0, (App.Path & "\Config\Option.ini"))
         frmMirage.tmpsquete.Visible = False
+        frmMirage.lbltimeQuete.Visible = False
         Exit Sub
     End If
+    
+    
+
     
     If (LCase$(Parse(0)) = "terminequete") Then Call ClearPlayerQuete(MyIndex): Exit Sub
     
@@ -1479,9 +1484,10 @@ mont:
             frmMirage.quetetimersec.Interval = 1000
             Seco = Val(Parse(1)) - ((Val(Parse(1)) \ 60) * 60)
             Minu = Val(Parse(1)) \ 60
-            frmMirage.tmpsquete.Visible = True
-            If Len(STR$(Minu)) > 2 Then frmMirage.minute.Caption = Minu & ":" Else frmMirage.minute.Caption = "0" & Minu & ":"
-            If Len(STR$(Seco)) > 2 Then frmMirage.seconde.Caption = Seco Else frmMirage.seconde.Caption = "0" & Seco
+            'On enlève cette notifiation qui gêne le joueur, le caption est déjà dans la barre de menus.
+            'frmMirage.tmpsquete.Visible = True
+            'If Len(STR$(Minu)) > 2 Then frmMirage.minute.Caption = Minu & ":" Else frmMirage.minute.Caption = "0" & Minu & ":"
+            'If Len(STR$(Seco)) > 2 Then frmMirage.seconde.Caption = Seco Else frmMirage.seconde.Caption = "0" & Seco
             frmMirage.quetetimersec.Enabled = True
             Exit Sub
         End If
@@ -1490,12 +1496,12 @@ mont:
     
     If (LCase$(Parse(0)) = "tuerquete") Then
         If Player(MyIndex).QueteEnCour <= 0 Then Exit Sub
-        frmMirage.qt.Caption = "Monstres tuer :"
+        frmMirage.qt.Caption = "Monstres tués :"
         n = 0
         For i = 1 To 15
             n = n + quete(Player(MyIndex).QueteEnCour).indexe(i).Data2
         Next i
-        If frmMirage.av.Caption = " " Then frmMirage.av.Caption = "1/" & n Else frmMirage.av.Caption = Val(Mid(frmMirage.av.Caption, 1, 1)) + 1 & "/" & n
+        If frmMirage.av.Caption = "" Then frmMirage.av.Caption = "1/" & n Else frmMirage.av.Caption = Val(Mid(frmMirage.av.Caption, 1, 1)) + 1 & "/" & n
     End If
     
     If (LCase$(Parse(0)) = "xpquete") Then

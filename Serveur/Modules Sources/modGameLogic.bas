@@ -2746,6 +2746,13 @@ Dim f As Long
         If Trim$(MOTD) <> vbNullString Then Call PlayerMsg(Index, "MOTD: " & MOTD, 11)
     End If
     
+        'Send time quete
+        'Dim Queten As Long
+        'Queten = Val(Player(Index).Char(Player(Index).CharNum).QueteEnCour)
+        'If Queten <= 0 Then
+        '    If quete(Queten).temps > 0 Then Call SendDataTo(Index, "TEMPSQUETE" & SEP_CHAR & quete(Queten).temps & END_CHAR)
+        'End If
+
     ' Send whos online
     Call SendWhosOnline(Index)
     Call ShowPLR(Index)

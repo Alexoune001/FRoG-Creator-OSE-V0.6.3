@@ -1,5 +1,5 @@
 VERSION 5.00
-Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.0#0"; "MSCOMCTL.OCX"
+Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.0#0"; "MSCOMCTL32.OCX"
 Begin VB.Form frmMainMenu 
    BackColor       =   &H80000007&
    BorderStyle     =   1  'Fixed Single
@@ -760,9 +760,10 @@ Private Sub picCancel_Click()
     fraPers.Visible = False
 End Sub
 
+
 Private Sub picConnect_Click()
     If Trim$(txtName.Text) <> vbNullString And Trim$(txtPassword.Text) <> vbNullString Then
-        If Len(Trim$(txtName.Text)) < 3 Or Len(Trim$(txtPassword.Text)) < 3 Then MsgBox "Votre nom et votre mot de passe doivent contenir plus de 3 caractéres": Exit Sub
+        If Len(Trim$(txtName.Text)) < 3 Or Len(Trim$(txtPassword.Text)) < 3 Then MsgBox "Votre nom et votre mot de passe doivent contenir plus de 3 caractères": Exit Sub
         Call MenuState(MENU_STATE_LOGIN)
         Call WriteINI("INFO", "Account", txtName.Text, (App.Path & "\Config\Account.ini"))
         If Check2.Value = Checked Then Call WriteINI("INFO", "Password", txtPassword.Text, (App.Path & "\Config\Account.ini")) Else Call WriteINI("INFO", "Password", "", (App.Path & "\Config\Account.ini"))
@@ -772,15 +773,15 @@ End Sub
 Private Sub picDelChar_Click()
 Dim Value As Long
 
-    If lstChars.List(lstChars.ListIndex) = "Emplacement libre" Then MsgBox "Il n'y a pas de personnage à cette emplacement.": Exit Sub
+    If lstChars.List(lstChars.ListIndex) = "Emplacement libre" Then MsgBox "Il n'y a pas de personnage à cet emplacement.": Exit Sub
 
-    Value = MsgBox("Es-tu certains de vouloir éffacer ce personnage?", vbYesNo, GAME_NAME)
+    Value = MsgBox("Es-tu certain de vouloir effacer ce personnage ?", vbYesNo, GAME_NAME)
     
     If Value = vbYes Then Call MenuState(MENU_STATE_DELCHAR)
 End Sub
 
 Private Sub picNewChar_Click()
-    If lstChars.List(lstChars.ListIndex) <> "Emplacement libre" Then MsgBox "Il y a déjà un personnage à cette emplacement.": Exit Sub
+    If lstChars.List(lstChars.ListIndex) <> "Emplacement libre" Then MsgBox "Il y a déjà un personnage à cet emplacement.": Exit Sub
     Call SendData("PICVALUE" & END_CHAR)
     Call MenuState(MENU_STATE_NEWCHAR)
 End Sub
@@ -793,7 +794,7 @@ Private Sub picQuit_Click()
 End Sub
 
 Private Sub picUseChar_Click()
-    If lstChars.List(lstChars.ListIndex) = "Emplacement libre" Then MsgBox "Il n'y a pas de personnage à cette emplacement.": Exit Sub
+    If lstChars.List(lstChars.ListIndex) = "Emplacement libre" Then MsgBox "Il n'y a pas de personnage à cet emplacement.": Exit Sub
     Call SendData("PICVALUE" & END_CHAR)
     Call MenuState(MENU_STATE_USECHAR)
 End Sub

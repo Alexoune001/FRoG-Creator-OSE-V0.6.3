@@ -4216,8 +4216,8 @@ Dim Ending As String
     
     frmMirage.Interface.Top = frmMirage.picScreen.height
     frmMirage.txtQ.Top = frmMirage.picScreen.height - frmMirage.txtQ.height
-    frmMirage.Canal.Top = frmMirage.picScreen.height - frmMirage.Canal.height
-    frmMirage.txtMyTextBox.Top = frmMirage.picScreen.height - frmMirage.txtMyTextBox.height
+    frmMirage.Canal.Top = frmMirage.picScreen.height - frmMirage.Canal.height - 10
+    frmMirage.txtMyTextBox.Top = frmMirage.picScreen.height - frmMirage.txtMyTextBox.height - 10
     frmMirage.picParty.Top = frmMirage.picScreen.height - frmMirage.picParty.height
     frmMirage.fra_fenetre.Top = frmMirage.picScreen.height - frmMirage.fra_fenetre.height - 10
     frmMirage.fra_fenetre.Left = frmMirage.picScreen.Width - frmMirage.fra_fenetre.Width - 30

@@ -10,10 +10,16 @@
 - Correction du bug d'affichage au niveau du FrmMirage [Elios];
 - Modification du système de ratio d'expérience [Elios];
 - Modification de l'interface serveur [Elios];
+- Améliorations/Correction du système de quête [Elios] :
+-- Le timer de quête est maintenant sauvegardé chaque minute
+-- Orthographe
+-- Optimisation des requêtes
+-- Réaffichage du nombre de mobs tués;
 
 -----Modifications en cours-----
 
 - Corrections d'orthographe;
+- Refonte totale du système de Craft/métier;
 
 -----Fonctions retirées du logiciel-----
 

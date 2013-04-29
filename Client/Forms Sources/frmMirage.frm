@@ -27,6 +27,7 @@ Begin VB.Form frmMirage
    ScaleHeight     =   660
    ScaleMode       =   0  'User
    ScaleWidth      =   800
+   StartUpPosition =   2  'CenterScreen
    Visible         =   0   'False
    Begin VB.PictureBox pictHide 
       Appearance      =   0  'Flat
@@ -1927,6 +1928,11 @@ Begin VB.Form frmMirage
       Top             =   0
       Visible         =   0   'False
       Width           =   11040
+      Begin VB.Timer tmrsupportquest 
+         Interval        =   1000
+         Left            =   5640
+         Top             =   0
+      End
       Begin VB.Timer sync 
          Interval        =   250
          Left            =   6720
@@ -1936,9 +1942,9 @@ Begin VB.Form frmMirage
          BackColor       =   &H00004080&
          BorderStyle     =   0  'None
          Height          =   2985
-         Left            =   8400
+         Left            =   720
          TabIndex        =   2
-         Top             =   4320
+         Top             =   3480
          Width           =   2595
          Begin VB.PictureBox tmpsquete 
             Appearance      =   0  'Flat
@@ -3124,9 +3130,9 @@ Begin VB.Form frmMirage
          BackColor       =   &H00004080&
          BorderStyle     =   0  'None
          Height          =   2985
-         Left            =   120
+         Left            =   5760
          TabIndex        =   219
-         Top             =   4440
+         Top             =   4680
          Visible         =   0   'False
          Width           =   2595
          Begin VB.PictureBox backPPLife 
@@ -3570,7 +3576,7 @@ Begin VB.Form frmMirage
          BorderStyle     =   0  'None
          ForeColor       =   &H80000008&
          Height          =   4290
-         Left            =   480
+         Left            =   360
          Picture         =   "frmMirage.frx":1B4329
          ScaleHeight     =   286
          ScaleMode       =   3  'Pixel
@@ -3629,27 +3635,6 @@ Begin VB.Form frmMirage
          Begin VB.Label av 
             AutoSize        =   -1  'True
             BackStyle       =   0  'Transparent
-            Caption         =   " "
-            BeginProperty Font 
-               Name            =   "Segoe UI"
-               Size            =   6.75
-               Charset         =   0
-               Weight          =   400
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            ForeColor       =   &H00000000&
-            Height          =   165
-            Left            =   1440
-            TabIndex        =   96
-            Top             =   2040
-            Width           =   45
-         End
-         Begin VB.Label qt 
-            AutoSize        =   -1  'True
-            BackStyle       =   0  'Transparent
-            Caption         =   " "
             BeginProperty Font 
                Name            =   "Segoe UI"
                Size            =   9
@@ -3660,11 +3645,30 @@ Begin VB.Form frmMirage
                Strikethrough   =   0   'False
             EndProperty
             ForeColor       =   &H00000000&
-            Height          =   210
+            Height          =   225
+            Left            =   1680
+            TabIndex        =   96
+            Top             =   3600
+            Width           =   45
+         End
+         Begin VB.Label qt 
+            AutoSize        =   -1  'True
+            BackStyle       =   0  'Transparent
+            BeginProperty Font 
+               Name            =   "Segoe UI"
+               Size            =   9
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            ForeColor       =   &H00000000&
+            Height          =   225
             Left            =   240
             TabIndex        =   95
             Top             =   3600
-            Width           =   1020
+            Width           =   45
          End
       End
       Begin VB.Frame fra_info 
@@ -4744,7 +4748,9 @@ Private Sub artquete_Click()
     frmMirage.picquete.Visible = False
     If quetetimersec.Enabled Then
         quetetimersec.Enabled = False
+        Call WriteINI("TCAC", "racp", 0, (App.Path & "\Config\Option.ini"))
         tmpsquete.Visible = False
+        lbltimeQuete.Visible = False
     End If
 End Sub
 
@@ -4995,6 +5001,8 @@ Dim Qq As Long
     
     fra_info.Visible = False
     fra_fenetre.Visible = False
+    
+    tmrsupportquest.Enabled = True
 End Sub
 
 Private Sub Form_MouseMove(Button As Integer, Shift As Integer, x As Single, y As Single)
@@ -5173,6 +5181,7 @@ End Sub
 Private Sub lblQuitter_Click()
     Call GameDestroy
 End Sub
+
 
 Private Sub lstOnline_DblClick()
     Call SendData("playerchat" & SEP_CHAR & Trim$(lstOnline.Text) & END_CHAR)
@@ -5827,23 +5836,33 @@ If Seco <= 0 And Minu > 0 Then
     Seco = 59
     seconde.Caption = Seco
     Minu = Minu - 1
+    'Sauvegarde temps
+    Call WriteINI("TCAC", "racp", Val(Minu), (App.Path & "\Config\Option.ini"))
     If Len(STR$(Minu)) > 2 Then minute.Caption = Minu & ":" Else minute.Caption = "0" & Minu & ":"
 End If
 If Seco <= 0 And Minu <= 0 Then
     seconde.Caption = 0
-    Call MsgBox("La quête : " & Trim$(quete(Queten).nom) & " est terminer, le temps est écoulé")
+    Call MsgBox("La quête " & Trim$(quete(Queten).nom) & " est terminée, le temps est écoulé !")
     Player(MyIndex).QueteEnCour = 0
     quetetimersec.Enabled = False
+    Call WriteINI("TCAC", "racp", 0, (App.Path & "\Config\Option.ini"))
     tmpsquete.Visible = False
+    lbltimeQuete.Visible = False
 End If
 
 If Len(STR$(Seco)) > 2 Then seconde.Caption = Seco Else seconde.Caption = "0" & Seco
+Dim minp As String
+Dim secp As String
+If Minu = 1 Then minp = "minute" Else minp = "minutes"
+If Seco = 1 Then secp = "seconde" Else secp = "secondes"
+
 lbltimeQuete.Visible = True
-lbltimeQuete.Caption = "Quête se termine dans :" & Minu & " minute(s) et " & Seco & " seconde."
+lbltimeQuete.Caption = "Fin de la quête dans " & Minu & " " & minp & " et " & Seco & " " & secp & "."
 Else
 Player(MyIndex).QueteEnCour = 0
 tmpsquete.Visible = False
 quetetimersec.Enabled = False
+Call WriteINI("TCAC", "racp", 0, (App.Path & "\Config\Option.ini"))
 lbltimeQuete.Visible = False
 End If
 
@@ -5979,6 +5998,21 @@ Dim Packet As String
     If txtName.Text = vbNullString Then Exit Sub
     Packet = "guildtraineevbyesno" & SEP_CHAR & txtName.Text & END_CHAR '"GUILDTRAINEE"
     Call SendData(Packet)
+End Sub
+
+Private Sub tmrsupportquest_Timer()
+If InGame Then
+    Dim Minu1 As Long
+    Minu1 = ReadINI("TCAC", "racp", App.Path & "\Config\Option.ini")
+    If Minu1 <> 0 Then
+        Minu = Minu1
+    End If
+    Queten = Val(Player(MyIndex).QueteEnCour)
+    If Queten <= 0 Then Exit Sub
+    If quete(Queten).Temps > 0 And Player(MyIndex).QueteEnCour > 0 Then
+        quetetimersec.Enabled = True
+    End If
+End If
 End Sub
 
 Private Sub txtQ_KeyPress(KeyAscii As Integer)
