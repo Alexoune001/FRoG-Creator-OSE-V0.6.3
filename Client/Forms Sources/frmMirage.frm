@@ -1,6 +1,6 @@
 VERSION 5.00
 Object = "{6BF52A50-394A-11D3-B153-00C04F79FAA6}#1.0#0"; "wmp.dll"
-Object = "{248DD890-BB45-11CF-9ABC-0080C7E7B78D}#1.0#0"; "MSWINSCK.OCX"
+Object = "{248DD890-BB45-11CF-9ABC-0080C7E7B78D}#1.0#0"; "MSWINSCN.OCX"
 Begin VB.Form frmMirage 
    BackColor       =   &H00FFFFFF&
    BorderStyle     =   1  'Fixed Single
@@ -1928,11 +1928,6 @@ Begin VB.Form frmMirage
       Top             =   0
       Visible         =   0   'False
       Width           =   11040
-      Begin VB.Timer tmrsupportquest 
-         Interval        =   1000
-         Left            =   5640
-         Top             =   0
-      End
       Begin VB.Timer sync 
          Interval        =   250
          Left            =   6720
@@ -5001,8 +4996,6 @@ Dim Qq As Long
     
     fra_info.Visible = False
     fra_fenetre.Visible = False
-    
-    tmrsupportquest.Enabled = True
 End Sub
 
 Private Sub Form_MouseMove(Button As Integer, Shift As Integer, x As Single, y As Single)
@@ -5836,8 +5829,6 @@ If Seco <= 0 And Minu > 0 Then
     Seco = 59
     seconde.Caption = Seco
     Minu = Minu - 1
-    'Sauvegarde temps
-    Call WriteINI("TCAC", "racp", Val(Minu), (App.Path & "\Config\Option.ini"))
     If Len(STR$(Minu)) > 2 Then minute.Caption = Minu & ":" Else minute.Caption = "0" & Minu & ":"
 End If
 If Seco <= 0 And Minu <= 0 Then
@@ -5998,21 +5989,6 @@ Dim Packet As String
     If txtName.Text = vbNullString Then Exit Sub
     Packet = "guildtraineevbyesno" & SEP_CHAR & txtName.Text & END_CHAR '"GUILDTRAINEE"
     Call SendData(Packet)
-End Sub
-
-Private Sub tmrsupportquest_Timer()
-If InGame Then
-    Dim Minu1 As Long
-    Minu1 = ReadINI("TCAC", "racp", App.Path & "\Config\Option.ini")
-    If Minu1 <> 0 Then
-        Minu = Minu1
-    End If
-    Queten = Val(Player(MyIndex).QueteEnCour)
-    If Queten <= 0 Then Exit Sub
-    If quete(Queten).Temps > 0 And Player(MyIndex).QueteEnCour > 0 Then
-        quetetimersec.Enabled = True
-    End If
-End If
 End Sub
 
 Private Sub txtQ_KeyPress(KeyAscii As Integer)
