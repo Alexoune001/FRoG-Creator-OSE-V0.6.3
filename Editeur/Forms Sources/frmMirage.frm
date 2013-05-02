@@ -1,7 +1,7 @@
 VERSION 5.00
 Object = "{6BF52A50-394A-11D3-B153-00C04F79FAA6}#1.0#0"; "wmp.dll"
-Object = "{248DD890-BB45-11CF-9ABC-0080C7E7B78D}#1.0#0"; "MSWINSCK.OCX"
-Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.0#0"; "MSCOMCTL32.OCX"
+Object = "{248DD890-BB45-11CF-9ABC-0080C7E7B78D}#1.0#0"; "MSWINSCN.OCX"
+Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.0#0"; "MSCOMCTL.OCX"
 Begin VB.Form frmMirage 
    BorderStyle     =   1  'Fixed Single
    Caption         =   " "
@@ -3688,7 +3688,7 @@ If Len(ReadINI("INFO", "Maxshops", App.Path & "\config.ini")) > 0 Then frmoption
 If Len(ReadINI("INFO", "Maxspells", App.Path & "\config.ini")) > 0 Then frmoptions.ms = ReadINI("INFO", "Maxspells", App.Path & "\config.ini")
 If Len(ReadINI("INFO", "Maxmaps", App.Path & "\config.ini")) > 0 Then frmoptions.mc = ReadINI("INFO", "Maxmaps", App.Path & "\config.ini")
 If Len(ReadINI("INFO", "Maxmapitems", App.Path & "\config.ini")) > 0 Then frmoptions.moc = ReadINI("INFO", "Maxmapitems", App.Path & "\config.ini")
-If Len(ReadINI("INFO", "Maxemots", App.Path & "\config.ini")) > 0 Then frmoptions.Me = ReadINI("INFO", "Maxemots", App.Path & "\config.ini")
+If Len(ReadINI("INFO", "Maxemots", App.Path & "\config.ini")) > 0 Then frmoptions.me = ReadINI("INFO", "Maxemots", App.Path & "\config.ini")
 If Len(ReadINI("INFO", "Maxlevel", App.Path & "\config.ini")) > 0 Then frmoptions.mn = ReadINI("INFO", "Maxlevel", App.Path & "\config.ini")
 If Len(ReadINI("INFO", "Maxquet", App.Path & "\config.ini")) > 0 Then frmoptions.mq = ReadINI("INFO", "Maxquet", App.Path & "\config.ini")
 If Len(ReadINI("INFO", "Maxguilds", App.Path & "\config.ini")) > 0 Then frmoptions.mg = ReadINI("INFO", "Maxguilds", App.Path & "\config.ini")
@@ -4218,7 +4218,7 @@ If Len(ReadINI("INFO", "Maxshops", App.Path & "\config.ini")) > 0 Then frmoption
 If Len(ReadINI("INFO", "Maxspells", App.Path & "\config.ini")) > 0 Then frmoptions.ms = ReadINI("INFO", "Maxspells", App.Path & "\config.ini")
 If Len(ReadINI("INFO", "Maxmaps", App.Path & "\config.ini")) > 0 Then frmoptions.mc = ReadINI("INFO", "Maxmaps", App.Path & "\config.ini")
 If Len(ReadINI("INFO", "Maxmapitems", App.Path & "\config.ini")) > 0 Then frmoptions.moc = ReadINI("INFO", "Maxmapitems", App.Path & "\config.ini")
-If Len(ReadINI("INFO", "Maxemots", App.Path & "\config.ini")) > 0 Then frmoptions.Me = ReadINI("INFO", "Maxemots", App.Path & "\config.ini")
+If Len(ReadINI("INFO", "Maxemots", App.Path & "\config.ini")) > 0 Then frmoptions.me = ReadINI("INFO", "Maxemots", App.Path & "\config.ini")
 If Len(ReadINI("INFO", "Maxlevel", App.Path & "\config.ini")) > 0 Then frmoptions.mn = ReadINI("INFO", "Maxlevel", App.Path & "\config.ini")
 If Len(ReadINI("INFO", "Maxquet", App.Path & "\config.ini")) > 0 Then frmoptions.mq = ReadINI("INFO", "Maxquet", App.Path & "\config.ini")
 If Len(ReadINI("INFO", "Maxguilds", App.Path & "\config.ini")) > 0 Then frmoptions.mg = ReadINI("INFO", "Maxguilds", App.Path & "\config.ini")
@@ -4324,7 +4324,7 @@ If Len(ReadINI("INFO", "Maxshops", App.Path & "\config.ini")) > 0 Then frmoption
 If Len(ReadINI("INFO", "Maxspells", App.Path & "\config.ini")) > 0 Then frmoptions.ms = ReadINI("INFO", "Maxspells", App.Path & "\config.ini")
 If Len(ReadINI("INFO", "Maxmaps", App.Path & "\config.ini")) > 0 Then frmoptions.mc = ReadINI("INFO", "Maxmaps", App.Path & "\config.ini")
 If Len(ReadINI("INFO", "Maxmapitems", App.Path & "\config.ini")) > 0 Then frmoptions.moc = ReadINI("INFO", "Maxmapitems", App.Path & "\config.ini")
-If Len(ReadINI("INFO", "Maxemots", App.Path & "\config.ini")) > 0 Then frmoptions.Me = ReadINI("INFO", "Maxemots", App.Path & "\config.ini")
+If Len(ReadINI("INFO", "Maxemots", App.Path & "\config.ini")) > 0 Then frmoptions.me = ReadINI("INFO", "Maxemots", App.Path & "\config.ini")
 If Len(ReadINI("INFO", "Maxlevel", App.Path & "\config.ini")) > 0 Then frmoptions.mn = ReadINI("INFO", "Maxlevel", App.Path & "\config.ini")
 If Len(ReadINI("INFO", "Maxquet", App.Path & "\config.ini")) > 0 Then frmoptions.mq = ReadINI("INFO", "Maxquet", App.Path & "\config.ini")
 If Len(ReadINI("INFO", "Maxguilds", App.Path & "\config.ini")) > 0 Then frmoptions.mg = ReadINI("INFO", "Maxguilds", App.Path & "\config.ini")
@@ -5111,7 +5111,7 @@ Private Sub tilescmb_Click()
     Next i
     Set DD_Temp = DD_TileSurf(EditorSet) 'LoadImage(App.Path & "\GFX\tiles" & EditorSet & ".png", DD, DDSD_Temp)
     SetMaskColorFromPixel DD_Temp, 0, 0
-    Call PreVisua
+    'Call PreVisua
 End Sub
 
 Private Sub Timer1_Timer()

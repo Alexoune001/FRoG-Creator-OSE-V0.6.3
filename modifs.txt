@@ -15,6 +15,7 @@
 -- Orthographe
 -- Optimisation des requêtes
 -- Réaffichage du nombre de mobs tués;
+- Suppression du grisage dans l'éditeur (signalé ici : http://www.frogcreator.fr/ose/showthread.php?tid=9008&pid=95447#pid95447) [Vince];
 
 -----Modifications en cours-----
 

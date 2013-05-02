@@ -333,3 +333,7 @@
 10:22:00: Elios/Elios est en train de jouer à FRoG Creator.
 19:53:14: Elios s'est connecté depuis 127.0.0.1.
 19:53:15: Elios/Elios est en train de jouer à FRoG Creator.
+19:01:28: Admin s'est connecté depuis 127.0.0.1.
+19:01:29: Admin/Admin est en train de jouer à FRoG Creator.
+19:01:56: Admin s'est connecté depuis 127.0.0.1.
+19:01:57: Admin/Admin est en train de jouer à FRoG Creator.
