@@ -122,6 +122,17 @@ Public Sub SetPlayerQuete(ByVal Index As Integer, ByVal QuestNum As Integer, Opt
     If Ask Then Call QueteMsg(Index, Trim$(quete(QuestNum).nom) & " : " & Trim$(quete(QuestNum).Description))
 End Sub
 
+'Code by Cryo
+Public Function PlayerInMap(ByVal MapNum As Integer) As Integer
+    Dim i As Integer
+    Dim Player As Integer
+    Player = 0
+    For i = 1 To MAX_PLAYERS
+        If GetPlayerMap(i) = MapNum Then Player = Player + 1
+    Next i
+    PlayerInMap = Player
+End Function
+
 Public Function GetVar(File As String, Header As String, Var As String) As String
 Dim sSpaces As String   ' Max string length
 Dim szReturn As String  ' Return default value if not found

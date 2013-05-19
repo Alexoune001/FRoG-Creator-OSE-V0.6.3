@@ -11,11 +11,11 @@
 - Modification du système de ratio d'expérience [Elios];
 - Modification de l'interface serveur [Elios];
 - Améliorations/Correction du système de quête [Elios] :
--- Le timer de quête est maintenant sauvegardé chaque minute
 -- Orthographe
 -- Optimisation des requêtes
 -- Réaffichage du nombre de mobs tués;
 - Suppression du grisage dans l'éditeur (signalé ici : http://www.frogcreator.fr/ose/showthread.php?tid=9008&pid=95447#pid95447) [Vince];
+- Ajout d'une nouvelle fonction SadScript PlayerInMap qui donne le nombre de joueurs sur une map, par Cryo : http://www.frogcreator.fr/ose/showthread.php?tid=7081 [Elios];
 
 -----Modifications en cours-----
 

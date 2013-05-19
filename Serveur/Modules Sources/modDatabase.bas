@@ -14,6 +14,16 @@ Public Const PLAYER_LOG = "logs\player.txt"
 Public Const GUILDE_LOG = "logs\guildes.txt"
 Public surcharge As Boolean
 
+'Code by Cryo
+Public Function PlayerInMap(ByVal MapNum As Integer) As Integer
+    Dim i As Integer
+    Dim Player As Integer
+    Player = 0
+    For i = 1 To MAX_PLAYERS
+        If GetPlayerMap(i) = MapNum Then Player = Player + 1
+    Next i
+    PlayerInMap = Player
+End Function
 
 Public Function GetVar(File As String, Header As String, Var As String) As String
 Dim sSpaces As String   ' Max string length

@@ -1,7 +1,7 @@
 frmServer = 169, 191, 1490, 825, , 94, 55, 1415, 689, C
 modDatabase = 104, 154, 1419, 788, 
 modTypes = 234, 234, 1555, 868, C
-modGameLogic = 208, 208, 1529, 842, 
+modGameLogic = 208, 208, 1529, 842, C
 modGeneral = 124, 178, 1445, 812, C
 modText = 0, 0, 0, 0, C
 frmLoad = 78, 78, 1399, 712, C, 52, 54, 1373, 686, C
