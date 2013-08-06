@@ -667,7 +667,7 @@ If n = 1 And Player(Index).Char(Player(Index).CharNum).QueteStatut(Queteec) = 0 
     Player(Index).Char(Player(Index).CharNum).QueteStatut(Queteec) = 1
     Call SendDataTo(Index, "FINQUETE" & END_CHAR)
 Else
-    Call QueteMsg(Index, "Je suis désolé tu n'as pas l'objet que je cherche.")
+    Call QueteMsg(Index, "Tu n'as pas l'objet que je cherche (" & Trim(item(quete(Queteec).data1).Name) & ").")
 End If
 
 End Sub
@@ -922,7 +922,7 @@ Dim AttackSpeed As Long
                                 CanAttackPlayer = True
                             End If
                         Else
-                            Call PlayerMsg(Attacker, "C'est une safe zone (impossible d'attaquer d'autres joueurs).", BrightRed)
+                            Call PlayerMsg(Attacker, "Vous êtes sur une carte safe zone (pvp désactivé).", BrightRed)
                         End If
                     ElseIf Map(GetPlayerMap(Victim)).Tile(GetPlayerX(Victim), GetPlayerY(Victim)).type = TILE_TYPE_ARENA And Map(GetPlayerMap(Attacker)).Tile(GetPlayerX(Attacker), GetPlayerY(Attacker)).type = TILE_TYPE_ARENA Then
                         CanAttackPlayer = True
@@ -945,7 +945,7 @@ Dim AttackSpeed As Long
                                 CanAttackPlayer = True
                             End If
                         Else
-                            Call PlayerMsg(Attacker, "C'est une safe zone (impossible d'attaquer d'autres joueurs).", BrightRed)
+                            Call PlayerMsg(Attacker, "Vous êtes sur une carte safe zone (pvp désactivé).", BrightRed)
                         End If
                         
                     ElseIf Map(GetPlayerMap(Victim)).Tile(GetPlayerX(Victim), GetPlayerY(Victim)).type = TILE_TYPE_ARENA And Map(GetPlayerMap(Attacker)).Tile(GetPlayerX(Attacker), GetPlayerY(Attacker)).type = TILE_TYPE_ARENA Then
@@ -968,7 +968,7 @@ Dim AttackSpeed As Long
                                 CanAttackPlayer = True
                             End If
                         Else
-                            Call PlayerMsg(Attacker, "C'est une safe zone (impossible d'attaquer d'autres joueurs).", BrightRed)
+                            Call PlayerMsg(Attacker, "Vous êtes sur une carte safe zone (pvp désactivé).", BrightRed)
                         End If
                         
                     ElseIf Map(GetPlayerMap(Victim)).Tile(GetPlayerX(Victim), GetPlayerY(Victim)).type = TILE_TYPE_ARENA And Map(GetPlayerMap(Attacker)).Tile(GetPlayerX(Attacker), GetPlayerY(Attacker)).type = TILE_TYPE_ARENA Then
@@ -992,7 +992,7 @@ Dim AttackSpeed As Long
                                 CanAttackPlayer = True
                             End If
                         Else
-                            Call PlayerMsg(Attacker, "C'est une safe zone (impossible d'attaquer d'autres joueurs).", BrightRed)
+                            Call PlayerMsg(Attacker, "Vous êtes sur une carte safe zone (pvp désactivé).", BrightRed)
                         End If
                     ElseIf Map(GetPlayerMap(Victim)).Tile(GetPlayerX(Victim), GetPlayerY(Victim)).type = TILE_TYPE_ARENA And Map(GetPlayerMap(Attacker)).Tile(GetPlayerX(Attacker), GetPlayerY(Attacker)).type = TILE_TYPE_ARENA Then
                         CanAttackPlayer = True
@@ -1578,9 +1578,9 @@ Dim STR As Long, def As Long, MapNum As Long, npcnum As Long
                 If InMetier(n, npcnum) <> 10 Then
                     If Player(Attacker).Char(Player(Attacker).CharNum).MetierLvl < 200 Then
                         Player(Attacker).Char(Player(Attacker).CharNum).MetierExp = Player(Attacker).Char(Player(Attacker).CharNum).MetierExp + metier(n).data(InMetier(n, npcnum), 1)
-                        Call BattleMsg(Attacker, "(Metier) Vous avez gagné " & metier(n).data(InMetier(n, npcnum), 1) & " pts d'expérience.", BrightBlue, 0)
+                        Call BattleMsg(Attacker, "Vous avez gagné " & metier(n).data(InMetier(n, npcnum), 1) & " pts d'expérience de métier.", BrightBlue, 0)
                     Else
-                        Call BattleMsg(Attacker, "(Metier) Vous ne pouver plus gagner d'expérience", BrightBlue, 0)
+                        Call BattleMsg(Attacker, "Vous ne pouver plus gagner d' de métier.", BrightBlue, 0)
                     End If
                 End If
             End If
@@ -1625,10 +1625,10 @@ Dim STR As Long, def As Long, MapNum As Long, npcnum As Long
                 If Party.ShareExp(Player(Attacker).InParty) = 2 Then ExpG = Exp * (Player(n).Char(Player(n).CharNum).Level / i)
                 If GetPlayerLevel(n) = MAX_LEVEL Then
                     Call SetPlayerExp(n, experience(MAX_LEVEL))
-                    Call BattleMsg(n, "Vous ne pouvez pas gagner plus d'expérience.", BrightBlue, 0)
+                    Call BattleMsg(n, "Vous ne pouvez pas gagner plus d'expérience de groupe.", BrightBlue, 0)
                 Else
                     Call SetPlayerExp(n, GetPlayerExp(n) + ExpG)
-                    Call BattleMsg(n, "Vous avez gagné " & ExpG & " points d'expérience (groupe).", BrightBlue, 0)
+                    Call BattleMsg(n, "Vous avez gagné " & ExpG & " points d'expérience de groupe.", BrightBlue, 0)
                 End If
             Next x
         End If
@@ -2733,10 +2733,10 @@ Dim f As Long
         
         ' Send a global message that he/she joined
         If GetPlayerAccess(Index) <= ADMIN_MONITER Then
-            Call GlobalMsg(GetPlayerName(Index) & " a rejoin " & GAME_NAME & ".", JoinLeftColor)
+            Call GlobalMsg(GetPlayerName(Index) & " a rejoint " & GAME_NAME & ".", JoinLeftColor)
         Else
-            Call GlobalMsg(GetPlayerName(Index) & " a rejoin " & GAME_NAME & ".", AdminColor)
-            If IBAdmin Then IBMsg ("L'Admin/Modo : " & GetPlayerName(Index) & " a rejoin " & GAME_NAME & ".")
+            Call GlobalMsg(GetPlayerName(Index) & " a rejoint " & GAME_NAME & ".", AdminColor)
+            If IBAdmin Then IBMsg ("L'Admin/Modo : " & GetPlayerName(Index) & " a rejoint " & GAME_NAME & ".")
         End If
     
         ' Send them welcome
@@ -2848,7 +2848,7 @@ Dim n As Long
         SavePlayer (Index)
         End If
         
-        Call TextAdd(frmServer.txtText(0), GetPlayerName(Index) & " est déconnecté de " & GAME_NAME & ".", True)
+        Call TextAdd(frmServer.txtText(0), GetPlayerName(Index) & " s'est déconnecté de " & GAME_NAME & ".", True)
         Call SendLeftGame(Index)
         'Call RemovePLR
         For n = 1 To MAX_PLAYERS
@@ -3032,7 +3032,7 @@ Dim Casted As Boolean
     
     ' Make sure player has the spell
     If Not HasSpell(Index, SpellNum) Then
-        Call BattleMsg(Index, "Vous n'avez pas ce sort.", BrightRed, 0)
+        Call BattleMsg(Index, "Vous n'avez pas appris ce sort.", BrightRed, 0)
         Exit Sub
     End If
     
@@ -3046,7 +3046,7 @@ Dim Casted As Boolean
         
     ' Make sure they are the right level
     If i > GetPlayerLevel(Index) Then
-        Call BattleMsg(Index, "Vous devez étre niveau " & i & " pour lancer ce sort.", BrightRed, 0)
+        Call BattleMsg(Index, "Vous devez être niveau " & i & " pour lancer ce sort.", BrightRed, 0)
         Exit Sub
     End If
     
@@ -3223,7 +3223,7 @@ If Spell(SpellNum).AE = 1 Then
                                 
                                 Casted = True
                             Else
-                                Call PlayerMsg(Index, "Vous n'avez pas pu envoyer le sort.(la cible n'est pas sur la même carte que vous)", BrightRed)
+                                Call PlayerMsg(Index, "Vous n'avez pas pu envoyer le sort, il n'est pas sur la même carte que vous.", BrightRed)
                             End If
                         End If
                     'Else
@@ -3259,7 +3259,7 @@ If Spell(SpellNum).AE = 1 Then
                      '   End If
                     'End If
                 Else
-                    Call BattleMsg(Index, "Vous n'avez pas put envoyer le sort.(la cible n'est pas/plus en jeu)", BrightRed, 0)
+                    Call BattleMsg(Index, "Vous n'avez pas pu envoyer le sort, joueur hors ligne.", BrightRed, 0)
                 End If
             Else
                 Player(Index).TargetType = TARGET_TYPE_NPC
@@ -3288,7 +3288,7 @@ If Spell(SpellNum).AE = 1 Then
                         Casted = False
                     End If
                 Else
-                    Call BattleMsg(Index, "Vous ne lancez pas le sort.(PNJ amis)", BrightRed, 0)
+                    Call BattleMsg(Index, "Vous n'avez pas pu lancer le sort, ce n'est pas un ennemi.", BrightRed, 0)
                 End If
             End If
         End If
@@ -3303,7 +3303,7 @@ If Spell(SpellNum).AE = 1 Then
     Call SendMP(Index)
 Else
     n = Player(Index).Target
-    If n = -1 Then Call PlayerMsg(Index, "Vous n'avez pas pu envoyer le sort.(aucune cible)", BrightRed): Exit Sub
+    If n = -1 Then Call PlayerMsg(Index, "Aucune cible choisie.", BrightRed): Exit Sub
     If Player(Index).TargetType = TARGET_TYPE_PLAYER Then
         If IsPlaying(n) Then
             If bouclier(n) = True Then
@@ -3429,11 +3429,11 @@ Else
                     Call SendMP(Index)
                     Casted = True
                 Else
-                    Call BattleMsg(Index, "Vous n'avez pas put envoyer le sort.", BrightRed, 0)
+                    Call BattleMsg(Index, "Vous n'avez pas pu envoyer le sort.", BrightRed, 0)
                 End If
             End If
         Else
-            Call PlayerMsg(Index, "Vous n'avez pas put envoyer le sort.(cible hors ligne)", BrightRed)
+            Call PlayerMsg(Index, "Vous n'avez pas pu envoyer le sort, cible hors ligne.", BrightRed)
         End If
     Else
         If CInt(Sqr((GetPlayerX(Index) - MapNpc(GetPlayerMap(Index), n).x) ^ 2 + ((GetPlayerY(Index) - MapNpc(GetPlayerMap(Index), n).y) ^ 2))) > Spell(SpellNum).Range Then
@@ -3478,7 +3478,7 @@ Else
             Call SendMP(Index)
             Casted = True
         Else
-            Call BattleMsg(Index, "Vous n'avez pas pu envoyer le sort.(cible non ennemi)", BrightRed, 0)
+            Call BattleMsg(Index, "Vous n'avez pas pu envoyer le sort, ce n'est pas un ennemi.", BrightRed, 0)
         End If
     End If
 End If
@@ -3730,16 +3730,16 @@ On Error GoTo er:
 If Map(GetPlayerMap(Attacker)).Moral = MAP_MORAL_NONE Or Map(GetPlayerMap(Attacker)).Moral = MAP_MORAL_NO_PENALTY Or GetPlayerPK(Victim) = YES Then
 ' Make sure they are high enough level
     If GetPlayerLevel(Attacker) < PK_LEVEL Then
-        Call PlayerMsg(Attacker, "Vous éte en dessous du niveau " & PK_LEVEL & ",vous ne pouvez pas encore attaquer d'autres joueurs.", BrightRed)
+        Call PlayerMsg(Attacker, "Vous êtes en dessous du niveau " & PK_LEVEL & ", vous ne pouvez pas encore attaquer d'autres joueurs.", BrightRed)
     Else
         If GetPlayerLevel(Victim) < NOOB_LEVEL Then
-            Call PlayerMsg(Attacker, GetPlayerName(Victim) & " est en dessous du niveau " & NOOB_LEVEL & ",vous ne pouvez pas encore l'attaquer.", BrightRed)
+            Call PlayerMsg(Attacker, GetPlayerName(Victim) & " est en dessous du niveau " & NOOB_LEVEL & ", vous ne pouvez pas encore l'attaquer.", BrightRed)
         Else
             If Trim$(GetPlayerGuild(Attacker)) <> vbNullString And GetPlayerGuild(Victim) <> vbNullString Then
                 If Trim$(GetPlayerGuild(Attacker)) <> Trim$(GetPlayerGuild(Victim)) Then
                     CanAttackPlayerWithArrow = True
                 Else
-                    Call PlayerMsg(Attacker, "Vous ne pouvez pas attaquer un menbre de votre guilde.", BrightRed)
+                    Call PlayerMsg(Attacker, "Vous ne pouvez pas attaquer un membre de votre guilde.", BrightRed)
                 End If
             Else
                 CanAttackPlayerWithArrow = True
@@ -3747,7 +3747,7 @@ If Map(GetPlayerMap(Attacker)).Moral = MAP_MORAL_NONE Or Map(GetPlayerMap(Attack
         End If
     End If
 Else
-    Call PlayerMsg(Attacker, "La carte est une safe zone(vous ne pouvez pas attaquer d'autres joueurs).", BrightRed)
+    Call PlayerMsg(Attacker, "Vous êtes sur une carte safe zone (pvp désactivé).", BrightRed)
 End If
 
 Exit Function

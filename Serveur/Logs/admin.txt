@@ -192,3 +192,11 @@
 14:23:19: Admin a modifié(e) la carte #1
 14:30:59: Admin edite l'objet #12.
 14:33:05: Admin a modifié(e) la carte #1
+19:02:33: Admin edite le PNJ #5.
+19:02:46: Admin edite le PNJ #6.
+19:03:04: Admin sauvegarde le PNJ #6.
+19:03:09: Admin edite la quete #2.
+19:04:04: Admin sauvegarde la quete #2.
+19:04:11: Admin edite le PNJ #5.
+19:04:23: Admin sauvegarde le PNJ #5.
+19:04:51: Admin a modifié(e) la carte #1

@@ -1,0 +1,6 @@
+
+Connexion reçue depuis l'IP 192.168.0.1.
+Admin s'est connecté depuis 192.168.0.1.
+Admin/Admin est en train de jouer à FRoG Creator.
+Admin s'est déconnecté de FRoG Creator.
+Connexion de 192.168.0.1 est terminée.

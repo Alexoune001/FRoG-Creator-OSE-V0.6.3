@@ -1,5 +1,5 @@
 VERSION 5.00
-Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.0#0"; "MSCOMCTL32.OCX"
+Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.0#0"; "MSCOMCTL.OCX"
 Object = "{BDC217C8-ED16-11CD-956C-0000C04E4C0A}#1.1#0"; "TABCTL32.OCX"
 Object = "{248DD890-BB45-11CF-9ABC-0080C7E7B78D}#1.0#0"; "MSWINSCK.OCX"
 Begin VB.Form frmServer 
@@ -75,34 +75,34 @@ Begin VB.Form frmServer
       TabCaption(1)   =   "Joueur"
       TabPicture(1)   =   "frmServer.frx":17D46
       Tab(1).ControlEnabled=   0   'False
-      Tab(1).Control(0)=   "TPO"
-      Tab(1).Control(1)=   "lvUsers"
-      Tab(1).Control(2)=   "Command66"
-      Tab(1).Control(3)=   "Check1"
-      Tab(1).Control(4)=   "Command14"
-      Tab(1).Control(5)=   "Command16"
-      Tab(1).Control(6)=   "Command18"
-      Tab(1).Control(7)=   "Command19"
-      Tab(1).Control(8)=   "Command21"
-      Tab(1).Control(9)=   "Command22"
-      Tab(1).Control(10)=   "Command23"
-      Tab(1).Control(11)=   "Command24"
-      Tab(1).Control(12)=   "Command3"
-      Tab(1).Control(13)=   "Command45"
-      Tab(1).Control(14)=   "Command51"
-      Tab(1).Control(15)=   "picStats"
-      Tab(1).Control(16)=   "Picskint"
-      Tab(1).Control(17)=   "picReason"
-      Tab(1).Control(18)=   "Command9"
-      Tab(1).Control(19)=   "Command31"
-      Tab(1).Control(20)=   "Command12"
-      Tab(1).Control(21)=   "Command32"
-      Tab(1).Control(22)=   "Command33"
-      Tab(1).Control(23)=   "Command34"
-      Tab(1).Control(24)=   "Command46"
-      Tab(1).Control(25)=   "picWarp"
-      Tab(1).Control(26)=   "picJail"
-      Tab(1).Control(27)=   "picExp"
+      Tab(1).Control(0)=   "picExp"
+      Tab(1).Control(1)=   "picJail"
+      Tab(1).Control(2)=   "picWarp"
+      Tab(1).Control(3)=   "Command46"
+      Tab(1).Control(4)=   "Command34"
+      Tab(1).Control(5)=   "Command33"
+      Tab(1).Control(6)=   "Command32"
+      Tab(1).Control(7)=   "Command12"
+      Tab(1).Control(8)=   "Command31"
+      Tab(1).Control(9)=   "Command9"
+      Tab(1).Control(10)=   "picReason"
+      Tab(1).Control(11)=   "Picskint"
+      Tab(1).Control(12)=   "picStats"
+      Tab(1).Control(13)=   "Command51"
+      Tab(1).Control(14)=   "Command45"
+      Tab(1).Control(15)=   "Command3"
+      Tab(1).Control(16)=   "Command24"
+      Tab(1).Control(17)=   "Command23"
+      Tab(1).Control(18)=   "Command22"
+      Tab(1).Control(19)=   "Command21"
+      Tab(1).Control(20)=   "Command19"
+      Tab(1).Control(21)=   "Command18"
+      Tab(1).Control(22)=   "Command16"
+      Tab(1).Control(23)=   "Command14"
+      Tab(1).Control(24)=   "Check1"
+      Tab(1).Control(25)=   "Command66"
+      Tab(1).Control(26)=   "lvUsers"
+      Tab(1).Control(27)=   "TPO"
       Tab(1).ControlCount=   28
       TabCaption(2)   =   "Panneau de Contrôle"
       TabPicture(2)   =   "frmServer.frx":17D62
@@ -281,7 +281,7 @@ Begin VB.Form frmServer
             Left            =   240
             TabIndex        =   170
             Top             =   840
-            Width           =   2775
+            Width           =   2655
          End
          Begin VB.Label Label7 
             Caption         =   "Ratio d'expérience normal : 1"
@@ -289,7 +289,7 @@ Begin VB.Form frmServer
             Left            =   240
             TabIndex        =   168
             Top             =   240
-            Width           =   2775
+            Width           =   2655
          End
       End
       Begin VB.Frame Frame9 
@@ -302,10 +302,10 @@ Begin VB.Form frmServer
          Begin VB.CommandButton Command36 
             Caption         =   "Informations sur la carte"
             Height          =   255
-            Left            =   2640
+            Left            =   2520
             TabIndex        =   163
             Top             =   1320
-            Width           =   2055
+            Width           =   2175
          End
          Begin VB.CommandButton Command35 
             Caption         =   "Rafraîchir"
@@ -313,7 +313,7 @@ Begin VB.Form frmServer
             Left            =   120
             TabIndex        =   162
             Top             =   1320
-            Width           =   2055
+            Width           =   2175
          End
          Begin VB.ListBox MapList 
             Height          =   960

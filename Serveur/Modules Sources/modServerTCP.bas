@@ -2,9 +2,24 @@ Attribute VB_Name = "modServerTCP"
 Option Explicit
 'Affichage de petits détails
 Sub UpdateCaption()
+
+Dim ReturnedHTML As String, sIp As Long, sStop As Long, affIP As String
+    ReturnedHTML = SendAPIRequest("http://checkip.dyndns.org/")
+    sIp = InStr(ReturnedHTML, "Address: ") + 9
+    If InStr(sIp, ReturnedHTML, ",") > 0 Then
+        sStop = InStr(sIp, ReturnedHTML, ",")
+    Else
+        sStop = InStr(sIp, ReturnedHTML, "<")
+    End If
+    If sStop > 0 Then
+        affIP = Mid(ReturnedHTML, sIp, sStop - sIp)
+    Else
+        affIP = "0.0.0.0"
+    End If
+    
 With frmServer
     .Caption = GAME_NAME & " - FRoG Serveur 0.6.3"
-    .lblIP.Caption = "Adresse IP : " & SendAPIRequest("http://www.frogcreator.fr/update/getIP.php")
+    .lblIP.Caption = "Adresse IP : " & affIP
     '.lblIP.Caption = frmServer.lblIP & " (Local : " & frmServer.Socket(0).LocalIP & ")"
     .lblPort.Caption = "Port : " & STR$(frmServer.Socket(0).LocalPort)
     .TPO.Caption = "Nombre de joueurs en ligne : " & TotalOnlinePlayers
