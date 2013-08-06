@@ -16,6 +16,8 @@
 -- Réaffichage du nombre de mobs tués;
 - Suppression du grisage dans l'éditeur (signalé ici : http://www.frogcreator.fr/ose/showthread.php?tid=9008&pid=95447#pid95447) [Vince];
 - Ajout d'une nouvelle fonction SadScript PlayerInMap qui donne le nombre de joueurs sur une map, par Cryo : http://www.frogcreator.fr/ose/showthread.php?tid=7081 [Elios];
+- Correction de l'erreur scripting lorsqu'on équipe une arme/armure qui obligeait à rafraîchir les scripts
+- Ajout de la variable "itemid" des fonctions UseXXXItem qui renvoie l'ID de l'item équipé
 
 -----Modifications en cours-----
 

@@ -1,19 +1,19 @@
-Sub OnArmorUse(index)
+Sub OnArmorUse(index,itemid)
 
 End Sub
 
-Sub OnMontureUse(index)
+Sub OnMontureUse(index,itemid)
 
 End Sub
 
-Sub OnWeaponUse(index)
+Sub OnWeaponUse(index,itemid)
+	Call GlobalMsg("Ceci est la case " & itemid, 3)
+End Sub
+
+Sub OnHelmetUse(index,itemid)
 
 End Sub
 
-Sub OnHelmetUse(index)
-
-End Sub
-
-Sub OnShieldUse(index)
+Sub OnShieldUse(index,itemid)
 
 End Sub

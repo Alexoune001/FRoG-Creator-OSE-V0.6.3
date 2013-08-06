@@ -1543,19 +1543,19 @@ Player(Index).sync = True
                                     If GetPlayerAccess(Index) < n5 Then Call PlayerMsg(Index, "Votre accès doit être supérieur à " & n5 & ".", BrightRed): Exit Sub
                                     If item(GetPlayerInvItemNum(Index, InvNum)).Sex <> GetPlayerSex(Index) And item(GetPlayerInvItemNum(Index, InvNum)).Sex <> 2 Then Call PlayerMsg(Index, "Tu n'es pas du bon sexe pour utiliser ceci.", BrightRed): Exit Sub
                                     If Int(GetPlayerStr(Index)) < n1 Then
-                                        Call PlayerMsg(Index, "Votre force n'est pas suffisante pour ceci.  Force requise (" & n1 & ")", BrightRed)
+                                        Call PlayerMsg(Index, "Votre force n'est pas suffisante pour ceci.  Force requise : " & n1, BrightRed)
                                         Exit Sub
                                     ElseIf Int(GetPlayerDEF(Index)) < n2 Then
-                                        Call PlayerMsg(Index, "Votre défense n'est pas suffisante pour ceci.  Défense requise (" & n2 & ")", BrightRed)
+                                        Call PlayerMsg(Index, "Votre défense n'est pas suffisante pour ceci.  Défense requise : " & n2, BrightRed)
                                         Exit Sub
                                     ElseIf Int(GetPlayerSPEED(Index)) < n3 Then
-                                        Call PlayerMsg(Index, "Votre vitesse n'est pas suffisante pour ceci.  Vitesse requise (" & n3 & ")", BrightRed)
+                                        Call PlayerMsg(Index, "Votre vitesse n'est pas suffisante pour ceci.  Vitesse requise : " & n3, BrightRed)
                                         Exit Sub
                                     ElseIf Int(GetPlayerLevel(Index)) < niveauRequis Then
-                                        Call PlayerMsg(Index, "Votre niveau n'est pas suffisante pour ceci.  Niveau requis (" & niveauRequis & ")", BrightRed)
+                                        Call PlayerMsg(Index, "Votre niveau n'est pas suffisant pour ceci.  Niveau requis : " & niveauRequis, BrightRed)
                                         Exit Sub
                                     End If
-                                    Call MyScript.ExecuteStatement("Scripts\Main.txt", "OnArmorUse" & Index)
+                                    Call MyScript.ExecuteStatement("Scripts\Main.txt", "OnArmorUse " & Index & "," & GetPlayerInvItemNum(Index, InvNum))
                                     Call SetPlayerArmorSlot(Index, InvNum)
                                 Else
                                     Call SetPlayerArmorSlot(Index, 0)
@@ -1569,23 +1569,23 @@ Player(Index).sync = True
                                     If n4 > -1 Then If GetPlayerClass(Index) <> n4 Then Call PlayerMsg(Index, "Tu as besoin d'être un " & GetClassName(n4) & " pour utiliser ceci.", BrightRed): Exit Sub
                                     If GetPlayerAccess(Index) < n5 Then Call PlayerMsg(Index, "Votre accès doit être supérieur à " & n5 & ".", BrightRed): Exit Sub
                                     If Int(GetPlayerStr(Index)) < n1 Then
-                                        Call PlayerMsg(Index, "Votre force n'est pas suffisante pour ceci.  Force requise (" & n1 & ")", BrightRed)
+                                        Call PlayerMsg(Index, "Votre force n'est pas suffisante pour ceci.  Force requise : " & n1, BrightRed)
                                         Exit Sub
                                     ElseIf Int(GetPlayerDEF(Index)) < n2 Then
-                                        Call PlayerMsg(Index, "Votre défense n'est pas suffisante pour ceci.  Défense requise (" & n2 & ")", BrightRed)
+                                        Call PlayerMsg(Index, "Votre défense n'est pas suffisante pour ceci.  Défense requise : " & n2, BrightRed)
                                         Exit Sub
                                     ElseIf Int(GetPlayerSPEED(Index)) < n3 Then
-                                        Call PlayerMsg(Index, "Votre vitesse n'est pas suffisante pour ceci.  Vitesse requise (" & n3 & ")", BrightRed)
+                                        Call PlayerMsg(Index, "Votre vitesse n'est pas suffisante pour ceci.  Vitesse requise : " & n3, BrightRed)
                                         Exit Sub
                                     ElseIf Int(GetPlayerLevel(Index)) < niveauRequis Then
-                                        Call PlayerMsg(Index, "Votre niveau n'est pas suffisante pour ceci.  Niveau requis (" & niveauRequis & ")", BrightRed)
+                                        Call PlayerMsg(Index, "Votre niveau n'est pas suffisant pour ceci.  Niveau requis : " & niveauRequis, BrightRed)
                                         Exit Sub
                                     End If
                                     Call SetPlayerArmorSlot(Index, InvNum)
                                     Call PutVar(App.Path & "\accounts\" & Trim$(Player(Index).Login) & ".ini", "CHAR" & Player(Index).CharNum, "monture", GetPlayerSprite(Index))
                                     n = item(GetPlayerInvItemNum(Index, InvNum)).data1
                                     Call SetPlayerSprite(Index, n)
-                                    Call MyScript.ExecuteStatement("Scripts\Main.txt", "OnMontureUse" & Index)
+                                    Call MyScript.ExecuteStatement("Scripts\Main.txt", "OnMontureUse " & Index & "," & GetPlayerInvItemNum(Index, InvNum))
                                     Call SendPlayerData(Index)
                                 Else
                                     Call SetPlayerArmorSlot(Index, 0)
@@ -1600,20 +1600,20 @@ Player(Index).sync = True
                                     If GetPlayerAccess(Index) < n5 Then Call PlayerMsg(Index, "Votre accès doit être supérieur à " & n5 & ".", BrightRed): Exit Sub
                                     If item(GetPlayerInvItemNum(Index, InvNum)).Sex <> GetPlayerSex(Index) And item(GetPlayerInvItemNum(Index, InvNum)).Sex <> 2 Then Call PlayerMsg(Index, "Tu n'es pas du bon sexe pour utiliser ceci.", BrightRed): Exit Sub
                                     If Int(GetPlayerStr(Index)) < n1 Then
-                                        Call PlayerMsg(Index, "Votre force n'est pas suffisante pour ceci.  Force requise (" & n1 & ")", BrightRed)
+                                        Call PlayerMsg(Index, "Votre force n'est pas suffisante pour ceci.  Force requise : " & n1, BrightRed)
                                         Exit Sub
                                     ElseIf Int(GetPlayerDEF(Index)) < n2 Then
-                                        Call PlayerMsg(Index, "Votre défense n'est pas suffisante pour ceci.  Défense requise (" & n2 & ")", BrightRed)
+                                        Call PlayerMsg(Index, "Votre défense n'est pas suffisant pour ceci.  Défense requise : " & n2, BrightRed)
                                         Exit Sub
                                     ElseIf Int(GetPlayerSPEED(Index)) < n3 Then
-                                        Call PlayerMsg(Index, "Votre vitesse n'est pas suffisante pour ceci.  Vitesse requise (" & n3 & ")", BrightRed)
+                                        Call PlayerMsg(Index, "Votre vitesse n'est pas suffisant pour ceci.  Vitesse requise : " & n3, BrightRed)
                                         Exit Sub
                                     ElseIf Int(GetPlayerLevel(Index)) < niveauRequis Then
-                                        Call PlayerMsg(Index, "Votre niveau n'est pas suffisante pour ceci.  Niveau requis (" & niveauRequis & ")", BrightRed)
+                                        Call PlayerMsg(Index, "Votre niveau n'est pas suffisant pour ceci.  Niveau requis : " & niveauRequis, BrightRed)
                                         Exit Sub
                                     End If
                                     Call SetPlayerWeaponSlot(Index, InvNum)
-                                    Call MyScript.ExecuteStatement("Scripts\Main.txt", "OnWeaponUse" & Index)
+                                    Call MyScript.ExecuteStatement("Scripts\Main.txt", "OnWeaponUse " & Index & "," & GetPlayerInvItemNum(Index, InvNum))
                                 Else
                                     Call SetPlayerWeaponSlot(Index, 0)
                                 End If
@@ -1626,20 +1626,20 @@ Player(Index).sync = True
                                     If GetPlayerAccess(Index) < n5 Then Call PlayerMsg(Index, "Votre accès doit être supérieur à " & n5 & ".", BrightRed): Exit Sub
                                     If item(GetPlayerInvItemNum(Index, InvNum)).Sex <> GetPlayerSex(Index) And item(GetPlayerInvItemNum(Index, InvNum)).Sex <> 2 Then Call PlayerMsg(Index, "Tu n'es pas du bon sexe pour utiliser ceci.", BrightRed): Exit Sub
                                     If Int(GetPlayerStr(Index)) < n1 Then
-                                        Call PlayerMsg(Index, "Votre force n'est pas suffisante pour ceci.  Force requise (" & n1 & ")", BrightRed)
+                                        Call PlayerMsg(Index, "Votre force n'est pas suffisante pour ceci.  Force requise : " & n1, BrightRed)
                                         Exit Sub
                                     ElseIf Int(GetPlayerDEF(Index)) < n2 Then
-                                        Call PlayerMsg(Index, "Votre défense n'est pas suffisante pour ceci.  Défense requise (" & n2 & ")", BrightRed)
+                                        Call PlayerMsg(Index, "Votre défense n'est pas suffisante pour ceci.  Défense requise : " & n2, BrightRed)
                                         Exit Sub
                                     ElseIf Int(GetPlayerSPEED(Index)) < n3 Then
-                                        Call PlayerMsg(Index, "Votre vitesse n'est pas suffisante pour ceci.  Vitesse requise (" & n3 & ")", BrightRed)
+                                        Call PlayerMsg(Index, "Votre vitesse n'est pas suffisante pour ceci.  Vitesse requise : " & n3, BrightRed)
                                         Exit Sub
                                     ElseIf Int(GetPlayerLevel(Index)) < niveauRequis Then
-                                        Call PlayerMsg(Index, "Votre niveau n'est pas suffisante pour ceci.  Niveau requis (" & niveauRequis & ")", BrightRed)
+                                        Call PlayerMsg(Index, "Votre niveau n'est pas suffisant pour ceci.  Niveau requis : " & niveauRequis, BrightRed)
                                         Exit Sub
                                     End If
                                     Call SetPlayerHelmetSlot(Index, InvNum)
-                                    Call MyScript.ExecuteStatement("Scripts\Main.txt", "OnHelmetUse" & Index)
+                                    Call MyScript.ExecuteStatement("Scripts\Main.txt", "OnHelmetUse " & Index & "," & GetPlayerInvItemNum(Index, InvNum))
                                 Else
                                     Call SetPlayerHelmetSlot(Index, 0)
                                 End If
@@ -1652,20 +1652,20 @@ Player(Index).sync = True
                                     If GetPlayerAccess(Index) < n5 Then Call PlayerMsg(Index, "Votre accès doit être supérieur à " & n5 & ".", BrightRed): Exit Sub
                                     If item(GetPlayerInvItemNum(Index, InvNum)).Sex <> GetPlayerSex(Index) And item(GetPlayerInvItemNum(Index, InvNum)).Sex <> 2 Then Call PlayerMsg(Index, "Tu n'es pas du bon sexe pour utiliser ceci.", BrightRed): Exit Sub
                                     If Int(GetPlayerStr(Index)) < n1 Then
-                                        Call PlayerMsg(Index, "Votre force n'est pas suffisante pour ceci.  Force requise (" & n1 & ")", BrightRed)
+                                        Call PlayerMsg(Index, "Votre force n'est pas suffisante pour ceci.  Force requise : " & n1, BrightRed)
                                         Exit Sub
                                     ElseIf Int(GetPlayerDEF(Index)) < n2 Then
-                                        Call PlayerMsg(Index, "Votre Défense n'est pas suffisante pour ceci.  Défense requise (" & n2 & ")", BrightRed)
+                                        Call PlayerMsg(Index, "Votre défense n'est pas suffisante pour ceci.  Défense requise : " & n2, BrightRed)
                                         Exit Sub
                                     ElseIf Int(GetPlayerSPEED(Index)) < n3 Then
-                                        Call PlayerMsg(Index, "Votre vitesse n'est pas suffisante pour ceci.  Vitesse requise (" & n3 & ")", BrightRed)
+                                        Call PlayerMsg(Index, "Votre vitesse n'est pas suffisante pour ceci.  Vitesse requise : " & n3, BrightRed)
                                         Exit Sub
                                     ElseIf Int(GetPlayerLevel(Index)) < niveauRequis Then
-                                        Call PlayerMsg(Index, "Votre niveau n'est pas suffisante pour ceci.  Niveau requis (" & niveauRequis & ")", BrightRed)
+                                        Call PlayerMsg(Index, "Votre niveau n'est pas suffisant pour ceci.  Niveau requis : " & niveauRequis, BrightRed)
                                         Exit Sub
                                     End If
                                     Call SetPlayerShieldSlot(Index, InvNum)
-                                    Call MyScript.ExecuteStatement("Scripts\Main.txt", "OnShieldUse" & Index)
+                                    Call MyScript.ExecuteStatement("Scripts\Main.txt", "OnShieldUse " & Index & "," & GetPlayerInvItemNum(Index, InvNum))
                                 Else
                                     Call SetPlayerShieldSlot(Index, 0)
                                 End If
@@ -1674,7 +1674,7 @@ Player(Index).sync = True
                         
                             Case ITEM_TYPE_SCRIPT
                                 If Int(GetPlayerLevel(Index)) < niveauRequis Then
-                                        Call PlayerMsg(Index, "Votre niveau n'est pas suffisante pour ceci.  Niveau requis (" & niveauRequis & ")", BrightRed)
+                                        Call PlayerMsg(Index, "Votre niveau n'est pas suffisant pour ceci.  Niveau requis : " & niveauRequis, BrightRed)
                                         Exit Sub
                                 End If
                                 n = item(GetPlayerInvItemNum(Index, InvNum)).data1
@@ -1683,7 +1683,7 @@ Player(Index).sync = True
                             
                             Case ITEM_TYPE_PET
                                 If Int(GetPlayerLevel(Index)) < niveauRequis Then
-                                        Call PlayerMsg(Index, "Votre niveau n'est pas suffisante pour ceci.  Niveau requis (" & niveauRequis & ")", BrightRed)
+                                        Call PlayerMsg(Index, "Votre niveau n'est pas suffisant pour ceci.  Niveau requis (" & niveauRequis & ")", BrightRed)
                                         Exit Sub
                                 End If
                                 If InvNum <> GetPlayerPetSlot(Index) Then
@@ -1698,7 +1698,7 @@ Player(Index).sync = True
                                 
                             Case ITEM_TYPE_POTIONADDHP
                                 If Int(GetPlayerLevel(Index)) < niveauRequis Then
-                                        Call PlayerMsg(Index, "Votre niveau n'est pas suffisante pour ceci.  Niveau requis (" & niveauRequis & ")", BrightRed)
+                                        Call PlayerMsg(Index, "Votre niveau n'est pas suffisant pour ceci.  Niveau requis : " & niveauRequis, BrightRed)
                                         Exit Sub
                                 End If
                                 Call SetPlayerHP(Index, GetPlayerHP(Index) + item(Player(Index).Char(CharNum).Inv(InvNum).Num).data1)
@@ -1707,7 +1707,7 @@ Player(Index).sync = True
                             
                             Case ITEM_TYPE_POTIONADDMP
                                 If Int(GetPlayerLevel(Index)) < niveauRequis Then
-                                        Call PlayerMsg(Index, "Votre niveau n'est pas suffisante pour ceci.  Niveau requis (" & niveauRequis & ")", BrightRed)
+                                        Call PlayerMsg(Index, "Votre niveau n'est pas suffisant pour ceci.  Niveau requis : " & niveauRequis, BrightRed)
                                         Exit Sub
                                 End If
                                 Call SetPlayerMP(Index, GetPlayerMP(Index) + item(Player(Index).Char(CharNum).Inv(InvNum).Num).data1)
@@ -1716,7 +1716,7 @@ Player(Index).sync = True
                     
                             Case ITEM_TYPE_POTIONADDSP
                                 If Int(GetPlayerLevel(Index)) < niveauRequis Then
-                                        Call PlayerMsg(Index, "Votre niveau n'est pas suffisante pour ceci.  Niveau requis (" & niveauRequis & ")", BrightRed)
+                                        Call PlayerMsg(Index, "Votre niveau n'est pas suffisant pour ceci.  Niveau requis : " & niveauRequis, BrightRed)
                                         Exit Sub
                                 End If
                                 Call SetPlayerSP(Index, GetPlayerSP(Index) + item(Player(Index).Char(CharNum).Inv(InvNum).Num).data1)
@@ -1725,7 +1725,7 @@ Player(Index).sync = True
             
                             Case ITEM_TYPE_POTIONSUBHP
                                 If Int(GetPlayerLevel(Index)) < niveauRequis Then
-                                        Call PlayerMsg(Index, "Votre niveau n'est pas suffisante pour ceci.  Niveau requis (" & niveauRequis & ")", BrightRed)
+                                        Call PlayerMsg(Index, "Votre niveau n'est pas suffisant pour ceci.  Niveau requis : " & niveauRequis, BrightRed)
                                         Exit Sub
                                 End If
                                 Call SetPlayerHP(Index, GetPlayerHP(Index) - item(Player(Index).Char(CharNum).Inv(InvNum).Num).data1)
@@ -1734,7 +1734,7 @@ Player(Index).sync = True
                             
                             Case ITEM_TYPE_POTIONSUBMP
                                 If Int(GetPlayerLevel(Index)) < niveauRequis Then
-                                        Call PlayerMsg(Index, "Votre niveau n'est pas suffisante pour ceci.  Niveau requis (" & niveauRequis & ")", BrightRed)
+                                        Call PlayerMsg(Index, "Votre niveau n'est pas suffisant pour ceci.  Niveau requis : " & niveauRequis, BrightRed)
                                         Exit Sub
                                 End If
                                 Call SetPlayerMP(Index, GetPlayerMP(Index) - item(Player(Index).Char(CharNum).Inv(InvNum).Num).data1)
@@ -1743,7 +1743,7 @@ Player(Index).sync = True
                     
                             Case ITEM_TYPE_POTIONSUBSP
                                 If Int(GetPlayerLevel(Index)) < niveauRequis Then
-                                        Call PlayerMsg(Index, "Votre niveau n'est pas suffisante pour ceci.  Niveau requis (" & niveauRequis & ")", BrightRed)
+                                        Call PlayerMsg(Index, "Votre niveau n'est pas suffisant pour ceci.  Niveau requis : " & niveauRequis, BrightRed)
                                         Exit Sub
                                 End If
                                 Call SetPlayerSP(Index, GetPlayerSP(Index) - item(Player(Index).Char(CharNum).Inv(InvNum).Num).data1)
@@ -1752,7 +1752,7 @@ Player(Index).sync = True
                                 
                             Case ITEM_TYPE_KEY
                                 If Int(GetPlayerLevel(Index)) < niveauRequis Then
-                                        Call PlayerMsg(Index, "Votre niveau n'est pas suffisante pour ceci.  Niveau requis (" & niveauRequis & ")", BrightRed)
+                                        Call PlayerMsg(Index, "Votre niveau n'est pas suffisant pour ceci.  Niveau requis : " & niveauRequis, BrightRed)
                                         Exit Sub
                                 End If
                                 Select Case GetPlayerDir(Index)

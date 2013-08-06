@@ -187,3 +187,8 @@
 08:09:45: Admin edite l'objet #11.
 08:10:22: Admin sauvegarde l'objet #11.
 08:10:40: Admin a modifié(e) la carte #1
+14:22:54: Admin edite l'objet #12.
+14:23:03: Admin sauvegarde l'objet #12.
+14:23:19: Admin a modifié(e) la carte #1
+14:30:59: Admin edite l'objet #12.
+14:33:05: Admin a modifié(e) la carte #1
