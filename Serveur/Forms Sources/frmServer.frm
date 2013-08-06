@@ -1,5 +1,5 @@
 VERSION 5.00
-Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.0#0"; "MSCOMCTL.OCX"
+Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.0#0"; "MSCOMCTL32.OCX"
 Object = "{BDC217C8-ED16-11CD-956C-0000C04E4C0A}#1.1#0"; "TABCTL32.OCX"
 Object = "{248DD890-BB45-11CF-9ABC-0080C7E7B78D}#1.0#0"; "MSWINSCK.OCX"
 Begin VB.Form frmServer 
@@ -10,7 +10,7 @@ Begin VB.Form frmServer
    ClientTop       =   615
    ClientWidth     =   10245
    BeginProperty Font 
-      Name            =   "Arial"
+      Name            =   "Segoe UI"
       Size            =   9
       Charset         =   0
       Weight          =   400
@@ -40,7 +40,7 @@ Begin VB.Form frmServer
       TabHeight       =   370
       TabMaxWidth     =   3175
       BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
-         Name            =   "Arial"
+         Name            =   "Segoe UI"
          Size            =   6.75
          Charset         =   0
          Weight          =   400
@@ -143,7 +143,7 @@ Begin VB.Form frmServer
       Begin VB.PictureBox picWeather 
          Appearance      =   0  'Flat
          BeginProperty Font 
-            Name            =   "Arial"
+            Name            =   "Segoe UI"
             Size            =   8.25
             Charset         =   0
             Weight          =   400
@@ -214,7 +214,7 @@ Begin VB.Form frmServer
             BackStyle       =   0  'Transparent
             Caption         =   "La météo par map est activée actuellement"
             BeginProperty Font 
-               Name            =   "Arial"
+               Name            =   "Segoe UI"
                Size            =   8.25
                Charset         =   0
                Weight          =   400
@@ -367,7 +367,7 @@ Begin VB.Form frmServer
       Begin VB.PictureBox picExp 
          Appearance      =   0  'Flat
          BeginProperty Font 
-            Name            =   "Arial"
+            Name            =   "Segoe UI"
             Size            =   8.25
             Charset         =   0
             Weight          =   400
@@ -395,7 +395,7 @@ Begin VB.Form frmServer
          End
          Begin VB.TextBox txtExp 
             BeginProperty Font 
-               Name            =   "Arial"
+               Name            =   "Segoe UI"
                Size            =   6.75
                Charset         =   0
                Weight          =   400
@@ -431,7 +431,7 @@ Begin VB.Form frmServer
       Begin VB.PictureBox picJail 
          Appearance      =   0  'Flat
          BeginProperty Font 
-            Name            =   "Arial"
+            Name            =   "Segoe UI"
             Size            =   8.25
             Charset         =   0
             Weight          =   400
@@ -522,7 +522,7 @@ Begin VB.Form frmServer
       Begin VB.PictureBox picWarp 
          Appearance      =   0  'Flat
          BeginProperty Font 
-            Name            =   "Arial"
+            Name            =   "Segoe UI"
             Size            =   8.25
             Charset         =   0
             Weight          =   400
@@ -790,7 +790,7 @@ Begin VB.Form frmServer
       Begin VB.PictureBox picReason 
          Appearance      =   0  'Flat
          BeginProperty Font 
-            Name            =   "Arial"
+            Name            =   "Segoe UI"
             Size            =   8.25
             Charset         =   0
             Weight          =   400
@@ -826,7 +826,7 @@ Begin VB.Form frmServer
          End
          Begin VB.TextBox txtReason 
             BeginProperty Font 
-               Name            =   "Arial"
+               Name            =   "Segoe UI"
                Size            =   6.75
                Charset         =   0
                Weight          =   400
@@ -862,7 +862,7 @@ Begin VB.Form frmServer
       Begin VB.PictureBox Picskint 
          Appearance      =   0  'Flat
          BeginProperty Font 
-            Name            =   "Arial"
+            Name            =   "Segoe UI"
             Size            =   8.25
             Charset         =   0
             Weight          =   400
@@ -925,7 +925,7 @@ Begin VB.Form frmServer
       Begin VB.PictureBox picStats 
          Appearance      =   0  'Flat
          BeginProperty Font 
-            Name            =   "Arial"
+            Name            =   "Segoe UI"
             Size            =   8.25
             Charset         =   0
             Weight          =   400
@@ -1216,7 +1216,7 @@ Begin VB.Form frmServer
       Begin VB.PictureBox picCMsg 
          Appearance      =   0  'Flat
          BeginProperty Font 
-            Name            =   "Arial"
+            Name            =   "Segoe UI"
             Size            =   8.25
             Charset         =   0
             Weight          =   400
@@ -1235,7 +1235,7 @@ Begin VB.Form frmServer
          Width           =   3375
          Begin VB.TextBox txtMsg 
             BeginProperty Font 
-               Name            =   "Arial"
+               Name            =   "Segoe UI"
                Size            =   6.75
                Charset         =   0
                Weight          =   400
@@ -1251,7 +1251,7 @@ Begin VB.Form frmServer
          End
          Begin VB.TextBox txtTitle 
             BeginProperty Font 
-               Name            =   "Arial"
+               Name            =   "Segoe UI"
                Size            =   6.75
                Charset         =   0
                Weight          =   400
@@ -1317,7 +1317,7 @@ Begin VB.Form frmServer
          TabsPerRow      =   7
          TabHeight       =   353
          BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
-            Name            =   "Arial"
+            Name            =   "Segoe UI"
             Size            =   6.75
             Charset         =   0
             Weight          =   400
@@ -1365,7 +1365,7 @@ Begin VB.Form frmServer
          Tab(6).ControlCount=   1
          Begin VB.TextBox txtText 
             BeginProperty Font 
-               Name            =   "Arial"
+               Name            =   "Segoe UI"
                Size            =   6.75
                Charset         =   0
                Weight          =   400
@@ -1384,7 +1384,7 @@ Begin VB.Form frmServer
          End
          Begin VB.TextBox txtText 
             BeginProperty Font 
-               Name            =   "Arial"
+               Name            =   "Segoe UI"
                Size            =   6.75
                Charset         =   0
                Weight          =   400
@@ -1403,7 +1403,7 @@ Begin VB.Form frmServer
          End
          Begin VB.TextBox txtText 
             BeginProperty Font 
-               Name            =   "Arial"
+               Name            =   "Segoe UI"
                Size            =   6.75
                Charset         =   0
                Weight          =   400
@@ -1422,7 +1422,7 @@ Begin VB.Form frmServer
          End
          Begin VB.TextBox txtText 
             BeginProperty Font 
-               Name            =   "Arial"
+               Name            =   "Segoe UI"
                Size            =   6.75
                Charset         =   0
                Weight          =   400
@@ -1441,7 +1441,7 @@ Begin VB.Form frmServer
          End
          Begin VB.TextBox txtText 
             BeginProperty Font 
-               Name            =   "Arial"
+               Name            =   "Segoe UI"
                Size            =   6.75
                Charset         =   0
                Weight          =   400
@@ -1460,7 +1460,7 @@ Begin VB.Form frmServer
          End
          Begin VB.TextBox txtText 
             BeginProperty Font 
-               Name            =   "Arial"
+               Name            =   "Segoe UI"
                Size            =   6.75
                Charset         =   0
                Weight          =   400
@@ -1479,7 +1479,7 @@ Begin VB.Form frmServer
          End
          Begin VB.TextBox txtText 
             BeginProperty Font 
-               Name            =   "Arial"
+               Name            =   "Segoe UI"
                Size            =   6.75
                Charset         =   0
                Weight          =   400
@@ -1498,7 +1498,7 @@ Begin VB.Form frmServer
          End
          Begin VB.TextBox txtChat 
             BeginProperty Font 
-               Name            =   "Arial"
+               Name            =   "Segoe UI"
                Size            =   6.75
                Charset         =   0
                Weight          =   400
@@ -1811,7 +1811,7 @@ Begin VB.Form frmServer
          Begin VB.Label lblScriptAlert 
             Caption         =   "Erreur de script : merci de les recharger"
             BeginProperty Font 
-               Name            =   "Arial"
+               Name            =   "Segoe UI"
                Size            =   8.25
                Charset         =   0
                Weight          =   400
@@ -1959,7 +1959,7 @@ Begin VB.Form frmServer
          BorderStyle     =   1
          Appearance      =   1
          BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
-            Name            =   "Arial"
+            Name            =   "Segoe UI"
             Size            =   8.25
             Charset         =   0
             Weight          =   400
@@ -2010,7 +2010,7 @@ Begin VB.Form frmServer
       End
       Begin VB.Label lblgamename 
          Caption         =   "Nom du jeu : "
-         Height          =   495
+         Height          =   255
          Left            =   120
          TabIndex        =   173
          Top             =   1080
@@ -2037,7 +2037,7 @@ Begin VB.Form frmServer
          BackStyle       =   0  'Transparent
          Caption         =   "Sauvegarde dans :"
          BeginProperty Font 
-            Name            =   "Arial"
+            Name            =   "Segoe UI"
             Size            =   6.75
             Charset         =   0
             Weight          =   400
@@ -2057,7 +2057,7 @@ Begin VB.Form frmServer
          BackStyle       =   0  'Transparent
          Caption         =   "http://www.frogcreator.fr"
          BeginProperty Font 
-            Name            =   "Arial"
+            Name            =   "Segoe UI"
             Size            =   8.25
             Charset         =   0
             Weight          =   400
