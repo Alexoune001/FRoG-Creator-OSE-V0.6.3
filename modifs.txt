@@ -8,6 +8,7 @@
 - Ajout d'un système d'alerte lors de l'échec d'un script [Elios];
 - Correction d'un bug concernant l'équipement d'un familier [Elios];
 - Correction du bug d'affichage au niveau du FrmMirage [Elios];
+- Suppression de l'éditeur de texte dans le serveur [Elios];
 - Modification du système de ratio d'expérience [Elios];
 - Modification de l'interface serveur [Elios];
 - Améliorations/Correction du système de quête [Elios] :
@@ -21,9 +22,4 @@
 
 -----Modifications en cours-----
 
-- Corrections d'orthographe;
-- Refonte totale du système de Craft/métier;
-
------Fonctions retirées du logiciel-----
-
-- Serveur : Editeur de texte [Elios];
+- Nouvelles fonctions SadScript : http://www.frogcreator.fr/ose/showthread.php?tid=9358;
