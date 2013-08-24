@@ -42,10 +42,10 @@ Public Const NAME_LENGTH As Byte = 20
 Public Const MAX_CHARS As Byte = 3
 
 ' Basic Security Passwords, You cant connect without it
-Public Const SEC_CODE1 As String = "jwehiehfojcvnvnsdinaoiwheoewyriusdyrflsdjncjkxzncisdughfusyfuapsipiuahfpaijnflkjnvjnuahguiryasbdlfkjblsahgfauygewuifaunfauf"
-Public Const SEC_CODE2 As String = "ksisyshentwuegeguigdfjkldsnoksamdihuehfidsuhdushdsisjsyayejrioehdoisahdjlasndowijapdnaidhaioshnksfnifohaifhaoinfiwnfinsaihfas"
-Public Const SEC_CODE3 As String = "saiugdapuigoihwbdpiaugsdcapvhvinbudhbpidusbnvduisysayaspiufhpijsanfioasnpuvnupashuasohdaiofhaosifnvnuvnuahiosaodiubasdi"
-Public Const SEC_CODE4 As String = "88978465734619123425676749756722829121973794379467987945762347631462572792798792492416127957989742945642672"
+Public Const SEC_CODE1 As String = "aqcashlhriyjjmbiklsqzzjdiazqgiawaivwvilzftnysppcvglemckghmqqzfhbnfqwtgnnpafrvnxatftqncgnbwbbfnjswgrtxqwnltdnertceivfcnqzbjt"
+Public Const SEC_CODE2 As String = "digshuxirmautdxdsdtlmwckaalubgjmmauqhrmgxxtlgcbenzregecdawwviryxcpckckxbregphfaregjinrxanwmtdmhluhfrdivayqhpdmmaqkqjqaybpayct"
+Public Const SEC_CODE3 As String = "thumqnewytvtctwktdnzsitkecsnlcwihrelzxnbsdluhucqspsjlmwbbpjabfwzjechdkskzsxzasdsxejytcudtfpyefrugwnhvvcfbkwigmsfeywjvpf"
+Public Const SEC_CODE4 As String = "58389610143670529438361696763476787278903650107818303274347098703634903098149832927278741812909214565096961"
 
 ' Sex constants
 Public Const SEX_MALE As Byte = 0

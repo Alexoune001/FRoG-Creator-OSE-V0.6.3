@@ -389,7 +389,7 @@ Dim i As Integer, n As Integer, f As Integer
                 
                 If frmServer.Closed.value = Checked Then Call PlainMsg(Index, "Le serveur va fermer dans quelques minutes, merci de revenir plus tard.", 3): Exit Sub
                     
-                If Parse(6) <> "jwehiehfojcvnvnsdinaoiwheoewyriusdyrflsdjncjkxzncisdughfusyfuapsipiuahfpaijnflkjnvjnuahguiryasbdlfkjblsahgfauygewuifaunfauf" And Parse(7) = "ksisyshentwuegeguigdfjkldsnoksamdihuehfidsuhdushdsisjsyayejrioehdoisahdjlasndowijapdnaidhaioshnksfnifohaifhaoinfiwnfinsaihfas" And Parse(8) = "saiugdapuigoihwbdpiaugsdcapvhvinbudhbpidusbnvduisysayaspiufhpijsanfioasnpuvnupashuasohdaiofhaosifnvnuvnuahiosaodiubasdi" And Val(Parse(9)) = "88978465734619123425676749756722829121973794379467987945762347631462572792798792492416127957989742945642672" Then
+                If Parse(6) <> SEC_CODE1 And Parse(7) = SEC_CODE2 And Parse(8) = SEC_CODE3 And Val(Parse(9)) = SEC_CODE4 Then
                     Call AlertMsg(Index, "Clé de sécurité incorrecte.")
                     Exit Sub
                 End If
