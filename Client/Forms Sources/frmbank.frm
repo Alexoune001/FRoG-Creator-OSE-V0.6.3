@@ -865,15 +865,6 @@ Begin VB.Form frmbank
       AutoSize        =   -1  'True
       BackStyle       =   0  'Transparent
       Caption         =   "Inventaire :"
-      BeginProperty Font 
-         Name            =   "Segoe UI"
-         Size            =   8.25
-         Charset         =   0
-         Weight          =   400
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
       Height          =   195
       Left            =   480
       TabIndex        =   3
@@ -884,15 +875,6 @@ Begin VB.Form frmbank
       AutoSize        =   -1  'True
       BackStyle       =   0  'Transparent
       Caption         =   "Coffre :"
-      BeginProperty Font 
-         Name            =   "Segoe UI"
-         Size            =   8.25
-         Charset         =   0
-         Weight          =   400
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
       Height          =   195
       Left            =   5760
       TabIndex        =   4
@@ -1251,9 +1233,9 @@ End Sub
 
 Private Sub Form_MouseMove(Button As Integer, Shift As Integer, x As Single, y As Single)
 On Error Resume Next
-If dr Then DoEvents: If dr Then Call Me.Move(Me.left + (x - drx), Me.Top + (y - dry))
-If Me.left > Screen.Width Or Me.Top > Screen.height Then Me.Top = Screen.height \ 2: Me.left = Screen.Width \ 2
-picture3.Visible = False
+If dr Then DoEvents: If dr Then Call Me.Move(Me.Left + (x - drx), Me.Top + (y - dry))
+If Me.Left > Screen.Width Or Me.Top > Screen.height Then Me.Top = Screen.height \ 2: Me.Left = Screen.Width \ 2
+Picture3.Visible = False
 End Sub
 
 Private Sub OK_Click()
@@ -1267,7 +1249,7 @@ Private Sub Picture1_Click(Index As Integer)
 
 SInv = Index
 Shape3.Visible = True
-Shape3.left = Picture1(SInv).left - 1
+Shape3.Left = Picture1(SInv).Left - 1
 Shape3.Top = Picture1(SInv).Top - 1
 DCof = False
 DInv = False
@@ -1292,7 +1274,7 @@ If DInv = False And DCof = False Then
     DCof = False
 End If
 Shape3.Visible = True
-Shape3.left = Picture1(Index).left - 1
+Shape3.Left = Picture1(Index).Left - 1
 Shape3.Top = Picture1(Index).Top - 1
 End Sub
 
@@ -1310,12 +1292,12 @@ If Val(Idur) <= 0 Then Idur = "Ind."
 If ival = 0 Then ival = 1
 
 If Inum > 0 Then
-    picture3.Top = Picture1(Index).Top + 32
-    picture3.left = Picture1(Index).left - 40
+    Picture3.Top = Picture1(Index).Top + 32
+    Picture3.Left = Picture1(Index).Left - 40
     nom.Caption = "Nom : " & Trim$(Item(Inum).name)
     nb.Caption = "  Nombre : " & ival
     dur.Caption = "  Durabilité : " & Idur
-    picture3.Visible = True
+    Picture3.Visible = True
 End If
 
 End Sub
@@ -1323,7 +1305,7 @@ End Sub
 Private Sub Picture2_Click(Index As Integer)
 SCof = Index
 Shape1.Visible = True
-Shape1.left = Picture2(SCof).left - 1
+Shape1.Left = Picture2(SCof).Left - 1
 Shape1.Top = Picture2(SCof).Top - 1
 DCof = False
 DInv = False
@@ -1350,7 +1332,7 @@ If DCof = False And DInv = False Then
     DInv = False
 End If
 Shape1.Visible = True
-Shape1.left = Picture2(Index).left - 1
+Shape1.Left = Picture2(Index).Left - 1
 Shape1.Top = Picture2(Index).Top - 1
 End Sub
 
@@ -1368,12 +1350,12 @@ If Val(Cdur) <= 0 Then Cdur = "Ind."
 If Cval = 0 Then Cval = 1
 
 If Cnum > 0 Then
-    picture3.Top = Picture2(Index).Top + 32
-    picture3.left = Picture2(Index).left - 89
+    Picture3.Top = Picture2(Index).Top + 32
+    Picture3.Left = Picture2(Index).Left - 89
     nom.Caption = "Nom : " & Trim$(Item(Cnum).name)
     nb.Caption = "  Nombre : " & Cval
     dur.Caption = "  Durabilité : " & Cdur
-    picture3.Visible = True
+    Picture3.Visible = True
 End If
 End Sub
 

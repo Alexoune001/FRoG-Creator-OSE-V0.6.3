@@ -1,5 +1,5 @@
 VERSION 5.00
-Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.0#0"; "MSCOMCTL32.OCX"
+Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.0#0"; "MSCOMCTL.OCX"
 Begin VB.Form frmMainMenu 
    BackColor       =   &H80000007&
    BorderStyle     =   1  'Fixed Single
@@ -60,9 +60,9 @@ Begin VB.Form frmMainMenu
          EndProperty
          ForeColor       =   &H00000000&
          Height          =   930
-         ItemData        =   "frmMainMenu.frx":3706B
+         ItemData        =   "frmMainMenu.frx":FD82D
          Left            =   120
-         List            =   "frmMainMenu.frx":3706D
+         List            =   "frmMainMenu.frx":FD82F
          TabIndex        =   6
          Top             =   640
          Width           =   3135
@@ -135,7 +135,7 @@ Begin VB.Form frmMainMenu
          Height          =   3600
          Left            =   0
          MousePointer    =   5  'Size
-         Picture         =   "frmMainMenu.frx":3706F
+         Picture         =   "frmMainMenu.frx":FD831
          Top             =   0
          Width           =   3390
       End
@@ -273,7 +273,7 @@ Begin VB.Form frmMainMenu
             Italic          =   0   'False
             Strikethrough   =   0   'False
          EndProperty
-         ForeColor       =   &H80000009&
+         ForeColor       =   &H00FFFFFF&
          Height          =   240
          Left            =   360
          TabIndex        =   17
@@ -302,7 +302,7 @@ Begin VB.Form frmMainMenu
          Height          =   2265
          Left            =   0
          MousePointer    =   5  'Size
-         Picture         =   "frmMainMenu.frx":5EE31
+         Picture         =   "frmMainMenu.frx":1255F3
          Top             =   0
          Width           =   3390
       End
@@ -441,10 +441,18 @@ Begin VB.Form frmMainMenu
          Height          =   3150
          Left            =   0
          MousePointer    =   5  'Size
-         Picture         =   "frmMainMenu.frx":77F8B
+         Picture         =   "frmMainMenu.frx":13E74D
          Top             =   0
          Width           =   3390
       End
+   End
+   Begin VB.Label openWebsite 
+      BackStyle       =   0  'Transparent
+      Height          =   495
+      Left            =   3600
+      TabIndex        =   31
+      Top             =   6720
+      Width           =   2055
    End
    Begin VB.Label Label4 
       BackStyle       =   0  'Transparent
@@ -699,6 +707,8 @@ Private Sub Label6_Click()
  Call GameDestroy
 End Sub
 
+
+
 Private Sub lbl_creer_Click()
     fraNewAccount.Visible = True
     fraLogin.Visible = False
@@ -749,6 +759,10 @@ End Sub
 
 Private Sub lstChars_KeyPress(KeyAscii As Integer)
 If KeyAscii = vbKeyReturn Then Call picUseChar_Click: KeyAscii = 0
+End Sub
+
+Private Sub openWebsite_Click()
+ShellExecute Me.hwnd, "open", "http://www.frogcreator.fr", "", App.Path, 1
 End Sub
 
 Private Sub picCancel_Click()

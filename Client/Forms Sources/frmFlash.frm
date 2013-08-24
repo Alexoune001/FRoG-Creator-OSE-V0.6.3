@@ -1,5 +1,5 @@
 VERSION 5.00
-Object = "{D27CDB6B-AE6D-11CF-96B8-444553540000}#1.0#0"; "Flash10e.ocx"
+Object = "{D27CDB6B-AE6D-11CF-96B8-444553540000}#1.0#0"; "Flash9f.ocx"
 Begin VB.Form frmFlash 
    BorderStyle     =   0  'None
    Caption         =   "Évènement de Flash"
@@ -33,23 +33,23 @@ Begin VB.Form frmFlash
       Movie           =   ""
       Src             =   ""
       WMode           =   "Window"
-      Play            =   "-1"
-      Loop            =   "-1"
+      Play            =   -1  'True
+      Loop            =   -1  'True
       Quality         =   "High"
       SAlign          =   ""
-      Menu            =   "-1"
+      Menu            =   -1  'True
       Base            =   ""
       AllowScriptAccess=   "always"
       Scale           =   "ShowAll"
-      DeviceFont      =   "0"
-      EmbedMovie      =   "0"
+      DeviceFont      =   0   'False
+      EmbedMovie      =   0   'False
       BGColor         =   ""
       SWRemote        =   ""
       MovieData       =   ""
-      SeamlessTabbing =   "1"
-      Profile         =   "0"
+      SeamlessTabbing =   -1  'True
+      Profile         =   0   'False
       ProfileAddress  =   ""
-      ProfilePort     =   "0"
+      ProfilePort     =   0
       AllowNetworking =   "all"
       AllowFullScreen =   "false"
    End
@@ -85,9 +85,9 @@ Private Sub Check_Timer()
             Flash.FrameNum = 0
             Flash.Stop
             Check.Enabled = False
-            WriteINI "CONFIG", "Music", frmMirage.chkmusic.value, App.Path & "\Config\Account.ini"
+            WriteINI "CONFIG", "Music", frmMirage.chkmusic.Value, App.Path & "\Config\Account.ini"
             Call PlayMidi(Trim$(Map(GetPlayerMap(MyIndex)).Music))
-            WriteINI "CONFIG", "Sound", frmMirage.chksound.value, App.Path & "\Config\Account.ini"
+            WriteINI "CONFIG", "Sound", frmMirage.chksound.Value, App.Path & "\Config\Account.ini"
             Unload Me
         End If
     End If
@@ -119,7 +119,7 @@ End Sub
 Private Sub Form_MouseMove(Button As Integer, Shift As Integer, x As Single, y As Single)
 On Error Resume Next
 If dr Then DoEvents: If dr Then Call Me.Move(Me.Left + (x - drx), Me.Top + (y - dry))
-If Me.Left > Screen.Width Or Me.Top > Screen.Height Then Me.Top = Screen.Height \ 2: Me.Left = Screen.Width \ 2
+If Me.Left > Screen.Width Or Me.Top > Screen.height Then Me.Top = Screen.height \ 2: Me.Left = Screen.Width \ 2
 End Sub
 
 Private Sub Form_MouseUp(Button As Integer, Shift As Integer, x As Single, y As Single)
@@ -132,9 +132,9 @@ Private Sub Label1_Click()
     Flash.FrameNum = 0
     Flash.Stop
     Check.Enabled = False
-    WriteINI "CONFIG", "Music", frmMirage.chkmusic.value, App.Path & "\Config\Account.ini"
+    WriteINI "CONFIG", "Music", frmMirage.chkmusic.Value, App.Path & "\Config\Account.ini"
     Call PlayMidi(Trim$(Map(GetPlayerMap(MyIndex)).Music))
-    WriteINI "CONFIG", "Sound", frmMirage.chksound.value, App.Path & "\Config\Account.ini"
+    WriteINI "CONFIG", "Sound", frmMirage.chksound.Value, App.Path & "\Config\Account.ini"
     Unload Me
 End Sub
 

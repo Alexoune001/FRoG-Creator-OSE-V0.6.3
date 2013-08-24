@@ -1710,6 +1710,15 @@ Begin VB.Form frmTrade
    Begin VB.Label Label1 
       BackStyle       =   0  'Transparent
       Caption         =   $"frmTrade.frx":C83FE
+      BeginProperty Font 
+         Name            =   "Segoe UI"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Height          =   615
       Left            =   3960
       TabIndex        =   95
@@ -2080,12 +2089,21 @@ Begin VB.Form frmTrade
       BackColor       =   &H00808080&
       BackStyle       =   0  'Transparent
       Caption         =   "XXX"
+      BeginProperty Font 
+         Name            =   "Segoe UI"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       ForeColor       =   &H00000000&
-      Height          =   210
+      Height          =   195
       Left            =   1920
       TabIndex        =   75
       Top             =   4995
-      Width           =   315
+      Width           =   270
    End
    Begin VB.Shape shopType 
       BorderColor     =   &H00FF8080&
@@ -2281,7 +2299,7 @@ End Sub
 Private Sub Form_MouseMove(Button As Integer, Shift As Integer, x As Single, y As Single)
 On Error Resume Next
 If dr Then DoEvents: If dr Then Call Me.Move(Me.Left + (x - drx), Me.Top + (y - dry))
-If Me.Left > Screen.Width Or Me.Top > Screen.Height Then Me.Top = Screen.Height \ 2: Me.Left = Screen.Width \ 2
+If Me.Left > Screen.Width Or Me.Top > Screen.height Then Me.Top = Screen.height \ 2: Me.Left = Screen.Width \ 2
 End Sub
 
 Private Sub Form_MouseUp(Button As Integer, Shift As Integer, x As Single, y As Single)
@@ -2300,7 +2318,7 @@ Next xx
     Trade(Index).Selected = YES
     
     shopType.Left = label(Index).Left
-    shopType.Height = label(Index).Height
+    shopType.height = label(Index).height
     shopType.Width = label(Index).Width
     shopType.Top = label(Index).Top
     Trade(Index).SelectedItem = 1

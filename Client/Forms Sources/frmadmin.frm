@@ -40,6 +40,7 @@ Begin VB.Form frmadmin
       _ExtentX        =   8070
       _ExtentY        =   9128
       _Version        =   393216
+      Tab             =   2
       TabsPerRow      =   4
       TabHeight       =   353
       TabMaxWidth     =   1940
@@ -54,40 +55,32 @@ Begin VB.Form frmadmin
       EndProperty
       TabCaption(0)   =   "Commande"
       TabPicture(0)   =   "frmadmin.frx":17D2A
-      Tab(0).ControlEnabled=   -1  'True
+      Tab(0).ControlEnabled=   0   'False
       Tab(0).Control(0)=   "Label5"
-      Tab(0).Control(0).Enabled=   0   'False
       Tab(0).Control(1)=   "Line1"
-      Tab(0).Control(1).Enabled=   0   'False
       Tab(0).Control(2)=   "Frame1"
-      Tab(0).Control(2).Enabled=   0   'False
       Tab(0).Control(3)=   "Frame2"
-      Tab(0).Control(3).Enabled=   0   'False
       Tab(0).Control(4)=   "Frame7"
-      Tab(0).Control(4).Enabled=   0   'False
       Tab(0).Control(5)=   "Frame11"
-      Tab(0).Control(5).Enabled=   0   'False
       Tab(0).ControlCount=   6
       TabCaption(1)   =   "Commande"
       TabPicture(1)   =   "frmadmin.frx":17D46
       Tab(1).ControlEnabled=   0   'False
       Tab(1).Control(0)=   "Label7"
-      Tab(1).Control(0).Enabled=   0   'False
       Tab(1).Control(1)=   "Frame5"
-      Tab(1).Control(1).Enabled=   0   'False
       Tab(1).Control(2)=   "Frame9"
-      Tab(1).Control(2).Enabled=   0   'False
       Tab(1).Control(3)=   "Frame10"
-      Tab(1).Control(3).Enabled=   0   'False
       Tab(1).Control(4)=   "Frame3"
-      Tab(1).Control(4).Enabled=   0   'False
       Tab(1).ControlCount=   5
       TabCaption(2)   =   "Aide"
       TabPicture(2)   =   "frmadmin.frx":17D62
-      Tab(2).ControlEnabled=   0   'False
+      Tab(2).ControlEnabled=   -1  'True
       Tab(2).Control(0)=   "Label16"
+      Tab(2).Control(0).Enabled=   0   'False
       Tab(2).Control(1)=   "Frame6"
+      Tab(2).Control(1).Enabled=   0   'False
       Tab(2).Control(2)=   "Frame8"
+      Tab(2).Control(2).Enabled=   0   'False
       Tab(2).ControlCount=   3
       Begin VB.Frame Frame11 
          Caption         =   "Environnement"
@@ -101,7 +94,7 @@ Begin VB.Form frmadmin
             Strikethrough   =   0   'False
          EndProperty
          Height          =   1455
-         Left            =   2400
+         Left            =   -72600
          TabIndex        =   60
          Top             =   2760
          Width           =   2055
@@ -616,7 +609,7 @@ Begin VB.Form frmadmin
       Begin VB.Frame Frame8 
          Caption         =   "Conseil"
          Height          =   1455
-         Left            =   -74880
+         Left            =   120
          TabIndex        =   32
          Top             =   3240
          Width           =   4335
@@ -635,7 +628,7 @@ Begin VB.Form frmadmin
       Begin VB.Frame Frame6 
          Caption         =   "Légende :"
          Height          =   2655
-         Left            =   -74880
+         Left            =   120
          TabIndex        =   22
          Top             =   600
          Width           =   4335
@@ -736,7 +729,7 @@ Begin VB.Form frmadmin
          EndProperty
          ForeColor       =   &H000000FF&
          Height          =   855
-         Left            =   120
+         Left            =   -74880
          TabIndex        =   17
          Top             =   1080
          Width           =   2055
@@ -786,7 +779,7 @@ Begin VB.Form frmadmin
             Strikethrough   =   0   'False
          EndProperty
          Height          =   2055
-         Left            =   2400
+         Left            =   -72600
          TabIndex        =   10
          Top             =   600
          Width           =   2055
@@ -904,7 +897,7 @@ Begin VB.Form frmadmin
             Strikethrough   =   0   'False
          EndProperty
          Height          =   2415
-         Left            =   120
+         Left            =   -74880
          TabIndex        =   3
          Top             =   2040
          Width           =   2055
@@ -1056,7 +1049,7 @@ Begin VB.Form frmadmin
             Strikethrough   =   0   'False
          EndProperty
          Height          =   255
-         Left            =   -74880
+         Left            =   120
          TabIndex        =   21
          Top             =   360
          Width           =   2175
@@ -1080,8 +1073,8 @@ Begin VB.Form frmadmin
       End
       Begin VB.Line Line1 
          BorderColor     =   &H80000010&
-         X1              =   2280
-         X2              =   2280
+         X1              =   -72720
+         X2              =   -72720
          Y1              =   360
          Y2              =   4995
       End
@@ -1097,7 +1090,7 @@ Begin VB.Form frmadmin
             Strikethrough   =   0   'False
          EndProperty
          Height          =   255
-         Left            =   120
+         Left            =   -74880
          TabIndex        =   2
          Top             =   600
          Width           =   2175

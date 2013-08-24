@@ -35,7 +35,7 @@ Begin VB.Form frmServer
       _ExtentY        =   8467
       _Version        =   393216
       Tabs            =   4
-      Tab             =   2
+      Tab             =   3
       TabsPerRow      =   4
       TabHeight       =   370
       TabMaxWidth     =   3175
@@ -106,39 +106,34 @@ Begin VB.Form frmServer
       Tab(1).ControlCount=   28
       TabCaption(2)   =   "Panneau de Contrôle"
       TabPicture(2)   =   "frmServer.frx":17D62
-      Tab(2).ControlEnabled=   -1  'True
-      Tab(2).Control(0)=   "lblPort"
-      Tab(2).Control(0).Enabled=   0   'False
-      Tab(2).Control(1)=   "lblIP"
-      Tab(2).Control(1).Enabled=   0   'False
-      Tab(2).Control(2)=   "lblgamename"
-      Tab(2).Control(2).Enabled=   0   'False
-      Tab(2).Control(3)=   "lbliplocal"
-      Tab(2).Control(3).Enabled=   0   'False
-      Tab(2).Control(4)=   "Frame2"
-      Tab(2).Control(4).Enabled=   0   'False
+      Tab(2).ControlEnabled=   0   'False
+      Tab(2).Control(0)=   "picWeather"
+      Tab(2).Control(1)=   "Frame4"
+      Tab(2).Control(2)=   "Frame9"
+      Tab(2).Control(3)=   "Frame1"
+      Tab(2).Control(4)=   "Frame8"
       Tab(2).Control(5)=   "Frame3"
-      Tab(2).Control(5).Enabled=   0   'False
-      Tab(2).Control(6)=   "Frame8"
-      Tab(2).Control(6).Enabled=   0   'False
-      Tab(2).Control(7)=   "Frame1"
-      Tab(2).Control(7).Enabled=   0   'False
-      Tab(2).Control(8)=   "Frame9"
-      Tab(2).Control(8).Enabled=   0   'False
-      Tab(2).Control(9)=   "Frame4"
-      Tab(2).Control(9).Enabled=   0   'False
-      Tab(2).Control(10)=   "picWeather"
-      Tab(2).Control(10).Enabled=   0   'False
+      Tab(2).Control(6)=   "Frame2"
+      Tab(2).Control(7)=   "lbliplocal"
+      Tab(2).Control(8)=   "lblgamename"
+      Tab(2).Control(9)=   "lblIP"
+      Tab(2).Control(10)=   "lblPort"
       Tab(2).ControlCount=   11
       TabCaption(3)   =   "Aide"
       TabPicture(3)   =   "frmServer.frx":17D7E
-      Tab(3).ControlEnabled=   0   'False
+      Tab(3).ControlEnabled=   -1  'True
       Tab(3).Control(0)=   "CharInfo(21)"
+      Tab(3).Control(0).Enabled=   0   'False
       Tab(3).Control(1)=   "CharInfo(22)"
+      Tab(3).Control(1).Enabled=   0   'False
       Tab(3).Control(2)=   "CharInfo(23)"
+      Tab(3).Control(2).Enabled=   0   'False
       Tab(3).Control(3)=   "lstTopics"
+      Tab(3).Control(3).Enabled=   0   'False
       Tab(3).Control(4)=   "TopicTitle"
+      Tab(3).Control(4).Enabled=   0   'False
       Tab(3).Control(5)=   "sync"
+      Tab(3).Control(5).Enabled=   0   'False
       Tab(3).ControlCount=   6
       Begin VB.PictureBox picWeather 
          Appearance      =   0  'Flat
@@ -153,7 +148,7 @@ Begin VB.Form frmServer
          EndProperty
          ForeColor       =   &H80000008&
          Height          =   2055
-         Left            =   4920
+         Left            =   -70080
          ScaleHeight     =   135
          ScaleMode       =   3  'Pixel
          ScaleWidth      =   247
@@ -242,7 +237,7 @@ Begin VB.Form frmServer
       Begin VB.Frame Frame4 
          Caption         =   "Ratio d'expérience"
          Height          =   1695
-         Left            =   2040
+         Left            =   -72960
          TabIndex        =   167
          Top             =   600
          Width           =   3015
@@ -295,7 +290,7 @@ Begin VB.Form frmServer
       Begin VB.Frame Frame9 
          Caption         =   "Liste des Cartes"
          Height          =   1815
-         Left            =   5160
+         Left            =   -69840
          TabIndex        =   96
          Top             =   480
          Width           =   4935
@@ -326,7 +321,7 @@ Begin VB.Form frmServer
       Begin VB.Frame Frame1 
          Caption         =   "Scripts"
          Height          =   1575
-         Left            =   120
+         Left            =   -74880
          TabIndex        =   16
          Top             =   1920
          Width           =   1815
@@ -675,7 +670,7 @@ Begin VB.Form frmServer
       Begin VB.Frame Frame8 
          Caption         =   "Gestion du temps :"
          Height          =   2415
-         Left            =   5160
+         Left            =   -69840
          TabIndex        =   129
          Top             =   2280
          Width           =   4935
@@ -784,7 +779,7 @@ Begin VB.Form frmServer
       End
       Begin VB.Timer sync 
          Interval        =   5000
-         Left            =   -68520
+         Left            =   6480
          Top             =   0
       End
       Begin VB.PictureBox picReason 
@@ -1524,7 +1519,7 @@ Begin VB.Form frmServer
       Begin VB.Frame TopicTitle 
          Caption         =   "Titre du Topics:"
          Height          =   4335
-         Left            =   -72480
+         Left            =   2520
          TabIndex        =   90
          Top             =   360
          Width           =   7575
@@ -1542,7 +1537,7 @@ Begin VB.Form frmServer
       Begin VB.ListBox lstTopics 
          Height          =   2760
          ItemData        =   "frmServer.frx":17E5E
-         Left            =   -74760
+         Left            =   240
          List            =   "frmServer.frx":17E60
          TabIndex        =   88
          Top             =   600
@@ -1730,7 +1725,7 @@ Begin VB.Form frmServer
       Begin VB.Frame Frame3 
          Caption         =   "Classes"
          Height          =   1095
-         Left            =   120
+         Left            =   -74880
          TabIndex        =   21
          Top             =   3600
          Width           =   1815
@@ -1754,7 +1749,7 @@ Begin VB.Form frmServer
       Begin VB.Frame Frame2 
          Caption         =   "Serveur"
          Height          =   2415
-         Left            =   2040
+         Left            =   -72960
          TabIndex        =   20
          Top             =   2280
          Width           =   3015
@@ -2003,7 +1998,7 @@ Begin VB.Form frmServer
          BackStyle       =   0  'Transparent
          Caption         =   "Local :"
          Height          =   225
-         Left            =   120
+         Left            =   -74880
          TabIndex        =   175
          Top             =   600
          Width           =   510
@@ -2011,7 +2006,7 @@ Begin VB.Form frmServer
       Begin VB.Label lblgamename 
          Caption         =   "Nom du jeu : "
          Height          =   255
-         Left            =   120
+         Left            =   -74880
          TabIndex        =   173
          Top             =   1080
          Width           =   1815
@@ -2068,7 +2063,7 @@ Begin VB.Form frmServer
          ForeColor       =   &H00FF0000&
          Height          =   195
          Index           =   23
-         Left            =   -74760
+         Left            =   240
          TabIndex        =   93
          Top             =   3960
          Width           =   1935
@@ -2079,7 +2074,7 @@ Begin VB.Form frmServer
          Caption         =   "Pour plus d'information :"
          Height          =   195
          Index           =   22
-         Left            =   -74760
+         Left            =   240
          TabIndex        =   92
          Top             =   3720
          Width           =   1740
@@ -2090,7 +2085,7 @@ Begin VB.Form frmServer
          Caption         =   "Sujets :"
          Height          =   195
          Index           =   21
-         Left            =   -74760
+         Left            =   240
          TabIndex        =   89
          Top             =   360
          Width           =   555
@@ -2100,7 +2095,7 @@ Begin VB.Form frmServer
          BackStyle       =   0  'Transparent
          Caption         =   "Adresse IP:"
          Height          =   195
-         Left            =   120
+         Left            =   -74880
          TabIndex        =   7
          Top             =   360
          Width           =   4920
@@ -2110,7 +2105,7 @@ Begin VB.Form frmServer
          BackStyle       =   0  'Transparent
          Caption         =   "Port:"
          Height          =   195
-         Left            =   120
+         Left            =   -74880
          TabIndex        =   6
          Top             =   840
          Width           =   360

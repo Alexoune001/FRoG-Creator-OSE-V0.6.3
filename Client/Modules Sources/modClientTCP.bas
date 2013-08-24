@@ -26,9 +26,9 @@ Sub TcpDestroy(Optional ByVal Bypass As Byte = 0)
     frmMirage.Socket.Close
     frmMirage.sync.Enabled = False
     
-    If Bypass Then
-        MsgBox ("Vous vous êtes déconnecté. Valider et patienter quelques secondes.")
-    End If
+    'If Bypass Then
+        'MsgBox ("Vous vous êtes déconnecté. Valider et patienter quelques secondes.")
+    'End If
     
     If frmMainMenu.fraPers.Visible Then frmMainMenu.fraPers.Visible = False
     If frmMainMenu.fraLogin.Visible Then frmMainMenu.fraLogin.Visible = False
@@ -1601,10 +1601,10 @@ mont:
         
         Trade(1).Selected = YES
                     
-        frmTrade.shopType.Top = frmTrade.Label(1).Top
-        frmTrade.shopType.Left = frmTrade.Label(1).Left
-        frmTrade.shopType.height = frmTrade.Label(1).height
-        frmTrade.shopType.Width = frmTrade.Label(1).Width
+        frmTrade.shopType.Top = frmTrade.label(1).Top
+        frmTrade.shopType.Left = frmTrade.label(1).Left
+        frmTrade.shopType.height = frmTrade.label(1).height
+        frmTrade.shopType.Width = frmTrade.label(1).Width
         Trade(1).SelectedItem = 1
         
         NumShop = ShopNum
