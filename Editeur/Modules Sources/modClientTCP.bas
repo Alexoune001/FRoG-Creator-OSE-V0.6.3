@@ -49,7 +49,6 @@ Dim Start As Long
         PlayerBuffer = Mid$(PlayerBuffer, Start + 1, Len(PlayerBuffer))
         Start = InStr(PlayerBuffer, END_CHAR)
         If Len(Packet) > 0 Then Call HandleData(Packet)
-        Sleep 1
     Loop
 End Sub
 
@@ -1711,10 +1710,10 @@ mont:
             Trade(xx).Selected = NO
         Next xx
         Trade(1).Selected = YES
-        frmTrade.shopType.Top = frmTrade.label(1).Top
-        frmTrade.shopType.Left = frmTrade.label(1).Left
-        frmTrade.shopType.Height = frmTrade.label(1).Height
-        frmTrade.shopType.Width = frmTrade.label(1).Width
+        frmTrade.shopType.Top = frmTrade.Label(1).Top
+        frmTrade.shopType.Left = frmTrade.Label(1).Left
+        frmTrade.shopType.Height = frmTrade.Label(1).Height
+        frmTrade.shopType.Width = frmTrade.Label(1).Width
         Trade(1).SelectedItem = 1
         NumShop = ShopNum
         
