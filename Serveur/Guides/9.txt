@@ -1,1 +1,5 @@
-Le convertisseur de Maps a été retiré.
+Si vous aviez un projet réalisé avec la version 0.6.2 et que vous souhaitez migrer vers la 0.6.3 et profiter de nouvelles fonctionnalités, il vous faudra convertir vos objets avec un utilitaire disponible ici :  http://www.mediafire.com/download/69nfd1og64datii/convert_frogv0.6.3.exe
+
+Cet utilitaire va vous convertir vos objets de la 0.6.2 à la 0.6.3. Il vous suffit de fermer le serveur, placer l'exécutable dans le dossier "Serveur", l'exécuter et cliquer sur le bouton. En cas de problème, un dossier de sauvegarde "ItemsBackup" est créé.
+
+Attention : cet utilitaire ne convertit que les objets créé avec la version 0.6.2, et ne marche pas avec les versions antérieures.

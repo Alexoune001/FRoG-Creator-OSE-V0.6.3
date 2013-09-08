@@ -1,4 +1,9 @@
-﻿-----Modifications effectuées-----
+﻿==== Changelog FRoG Creator 0.6.3 ====
+
+- Mise à jour du guide
+- Mémorisation de la couleur dans la boîte de sélection de couleur lorsqu'on modifie la couleur dans les options couleur in game sur le serveur
+
+==== Changelog FRoG Creator 0.6.3 RC ====
 
 - Système de météo par map dans les propriétés de la carte [Sacardent];
 - Système de level requis pour équiper une arme [Sacardent];
@@ -19,7 +24,3 @@
 - Ajout d'une nouvelle fonction SadScript PlayerInMap qui donne le nombre de joueurs sur une map, par Cryo : http://www.frogcreator.fr/ose/showthread.php?tid=7081 [Elios];
 - Correction de l'erreur scripting lorsqu'on équipe une arme/armure qui obligeait à rafraîchir les scripts
 - Ajout de la variable "itemid" des fonctions UseXXXItem qui renvoie l'ID de l'item équipé
-
------Modifications en cours-----
-
-- Nouvelles fonctions SadScript : http://www.frogcreator.fr/ose/showthread.php?tid=9358;

@@ -1,5 +1,5 @@
 VERSION 5.00
-Object = "{F9043C88-F6F2-101A-A3C9-08002B2F49FB}#1.2#0"; "comdlg32.ocx"
+Object = "{F9043C88-F6F2-101A-A3C9-08002B2F49FB}#1.2#0"; "COMDLG32.OCX"
 Begin VB.Form frmOptCoul 
    BorderStyle     =   1  'Fixed Single
    Caption         =   "Options des couleurs"
@@ -15,7 +15,7 @@ Begin VB.Form frmOptCoul
    ScaleWidth      =   529
    StartUpPosition =   2  'CenterScreen
    Begin VB.CommandButton def 
-      Caption         =   "Par défault"
+      Caption         =   "Par défaut"
       Height          =   255
       Left            =   4560
       TabIndex        =   33
@@ -401,12 +401,12 @@ Begin VB.Form frmOptCoul
       End
       Begin VB.Label Label2 
          AutoSize        =   -1  'True
-         Caption         =   "Couleur de l'accès Devellopeur :"
+         Caption         =   "Couleur de l'accès Dévelopeur :"
          Height          =   195
          Left            =   240
          TabIndex        =   7
          Top             =   720
-         Width           =   2295
+         Width           =   2265
       End
       Begin VB.Label Label3 
          AutoSize        =   -1  'True
@@ -437,6 +437,7 @@ Option Explicit
 
 Private Sub adm_Click()
 cmd.Flags = &H2& + &H1&
+cmd.Color = adm.BackColor
 cmd.ShowColor
 If cmd.Color > -1 Then adm.BackColor = cmd.Color
 End Sub
@@ -462,6 +463,7 @@ End Sub
 
 Private Sub dev_Click()
 cmd.Flags = &H2& + &H1&
+cmd.Color = dev.BackColor
 cmd.ShowColor
 If cmd.Color > -1 Then dev.BackColor = cmd.Color
 End Sub
@@ -469,18 +471,21 @@ End Sub
 
 Private Sub mapp_Click()
 cmd.Flags = &H2& + &H1&
+cmd.Color = mapp.BackColor
 cmd.ShowColor
 If cmd.Color > -1 Then mapp.BackColor = cmd.Color
 End Sub
 
 Private Sub modo_Click()
 cmd.Flags = &H2& + &H1&
+cmd.Color = modo.BackColor
 cmd.ShowColor
 If cmd.Color > -1 Then modo.BackColor = cmd.Color
 End Sub
 
 Private Sub MsgC_Click(Index As Integer)
 cmd.Flags = &H2& + &H1&
+cmd.Color = MsgC(Index).BackColor
 cmd.ShowColor
 If cmd.Color > -1 Then MsgC(Index).BackColor = cmd.Color
 End Sub

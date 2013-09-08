@@ -427,14 +427,14 @@ Dim f As Long
     
     frmServer.lstTopics.Clear
     frmServer.lstTopics.AddItem "Introduction"
-    frmServer.lstTopics.AddItem "Configurer le Serveur"
-    frmServer.lstTopics.AddItem "Configurer le Client"
-    frmServer.lstTopics.AddItem "Configurer l'Updater"
+    frmServer.lstTopics.AddItem "Configurer le serveur"
+    frmServer.lstTopics.AddItem "Configurer le client"
+    frmServer.lstTopics.AddItem "Configurer l'updater"
     frmServer.lstTopics.AddItem "Contrôle des joueurs"
     frmServer.lstTopics.AddItem "Commandes des joueurs"
     frmServer.lstTopics.AddItem "Discussions"
     frmServer.lstTopics.AddItem "Bugs/Erreurs"
-    frmServer.lstTopics.AddItem "Convertisseur de cartes"
+    frmServer.lstTopics.AddItem "Migration de version"
     frmServer.lstTopics.AddItem "Édition de cartes"
     frmServer.lstTopics.AddItem "Commande de scripts"
     frmServer.lstTopics.AddItem "Questions ?"
@@ -616,6 +616,7 @@ sock:
     Set HotelDeVente = Nothing
     Set Party = Nothing
 
+    Call Unload(frmAbout)
     Call Unload(frmInfosMap)
     Call Unload(frmLoad)
     Call Unload(frmServer)
